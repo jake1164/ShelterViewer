@@ -1,0 +1,37 @@
+﻿@page "/dwellers"
+@using ShelterViewer.Models
+@inject Services.VaultService VaultService
+
+<h3>Dwellers</h3>
+
+<MudDataGrid Items="DwellerList">
+    <Columns>
+        <PropertyColumn Property="x => x.name" Title="Name" />
+        <PropertyColumn Property="x => x.lastName" Title="Last Name" />
+        <PropertyColumn Property="x => x.experience.currentLevel" Title="Level" />
+        <PropertyColumn Property="x => x.health.healthValue" Title="Health" />
+        <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
+        <PropertyColumn Property="x => x.health.radiationValue" Title="Radiation" />
+        <PropertyColumn Property="x => x.experience.experienceValue" Title="Experience" />
+        <PropertyColumn Property="x => x.experience.wastelandExperience" Title="Wasteland Experience" />
+        <PropertyColumn Property="x => x.savedRoom" Title="Room" />
+        <PropertyColumn Property="x => x.relations.ascendants.Count(x => x > 0)" Title="Children" />
+    </Columns>
+</MudDataGrid>
+
+@code {
+    List<Dweller> DwellerList { get; set; } = new();
+    List<Room> RoomList { get; set; } = new();
+    protected override void OnInitialized()
+    {
+        DwellerList = VaultService.GetDwellers();
+        RoomList = VaultService.GetRooms();
+    }
+
+    private string GetRoomName(int roomNumber)
+    {
+        var room = RoomList.FirstOrDefault(r => r.deserializeID == roomNumber);
+        return room?.type ?? "Coffee Break";
+    }
+
+}

@@ -1,0 +1,49 @@
+﻿@inherits LayoutComponentBase
+@inject Services.VaultService VaultService
+
+<MudThemeProvider/>
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        @if (VaultService.IsVaultEmpty())
+        {
+            <span>Fallout Shelter Viewer</span>
+        } else
+        {
+            <span>Fallout Shelter @VaultService.Name</span>
+        }
+
+        <MudSpacer/>
+        @if(!VaultService.IsVaultEmpty())
+        {
+            <MudText Style="padding-right: 20px;">@VaultService.Caps Caps</MudText>
+            <MudText>@VaultService.Quantums Nuka Quantums</MudText>
+        }
+        
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <NavMenu/>
+    </MudDrawer>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+
+    protected override void OnInitialized()
+    {
+        VaultService.OnVaultChanged += StateHasChanged;
+    }
+
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}

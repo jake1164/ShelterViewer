@@ -1,0 +1,26 @@
+﻿@page "/rooms"
+@using ShelterViewer.Models
+@inject Services.VaultService VaultService
+
+<h3>Rooms</h3>
+
+<MudTable Items="RoomList">
+    <HeaderContent>
+        <MudTh>Type</MudTh>
+        <MudTh>Class</MudTh>
+        <MudTh>Number Dwellers</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTh DataLabel="Type">@context.type</MudTh>
+        <MudTh DataLabel="Class">@context._class</MudTh>
+        <MudTh DataLabel="Number Dwellers">@context.dwellers.Count()</MudTh>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    List<Room> RoomList { get; set; } = new();
+    protected override void OnInitialized()
+    {
+        RoomList = VaultService.GetRooms();
+    }
+}
