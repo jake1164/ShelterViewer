@@ -14,6 +14,8 @@ jobs:
     
     - name: Setup .NET CORE SDK
       uses: actions/setup-dotnet@v4.0.1
+      with:
+        dotnet-version: 9.x
     - name: Publish project
       run: dotnet publish ShelterViewer.sln /p:Configuration=Release
   
