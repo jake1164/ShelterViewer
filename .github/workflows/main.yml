@@ -17,7 +17,7 @@ jobs:
       with:
         dotnet-version: 9.x
     - name: Publish project
-      run: dotnet publish ShelterViewer\ShelterViewer.csproj /p:Configuration=Release --output release
+      run: dotnet publish ShelterViewer/ShelterViewer.csproj /p:Configuration=Release --output release
   
     - name: Commit wwwroot to Github Pages
       uses: JamesIves/github-pages-deploy-action@v4.6.8
