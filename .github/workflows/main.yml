@@ -10,17 +10,23 @@ jobs:
     # Use ubuntu latest
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
     - name: Setup .NET CORE SDK
-      uses: actions/setup-dotnet@v4.0.1
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.x
+        
+    - name: Install .NET WASM Tools
+      run: dotnet workload install wasm-tools
+      
     - name: Publish project
-      run: dotnet publish ShelterViewer/ShelterViewer.csproj /p:Configuration=Release --output release
+      run: dotnet publish ShelterViewer/ShelterViewer.csproj /p:Configuration=Release --output release -p:GHPages=true
   
     - name: Commit wwwroot to Github Pages
-      uses: JamesIves/github-pages-deploy-action@v4.6.8
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: publish/wwwroot
+        force_orphan: true
+
