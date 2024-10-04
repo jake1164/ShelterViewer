@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @inject Services.VaultService VaultService
+@inject HttpClient Http
 
 <MudThemeProvider/>
 <MudPopoverProvider/>
@@ -27,6 +28,8 @@
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>
+        <MudSpacer />
+        <MudText Align="Align.Center">Version: @version </MudText>
     </MudDrawer>
     <MudMainContent>
         @Body
@@ -35,10 +38,18 @@
 
 @code {
     bool _drawerOpen = true;
+    private string version = "dev";
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        VaultService.OnVaultChanged += StateHasChanged;
+        VaultService.OnVaultChanged += async () => await InvokeAsync(StateHasChanged);
+        try
+        {
+            var vJson = await Http.GetFromJsonAsync<Dictionary<string, string>>(".version");
+            version = vJson["version"];
+        }
+        catch (Exception ex) { }
+
     }
 
 
