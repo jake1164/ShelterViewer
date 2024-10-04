@@ -19,18 +19,13 @@ window.shelter = {
     },
 
     decryptString: async function (base64String) {        
-        return new Promise((resolve, reject) => {
-            // Initialize necessary variables (sjcl, key, iv, base64Str, prp, cipherBits)
-            //import { key, iv } from './aes.js'
-            
+        return new Promise((resolve, reject) => {            
             const iv = sjcl.codec.hex.toBits("7475383967656A693334307438397532");
             const cipherBits = sjcl.codec.base64.toBits(base64String);
-            console.log('cipherBits', cipherBits);
             const prp = new sjcl.cipher.aes(key);
             const plainBits = sjcl.mode.cbc.decrypt(prp, cipherBits, iv);
             const jsonStr = sjcl.codec.utf8String.fromBits(plainBits);
             try {
-                console.log(JSON.parse(jsonStr));
                 resolve(jsonStr);
             } catch (e) {
                 reject(new Error("Error Decrypting String"));

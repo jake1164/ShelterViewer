@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ShelterViewer.Models;
 using ShelterViewer.Utility;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace ShelterViewer.Services;
 
@@ -15,6 +16,7 @@ public class VaultService
 {
     public event Action? OnVaultChanged = null;
 
+    private IJSRuntime JS;
     private string _vaultString = String.Empty;
 
     private dynamic? _vaultData = null;
@@ -59,6 +61,11 @@ public class VaultService
         }
     }
 
+    public VaultService(IJSRuntime jsRuntime)
+    {
+        JS = jsRuntime;
+    }
+
     public void InitializeVault(string vaultJsonString)
     {
 
@@ -73,7 +80,7 @@ public class VaultService
         catch (Exception ex)
         {
             _vaultString = String.Empty;
-            Console.WriteLine("Unable to convert vault string to JSON Object: " + ex.Message);
+            Log("Unable to convert vault string to JSON Object: " + ex.Message);            
         }
     }
 
@@ -94,17 +101,18 @@ public class VaultService
         List<Dweller> dwellers = new();
         if (_vaultData == null)
             return new();
+
         foreach (var dweller in _vaultData.dwellers.dwellers)
         {
             try
             {
-                Console.WriteLine(dweller);
+                Log(dweller);
                 dwellers.Add(JsonConvert.DeserializeObject<Dweller>(dweller.ToString(), settings));
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Unable to convert dwellers string to JSON Object: " + ex.Message);
+                Log("Unable to convert dwellers string to JSON Object: " + ex.Message);
             }
         }
 
@@ -115,11 +123,8 @@ public class VaultService
     {
         var settings = new IntJsonConverter();
         List<Room> rooms = new();
-        if (_vaultData == null)
-            return new();
 
-
-        foreach (var room in _vaultData.vault.rooms)
+        foreach (var room in _vaultData?.vault.rooms ?? new List<Room>())
         {
             try
             {
@@ -127,11 +132,17 @@ public class VaultService
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Unable to convert rooms string to JSON Object: " + ex.Message);
+                Log("Unable to convert rooms string to JSON Object: " + ex.Message);
             }
         }
 
         return rooms;
+    }
+
+    private void Log(params object?[]? message)
+    {
+        if(JS != null)
+            JS.InvokeVoidAsync("console.log", message);
     }
 
     private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

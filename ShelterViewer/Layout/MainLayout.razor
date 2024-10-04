@@ -43,6 +43,7 @@
     protected override async Task OnInitializedAsync()
     {
         VaultService.OnVaultChanged += async () => await InvokeAsync(StateHasChanged);
+
         try
         {
             var vJson = await Http.GetFromJsonAsync<Dictionary<string, string>>(".version");
