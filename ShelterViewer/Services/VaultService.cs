@@ -106,13 +106,13 @@ public class VaultService
         {
             try
             {
-                Log(dweller);
-                dwellers.Add(JsonConvert.DeserializeObject<Dweller>(dweller.ToString(), settings));
+                var dwellerObject = JsonConvert.DeserializeObject<Dweller>(dweller.ToString(), settings);
+                dwellers.Add(dwellerObject);
 
             }
             catch (Exception ex)
             {
-                Log("Unable to convert dwellers string to JSON Object: " + ex.Message);
+                Log("Unable to convert dwellers string to JSON Object: " + ex.Message, dweller.ToString());
             }
         }
 
