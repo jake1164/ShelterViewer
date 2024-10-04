@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Setup .NET CORE SDK
-      uses: actions/setup-dotnet@4.0.1
+      uses: actions/setup-dotnet@v4.0.1
     - name: Publish project
       run: dotnet publish ShelterViewer.csproj -c -Release -o release --nologo
   
