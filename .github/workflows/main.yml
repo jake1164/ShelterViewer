@@ -2,8 +2,8 @@ name: Deploy
 # on a commit push to the gh-pages branch
 
 on:
-  push:
-    branches: [ master ]
+  release:
+    types: [ published ]
     
 jobs:
   deploy-to-github-pages:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
+     
     - name: Setup .NET CORE SDK
       uses: actions/setup-dotnet@v4
       with:
@@ -22,7 +22,11 @@ jobs:
       
     - name: Publish project
       run: dotnet publish ShelterViewer/ShelterViewer.csproj /p:Configuration=Release --output release -p:GHPages=true
-  
+
+    - name: create a .version file
+      run: 
+        echo '{ "version":"${{ github.event.release.tag_name }}" }' > release/wwwroot/.version
+
     - name: Commit wwwroot to Github Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
