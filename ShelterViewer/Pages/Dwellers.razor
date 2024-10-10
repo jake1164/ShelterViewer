@@ -2,6 +2,7 @@
 @using ShelterViewer.Models
 @inject Services.VaultService VaultService
 
+
 <h3>Dwellers</h3>
 
 <MudDataGrid Items="DwellerList">
@@ -9,9 +10,18 @@
         <PropertyColumn Property="x => x.name" Title="Name" />
         <PropertyColumn Property="x => x.lastName" Title="Last Name" />
         <PropertyColumn Property="x => x.experience.currentLevel" Title="Level" />
+        <!--
+        <TemplateColumn Title="Health" >
+            <CellTemplate>
+                <MudProgressLinear Value="@(((Dweller)context).health.healthValue)" Color="Color.Success" />
+            </CellTemplate>
+        </TemplateColumn>
+        -->
+        
         <PropertyColumn Property="x => x.health.healthValue" Title="Health" />
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
         <PropertyColumn Property="x => x.health.radiationValue" Title="Radiation" />
+        
         <PropertyColumn Property="x => x.experience.experienceValue" Title="Experience" />
         <PropertyColumn Property="x => x.experience.wastelandExperience" Title="Wasteland Experience" />
         <PropertyColumn Property="x => x.savedRoom" Title="Room" />

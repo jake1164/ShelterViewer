@@ -4,18 +4,13 @@
 
 <h3>Rooms</h3>
 
-<MudTable Items="RoomList">
-    <HeaderContent>
-        <MudTh>Type</MudTh>
-        <MudTh>Class</MudTh>
-        <MudTh>Number Dwellers</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTh DataLabel="Type">@context.type</MudTh>
-        <MudTh DataLabel="Class">@context._class</MudTh>
-        <MudTh DataLabel="Number Dwellers">@context.dwellers.Count()</MudTh>
-    </RowTemplate>
-</MudTable>
+<MudDataGrid Items="RoomList">
+    <Columns>
+        <PropertyColumn Property="x => x.type" Title="Type" />
+        <PropertyColumn Property="x => x._class" Title="Class" />
+        <PropertyColumn Property="x => x.dwellers.Count()" Title="Number Dwellers" />
+    </Columns>
+</MudDataGrid>
 
 @code {
     List<Room> RoomList { get; set; } = new();

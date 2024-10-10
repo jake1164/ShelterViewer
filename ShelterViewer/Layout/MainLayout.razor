@@ -47,9 +47,10 @@
         try
         {
             var vJson = await Http.GetFromJsonAsync<Dictionary<string, string>>(".version");
-            version = vJson["version"];
+            if(vJson != null)
+                version = vJson["version"];
         }
-        catch (Exception ex) { }
+        catch (Exception) { }
 
     }
 
