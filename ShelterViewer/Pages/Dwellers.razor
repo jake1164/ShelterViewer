@@ -9,24 +9,24 @@
     <Columns>
         <PropertyColumn Property="x => x.name" Title="Name" />
         <PropertyColumn Property="x => x.lastName" Title="Last Name" />
-        <PropertyColumn Property="x => x.experience.currentLevel" Title="Level" />        
+        <PropertyColumn Property="x => x.rarity" Title="Rarity" />
+        <PropertyColumn Property="x => x.experience.currentLevel" Title="Level" />
+
         <TemplateColumn Sortable="true" SortBy="x => x.health.healthValue" T="Dweller" Title="Health" >
             <CellTemplate>
-                <div style="display:flex;">
-                    <MudProgressLinear 
-                        Value="context.Item.health.healthValue" 
-                        Max="context.Item.health.maxHealth"
-                        Color="Color.Success"
-                        Size="Size.Medium"/>
-                    @if(context.Item.health.radiationValue > 0)
-                    {
-                        <MudProgressLinear 
-                            Class="rtl-progress"
-                            Value="context.Item.health.radiationValue"
-                            Size="Size.Medium"
-                            Color="Color.Error" />
-                    }
-                </div>
+                    <div style="display:flex;">
+                        <MudProgressLinear Value="context.Item.health.healthValue"
+                                           Max="context.Item.health.maxHealth"
+                                           Color="Color.Success"
+                                           Size="Size.Medium" />
+                        @if (context.Item.health.radiationValue > 0)
+                        {
+                            <MudProgressLinear Class="rtl-progress"
+                                               Value="context.Item.health.radiationValue"
+                                               Size="Size.Medium"
+                                               Color="Color.Error" />
+                        }
+                    </div>
             </CellTemplate>
         </TemplateColumn>
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
