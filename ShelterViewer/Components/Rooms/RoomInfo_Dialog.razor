@@ -1,0 +1,28 @@
+﻿@using Models
+
+<MudDialog>
+    <DialogContent>
+    <MudCard>
+        <MudCardContent>
+            <MudText>@Room.type</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Color="Color.Primary">Previous</MudButton>
+            <MudButton Color="Color.Primary">Next</MudButton>
+        </MudCardActions>
+        </MudCard>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="CloseDialog" Variant="Variant.Filled">Close</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter, EditorRequired]
+    private MudDialogInstance MudDialog { get; set; } = null!;
+
+    [Parameter, EditorRequired]
+    public Room Room { get; set; } = null!;
+
+    private void CloseDialog() => MudDialog.Close(DialogResult.Ok(true));
+}

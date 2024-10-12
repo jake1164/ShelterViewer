@@ -4,6 +4,7 @@
 @using Services
 @inject Services.VaultService VaultService
 @inject NavigationManager NavigationManager
+@inject IDialogService DialogService
 
 <h3>Dwellers</h3>
 
@@ -30,7 +31,6 @@
                                            Color="Color.Error" />
                     }
                     </div>
-                
             </CellTemplate>
         </TemplateColumn>
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
@@ -50,17 +50,6 @@
         </TemplateColumn>
     </Columns>
 </MudDataGrid>
-<!-- Display a modal window with dweller info -->
-<MudDialog MaxWidth="MaxWidth.Large" Title="Dweller Info"  @bind-Open="dialogOpen" Style="z-index: 9999">
-    <DialogContent>
-        <DwellerInfo Dweller="selectedDweller" />
-    </DialogContent>
-    <DialogActions>
-        <MudButton OnClick="CloseDialog" Variant="Variant.Filled">Close</MudButton>
-    </DialogActions>
-</MudDialog>
-
-
 
 <style>
     .rtl-progress .mud-progress-linear-bar {
@@ -72,8 +61,6 @@
     List<Room> RoomList { get; set; } = new();
     Dweller? selectedDweller;
 
-    bool dialogOpen;
-
     protected override void OnInitialized()
     {
         if(VaultService.IsVaultEmpty())
@@ -83,18 +70,18 @@
 
         DwellerList = VaultService.GetDwellers();
         RoomList = VaultService.GetRooms();
-
-
     }
 
-    private void CloseDialog()
-    {
-        dialogOpen = false;
-    }
-    private void ShowDweller(Dweller selected)
+    private System.Threading.Tasks.Task ShowDweller(Dweller selected)
     {
         selectedDweller = selected;
-        dialogOpen = true;
+
+        var options = new DialogOptions() { MaxWidth = MaxWidth.Large, FullWidth = true };
+        var parameters = new DialogParameters<DwellerInfo_Dialog>
+        {
+            { "Dweller", selectedDweller }
+        };
+        return DialogService.ShowAsync<DwellerInfo_Dialog>("Dweller Info", parameters, options);
     }
 
     private string GetRoomName(int roomNumber)
