@@ -1,5 +1,7 @@
 ﻿@page "/dwellers"
+@using ShelterViewer.Components.Dwellers
 @using ShelterViewer.Models
+@using Services
 @inject Services.VaultService VaultService
 
 
@@ -7,26 +9,27 @@
 
 <MudDataGrid T="Dweller" Items="DwellerList">
     <Columns>
+       
         <PropertyColumn Property="x => x.name" Title="Name" />
         <PropertyColumn Property="x => x.lastName" Title="Last Name" />
         <PropertyColumn Property="x => x.rarity" Title="Rarity" />
         <PropertyColumn Property="x => x.experience.currentLevel" Title="Level" />
 
-        <TemplateColumn Sortable="true" SortBy="x => x.health.healthValue" T="Dweller" Title="Health" >
+        <TemplateColumn Sortable="true" SortBy="x => x.health.healthValue" T="Dweller" Title="Health">
             <CellTemplate>
-                    <div style="display:flex;">
-                        <MudProgressLinear Value="context.Item.health.healthValue"
-                                           Max="context.Item.health.maxHealth"
-                                           Color="Color.Success"
-                                           Size="Size.Medium" />
-                        @if (context.Item.health.radiationValue > 0)
-                        {
-                            <MudProgressLinear Class="rtl-progress"
-                                               Value="context.Item.health.radiationValue"
-                                               Size="Size.Medium"
-                                               Color="Color.Error" />
-                        }
-                    </div>
+                <div style="display:flex;">
+                    <MudProgressLinear Value="context.Item.health.healthValue"
+                                       Max="context.Item.health.maxHealth"
+                                       Color="Color.Success"
+                                       Size="Size.Medium" />
+                    @if (context.Item.health.radiationValue > 0)
+                    {
+                        <MudProgressLinear Class="rtl-progress"
+                                           Value="context.Item.health.radiationValue"
+                                           Size="Size.Medium"
+                                           Color="Color.Error" />
+                    }
+                </div>
             </CellTemplate>
         </TemplateColumn>
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
@@ -34,8 +37,29 @@
         <PropertyColumn Property="x => x.experience.wastelandExperience" Title="Wasteland Experience" />
         <PropertyColumn Property="x =>GetRoomName(x.savedRoom)" Title="Room" />
         <PropertyColumn Property="x => x.relations.ascendants.Count(x => x > 0)" Title="Children" />
+        <TemplateColumn T="Dweller" CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudButton Size="@Size.Small" 
+                        Variant="@Variant.Filled" 
+                        Color="@Color.Primary" 
+                        OnClick="() => ShowDweller(context.Item)">View</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
     </Columns>
 </MudDataGrid>
+<!-- Display a modal window with dweller info -->
+<MudDialog MaxWidth="MaxWidth.Large" Title="Dweller Info"  @bind-Open="dialogOpen" Style="z-index: 9999">
+    <DialogContent>
+        <DwellerInfo Dweller="selectedDweller" />
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="CloseDialog" Variant="Variant.Filled">Close</MudButton>
+    </DialogActions>
+</MudDialog>
+
+
 
 <style>
     .rtl-progress .mud-progress-linear-bar {
@@ -45,10 +69,25 @@
 @code {
     List<Dweller> DwellerList { get; set; } = new();
     List<Room> RoomList { get; set; } = new();
+    Dweller? selectedDweller;
+
+    bool dialogOpen;
+
+
     protected override void OnInitialized()
     {
         DwellerList = VaultService.GetDwellers();
         RoomList = VaultService.GetRooms();
+    }
+
+    private void CloseDialog()
+    {
+        dialogOpen = false;
+    }
+    private void ShowDweller(Dweller selected)
+    {
+        selectedDweller = selected;
+        dialogOpen = true;
     }
 
     private string GetRoomName(int roomNumber)

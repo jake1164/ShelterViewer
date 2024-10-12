@@ -1,13 +1,17 @@
-﻿<MudCard>
+﻿@using Models
+
+<MudCard>
     <MudCardContent>
-        <MudText></MudText>
+        <MudText>@Dweller.name</MudText>
     </MudCardContent>
     <MudCardActions>
         <MudButton Color="Color.Primary">Previous</MudButton>
-        <MudButton Color="Color.Primary" >Next</MudButton>
+        <MudButton Color="Color.Primary">Next</MudButton>
     </MudCardActions>
 </MudCard>
 
 @code {
-
+    
+    [CascadingParameter]
+    public Dweller Dweller { get; set; }
 }
