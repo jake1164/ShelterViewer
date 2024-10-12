@@ -4,7 +4,12 @@
     <DialogContent>
     <MudCard>
         <MudCardContent>
-            <MudText>@Dweller.name</MudText>
+            <!-- Display full Dweller details here -->
+            <MudText Variant="Variant.H6">Dweller Details</MudText>
+            <MudText>First Name: @Dweller.name</MudText>
+            <MudText>Last Name: @Dweller.lastName</MudText>
+                <MudText>Age: @Dweller.health</MudText>
+            
         </MudCardContent>
         <MudCardActions>
             <MudButton Color="Color.Primary">Previous</MudButton>
