@@ -3,7 +3,7 @@
 @using ShelterViewer.Models
 @using Services
 @inject Services.VaultService VaultService
-
+@inject NavigationManager NavigationManager
 
 <h3>Dwellers</h3>
 
@@ -29,7 +29,8 @@
                                            Size="Size.Medium"
                                            Color="Color.Error" />
                     }
-                </div>
+                    </div>
+                
             </CellTemplate>
         </TemplateColumn>
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
@@ -73,11 +74,17 @@
 
     bool dialogOpen;
 
-
     protected override void OnInitialized()
     {
+        if(VaultService.IsVaultEmpty())
+        {
+            NavigationManager.NavigateTo("/");
+        }
+
         DwellerList = VaultService.GetDwellers();
         RoomList = VaultService.GetRooms();
+
+
     }
 
     private void CloseDialog()

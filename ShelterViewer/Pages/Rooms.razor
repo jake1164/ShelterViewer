@@ -1,6 +1,7 @@
 ﻿@page "/rooms"
 @using ShelterViewer.Models
 @inject Services.VaultService VaultService
+@inject NavigationManager NavigationManager
 
 <h3>Rooms</h3>
 
@@ -16,6 +17,11 @@
     List<Room> RoomList { get; set; } = new();
     protected override void OnInitialized()
     {
+        if (VaultService.IsVaultEmpty())
+        {
+            NavigationManager.NavigateTo("/");
+        }
+
         RoomList = VaultService.GetRooms();
     }
 }
