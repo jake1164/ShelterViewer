@@ -18,19 +18,27 @@
 
         <TemplateColumn Sortable="true" SortBy="x => x.health.healthValue" T="Dweller" Title="Health">
             <CellTemplate>
-                <div style="display:flex;">
-                    <MudProgressLinear Value="context.Item.health.healthValue"
-                                       Max="context.Item.health.maxHealth"
-                                       Color="Color.Success"
-                                       Size="Size.Medium" />
-                    @if (context.Item.health.radiationValue > 0)
-                    {
-                        <MudProgressLinear Class="rtl-progress"
-                                           Value="context.Item.health.radiationValue"
-                                           Size="Size.Medium"
-                                           Color="Color.Error" />
-                    }
+                <MudTooltip>
+                    <ChildContent>
+                    <div style="display:flex;">
+                        <MudProgressLinear Value="context.Item.health.healthValue"
+                                           Max="context.Item.health.maxHealth"
+                                           Color="Color.Success"
+                                           Size="Size.Medium" />
+                        @if (context.Item.health.radiationValue > 0)
+                        {
+                            <MudProgressLinear Class="rtl-progress"
+                                               Value="context.Item.health.radiationValue"
+                                               Size="Size.Medium"
+                                               Color="Color.Error" />
+                        }
                     </div>
+                    </ChildContent>
+                    <TooltipContent>
+                        <MudText Typo="Typo.body2">Health: @context.Item.health.healthValue / @context.Item.health.maxHealth</MudText>
+                        <MudText Typo="Typo.body2">Radiation: @context.Item.health.radiationValue</MudText>
+                    </TooltipContent>
+                </MudTooltip>
             </CellTemplate>
         </TemplateColumn>
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
@@ -54,6 +62,10 @@
 <style>
     .rtl-progress .mud-progress-linear-bar {
         transform: scaleX(-1);
+    }
+    .mud-tooltip-root.mud-tooltip-inline {
+        display: unset;
+        width: 100%;
     }
 </style>
 @code {
