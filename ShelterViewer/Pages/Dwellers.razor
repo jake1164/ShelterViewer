@@ -42,6 +42,11 @@
             </CellTemplate>
         </TemplateColumn>
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
+        <TemplateColumn Title="S.P.E.C.I.A.L">
+            <CellTemplate>
+                <Special Stats="@context.Item.stats" />
+            </CellTemplate>
+        </TemplateColumn>
         <PropertyColumn Property="x => x.experience.experienceValue" Title="Experience" />
         <PropertyColumn Property="x => x.experience.wastelandExperience" Title="Wasteland Experience" />
         <PropertyColumn Property="x =>GetRoomName(x.savedRoom)" Title="Room" />

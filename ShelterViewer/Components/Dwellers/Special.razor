@@ -1,0 +1,20 @@
+﻿@using Models
+<MudStack Row="true" style="height:100%; padding:0">
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[0].value" Max="10" />
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[1].value" Max="10" />
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[2].value" Max="10" />
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[3].value" Max="10" />
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[4].value" Max="10" />
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[5].value" Max="10" />
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[6].value" Max="10" />
+    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[7].value" Max="10" />
+</MudStack>
+
+
+@code {
+    [Parameter, EditorRequired]
+    public Stats Stats { get; set; } = null!;
+
+
+
+}
