@@ -42,7 +42,7 @@
             </CellTemplate>
         </TemplateColumn>
         <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
-        <TemplateColumn Title="S.P.E.C.I.A.L">
+        <TemplateColumn Title="S.P.E.C.I.A.L" CellClass="special" >
             <CellTemplate>
                 <Special Stats="@context.Item.stats" />
             </CellTemplate>
@@ -71,6 +71,10 @@
     .mud-tooltip-root.mud-tooltip-inline {
         display: unset;
         width: 100%;
+    }
+    .special {
+        padding: 5px 0 0 0;
+        height: 65px;
     }
 </style>
 @code {
