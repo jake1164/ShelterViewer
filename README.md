@@ -7,4 +7,4 @@ This is not intended as a cheat, as such I do not have intentions of leveling up
 Currently this is in the beginning stages, however, it can be accessed via the [Shelter Viewer](https://jake1164.github.io/ShelterViewer/) page.
 
 
-I am using the decryptor from http://fossd.bitballoon.com/ and inspiration from [text](https://github.com/rakion99/shelter-editor).
+I am using the decryptor from http://fossd.bitballoon.com/ and inspiration from [shelter-editor](https://github.com/rakion99/shelter-editor).
