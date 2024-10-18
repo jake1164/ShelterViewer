@@ -8,10 +8,15 @@
 
 <MudDataGrid T="IItem" Items="ItemList">
     <Columns>
-        <PropertyColumn Property="x => x.id" Title="Id" />
+        <PropertyColumn Property="x => x.id" Title="Id" Grouping GroupBy="x => x.id">
+            <GroupTemplate>
+                <span>@context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">@context.Grouping.Count()</MudChip></span>
+            </GroupTemplate>
+        </PropertyColumn>
         <PropertyColumn Property="x => x.type" Title="Type" />
         <PropertyColumn Property="x => x.hasBeenAssigned" Title="HasBeenAssigned" />
         <PropertyColumn Property="x => x.hasRandonWeaponBeenAssigned" Title="HasRandomWeaponBeenAssigned" />
+        <PropertyColumn Property="x => (x is Equipedoutfit) ? true : false " Title="Equipped" />
     </Columns>
 </MudDataGrid>
 @code {
