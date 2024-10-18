@@ -26,13 +26,10 @@ jobs:
       # inject a ga4 script tag into the index.html
     - name: Inject GA4 script tag
       run: |
-          GA_SCRIPT_1='<script async src="https:\/\/www.googletagmanager.com\/gtag\/js?id=G-4BVHDFWKPL"><\/script>'
-          GA_SCRIPT_2='<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-4BVHDFWKPL");<\/script>'
-
-          for file in $(find release/wwwroot -name '*.html'); do
-            sed "s|</head>|${GA_SCRIPT_1}${GA_SCRIPT_2}</head>|g" "$file"
-          done
-
+        sed -i '/<\/head>/i <!-- Google tag (gtag.js) -->\n\t <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BVHDFWKPL"></script> \n\t<script>\n\t window.dataLayer = window.dataLayer || [];\n\t function gtag(){dataLayer.push(arguments);} \n\t gtag("js", new Date());\n\t gtag("config", "G-4BVHDFWKPL");\n\t</script>'  release/wwwroot/index.html
+      env:
+        GA_TRACKING_ID_SECRET: ${{secrets.GA_TRACKING_ID}}
+        
     - name: create a .version file
       run: 
         echo '{ "version":"${{ github.event.release.tag_name }}" }' > release/wwwroot/.version
