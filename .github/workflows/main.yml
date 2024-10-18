@@ -26,8 +26,9 @@ jobs:
       # inject a ga4 script tag into the index.html
     - name: Inject GA4 script tag
       run: |
-          GA_SCRIPT_1='<script async src="https://www.googletagmanager.com/gtag/js?id=G-4BVHDFWKPL"></script>'
-          GA_SCRIPT_2='<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-4BVHDFWKPL");</script>'
+          GA_SCRIPT_1='<script async src="https:\/\/www.googletagmanager.com\/gtag\/js?id=G-4BVHDFWKPL"><\/script>'
+          GA_SCRIPT_2='<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-4BVHDFWKPL");<\/script>'
+
           for file in $(find release/wwwroot -name '*.html'); do
             sed "s|</head>|${GA_SCRIPT_1}${GA_SCRIPT_2}</head>|g" "$file"
           done
