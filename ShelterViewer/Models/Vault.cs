@@ -167,16 +167,6 @@ public class Cafeteria_Halloween
     public ExtraRoomdata extraData { get; set; }
 }
 
-public class Extradata1
-{
-    public int partsCollectedCount { get; set; }
-    public bool IsCraftingInProgress { get; set; }
-    public bool IsCrafted { get; set; }
-    public bool IsClaimed { get; set; }
-    public bool IsClaimedInCraftingRoom { get; set; }
-    public bool IsNew { get; set; }
-}
-
 public class Cafeteria_Thanksgiving
 {
     public string id { get; set; }
@@ -184,16 +174,6 @@ public class Cafeteria_Thanksgiving
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
     public ExtraRoomdata extraData { get; set; }
-}
-
-public class Extradata2
-{
-    public int partsCollectedCount { get; set; }
-    public bool IsCraftingInProgress { get; set; }
-    public bool IsCrafted { get; set; }
-    public bool IsClaimed { get; set; }
-    public bool IsClaimedInCraftingRoom { get; set; }
-    public bool IsNew { get; set; }
 }
 
 public class Livingquarters_Xmas
@@ -205,16 +185,6 @@ public class Livingquarters_Xmas
     public ExtraRoomdata extraData { get; set; }
 }
 
-public class Extradata3
-{
-    public int partsCollectedCount { get; set; }
-    public bool IsCraftingInProgress { get; set; }
-    public bool IsCrafted { get; set; }
-    public bool IsClaimed { get; set; }
-    public bool IsClaimedInCraftingRoom { get; set; }
-    public bool IsNew { get; set; }
-}
-
 public class Livingquarters_Halloween
 {
     public string id { get; set; }
@@ -224,16 +194,6 @@ public class Livingquarters_Halloween
     public ExtraRoomdata extraData { get; set; }
 }
 
-public class Extradata4
-{
-    public int partsCollectedCount { get; set; }
-    public bool IsCraftingInProgress { get; set; }
-    public bool IsCrafted { get; set; }
-    public bool IsClaimed { get; set; }
-    public bool IsClaimedInCraftingRoom { get; set; }
-    public bool IsNew { get; set; }
-}
-
 public class Livingquarters_Thanksgiving
 {
     public string id { get; set; }
@@ -241,16 +201,6 @@ public class Livingquarters_Thanksgiving
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
     public ExtraRoomdata extraData { get; set; }
-}
-
-public class Extradata5
-{
-    public int partsCollectedCount { get; set; }
-    public bool IsCraftingInProgress { get; set; }
-    public bool IsCrafted { get; set; }
-    public bool IsClaimed { get; set; }
-    public bool IsClaimedInCraftingRoom { get; set; }
-    public bool IsNew { get; set; }
 }
 
 public class Dwellers
@@ -286,13 +236,13 @@ public class Dweller
     public int pendingExperienceReward { get; set; }
     public string hair { get; set; }
     public string faceMask { get; set; }
-    public Equipedoutfit equipedOutfit { get; set; }
-    public Equipedweapon equipedWeapon { get; set; }
+    public EquippedOutfit equipedOutfit { get; set; }
+    public EquippedWeapon equipedWeapon { get; set; }
     public int savedRoom { get; set; }
     public float lastChildBorn { get; set; }
     public string rarity { get; set; }
     public float deathTime { get; set; }
-    public Equippedpet? equippedPet { get; set; }
+    public EquippedPet? equippedPet { get; set; }
     public string uniqueData { get; set; }
     public int daysOnWasteland { get; set; }
     public int hoursOnWasteland { get; set; }
@@ -350,13 +300,13 @@ public interface IItem
     public bool hasRandonWeaponBeenAssigned { get; set; }
 }
 
-public class Equipedoutfit : Outfit, IItem
+public class EquippedOutfit : Outfit, IItem
 { }
 
-public class Equipedweapon : Weapon, IItem
+public class EquippedWeapon : Weapon, IItem
 { }
 
-public class Equippedpet : Pet, IItem
+public class EquippedPet : Pet, IItem
 { }
 
 public class ExtraItemdata
