@@ -11,5 +11,5 @@ Currently this is in the beginning stages, however, it can be accessed via the [
 I am using the decryptor from http://fossd.bitballoon.com/ and inspiration from [shelter-editor](https://github.com/rakion99/shelter-editor).
 
 
-<!--START_SECTION:buy-me-a-coffee-->
-<!--END_SECTION:buy-me-a-coffe-->
+If this is useful feel free to 
+<a href="https://buymeacoffee.com/jake1164s" target="_blank"><img src="/images//violet-button.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
