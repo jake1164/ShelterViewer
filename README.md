@@ -12,4 +12,4 @@ I am using the decryptor from http://fossd.bitballoon.com/ and inspiration from 
 
 
 <!--START_SECTION:buy-me-a-coffee-->
-<!--END_SECTION:buy-me-a-coffe-->
+<!--END_SECTION:buy-me-a-coffee-->
