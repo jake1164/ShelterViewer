@@ -23,6 +23,11 @@ jobs:
     - name: Publish project
       run: dotnet publish ShelterViewer/ShelterViewer.csproj /p:Configuration=Release --output release -p:GHPages=true
 
+      # inject a ga4 script tag into the index.html
+    - name: Inject GA4 script tag
+      run: |
+        sed -i 's|</head>|<script async src="https://www.googletagmanager.com/gtag/js?id=G-4BVHDFWKPL"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-4BVHDFWKPL");</script></head>|' release/wwwroot/index.html
+
     - name: create a .version file
       run: 
         echo '{ "version":"${{ github.event.release.tag_name }}" }' > release/wwwroot/.version
