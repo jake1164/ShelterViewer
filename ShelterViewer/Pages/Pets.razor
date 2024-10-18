@@ -1,0 +1,29 @@
+﻿@page "/pets"
+@using Models
+
+@inject Services.VaultService VaultService
+@inject NavigationManager NavigationManager
+
+<h3>Pets</h3>
+
+<MudDataGrid T="IItem" Items="ItemList">
+    <Columns>
+        <PropertyColumn Property="x => x.id" Title="Id" />
+        <PropertyColumn Property="x => x.type" Title="Type" />
+        <PropertyColumn Property="x => x.hasBeenAssigned" Title="HasBeenAssigned" />
+        <PropertyColumn Property="x => x.hasRandonWeaponBeenAssigned" Title="HasRandomWeaponBeenAssigned" />
+    </Columns>
+</MudDataGrid>
+@code {
+    public List<IItem> ItemList { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        if (VaultService.IsVaultEmpty())
+        {
+            NavigationManager.NavigateTo("/");
+        }
+
+        ItemList = VaultService.Pets;
+    }
+}

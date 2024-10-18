@@ -89,8 +89,8 @@
             NavigationManager.NavigateTo("/");
         }
 
-        DwellerList = VaultService.GetDwellers();
-        RoomList = VaultService.GetRooms();
+        DwellerList = VaultService.Dwellers;
+        RoomList = VaultService.Rooms;
     }
 
     private System.Threading.Tasks.Task ShowDweller(Dweller selected)

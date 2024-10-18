@@ -20,6 +20,9 @@ public class VaultService
     private string _vaultString = String.Empty;
 
     private dynamic? _vaultData = null;
+    private List<Dweller> _dwellers = new();
+    private List<Room> _rooms = new();
+    private List<IItem> _items = new();
 
     public string Name 
     { 
@@ -61,6 +64,54 @@ public class VaultService
         }
     }
 
+    public List<Dweller> Dwellers
+    {
+        get
+        {
+            return _dwellers;
+        }
+    }
+
+    public List<Room> Rooms
+    {
+        get
+        {
+            return _rooms;
+        }
+    }
+
+    public List<IItem> Weapons
+    {
+        get
+        {
+            return _items.Where(i => i.type == "Weapon").ToList() ?? new List<IItem>();
+        }
+    }
+
+    public List<IItem> Outfits
+    {
+        get
+        {
+            return _items.Where(i => i.type == "Outfit").ToList() ?? new List<IItem>();
+        }
+    }
+
+    public List<IItem> Junk
+    {
+        get
+        {
+            return _items.Where(i => i.type == "Junk").ToList() ?? new List<IItem>();
+        }
+    }
+
+    public List<IItem> Pets
+    {
+        get
+        {
+            return _items.Where(i => i.type == "Pet").ToList() ?? new List<IItem>();
+        }
+    }
+
     public VaultService(IJSRuntime jsRuntime)
     {
         JS = jsRuntime;
@@ -74,6 +125,10 @@ public class VaultService
             var settings = new IntJsonConverter();
             _vaultString = vaultJsonString;
             _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
+
+            _dwellers = GetDwellers();
+            _rooms = GetRooms();
+            _items = GetItems();
 
             NotifyPropertyChanged();
         } 
@@ -95,7 +150,7 @@ public class VaultService
         return _vaultString == String.Empty;
     }
 
-    public List<Dweller> GetDwellers()
+    private List<Dweller> GetDwellers()
     {
         var settings = new IntJsonConverter();
         List<Dweller> dwellers = new();
@@ -119,7 +174,7 @@ public class VaultService
         return dwellers;
     }
 
-    public List<Room> GetRooms()
+    private List<Room> GetRooms()
     {
         var settings = new IntJsonConverter();
         List<Room> rooms = new();
@@ -139,6 +194,47 @@ public class VaultService
         return rooms;
     }
 
+    private List<IItem> GetItems()
+    {
+        List<IItem> items = new();
+        //List<Dweller> dwellers = GetDwellers();
+        // Items are located in multiple places. 
+
+        _dwellers.Select(dweller => dweller.equipedOutfit).Where(o => o.id != "jumpsuit").ToList().ForEach(item => items.Add(item));
+        _dwellers.Select(dweller => dweller.equipedWeapon).Where(w => w.id != "Fist").ToList().ForEach(item => items.Add(item));
+        _dwellers.Select(dwellers => dwellers.equippedPet).Where(p => p != null).ToList().ForEach(item => items.Add(item!));
+
+        var itemsList = (_vaultData?.vault.inventory?.items as IEnumerable<dynamic>) ?? new List<dynamic>();
+        foreach (var item in itemsList)
+        {
+            try
+            {
+                switch (item["type"].ToString())
+                {
+                    case "Outfit":
+                        items.Add(JsonConvert.DeserializeObject<Outfit>(item.ToString()));
+                        break;
+                    case "Weapon":
+                        items.Add(JsonConvert.DeserializeObject<Weapon>(item.ToString()));
+                        break;
+                    case "Junk":
+                        items.Add(JsonConvert.DeserializeObject<Item>(item.ToString()));
+                        break;
+                    case "Pet":
+                        items.Add(JsonConvert.DeserializeObject<Pet>(item.ToString()));
+                        break;
+                    default:
+                        Log("Unknown Item Type: " + item.type);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("Unable to convert items string to JSON Object: " + ex.Message);
+            }
+        }
+        return items;
+    }
     private void Log(params object?[]? message)
     {
         if(JS != null)

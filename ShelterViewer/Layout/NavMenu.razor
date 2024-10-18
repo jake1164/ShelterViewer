@@ -14,6 +14,21 @@
     </MudNavLink>
     <MudNavLink Href="./dwellers" Match="NavLinkMatch.Prefix" Disabled="@VaultService.IsVaultEmpty()">Dwellers @if (!VaultService.IsVaultEmpty()) { <span>(@VaultService.DwellerCount)</span> }</MudNavLink>
     <MudNavLink Href="./rooms" Match="NavLinkMatch.Prefix" Disabled="@VaultService.IsVaultEmpty()">Vault Rooms @if (!VaultService.IsVaultEmpty()) { <span>(@VaultService.RoomCount)</span> }</MudNavLink>
+    <MudNavLink Href="./pets" Match="NavLinkMatch.Prefix" Disabled="@VaultService.IsVaultEmpty()">Pets @if (!VaultService.IsVaultEmpty()) { <span>(@VaultService.Pets.Count)</span>}</MudNavLink>
+        <MudNavLink Href="./weapons" Match="NavLinkMatch.Prefix" Disabled="@VaultService.IsVaultEmpty()">Weapons @if (!VaultService.IsVaultEmpty())
+        {
+            <span>(@VaultService.Weapons.Count)</span>
+        }</MudNavLink>
+    <MudNavLink Href="./outfits" Match="NavLinkMatch.Prefix" Disabled="@VaultService.IsVaultEmpty()">Outfits @if (!VaultService.IsVaultEmpty())
+        {
+            <span>(@VaultService.Outfits.Count)</span>
+        }</MudNavLink>
+    <MudNavLink Href="./junk" Match="NavLinkMatch.Prefix" Disabled="@VaultService.IsVaultEmpty()">
+        Junk @if (!VaultService.IsVaultEmpty())
+        {
+            <span>(@VaultService.Junk.Count)</span>
+        }
+    </MudNavLink>
 </MudNavMenu>
 
 @code {
