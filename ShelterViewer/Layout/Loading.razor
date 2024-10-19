@@ -1,0 +1,19 @@
+﻿@if(IsLoading)
+{
+    <MudOverlay Visible="true" DarkBackground="true" ZIndex="9999">
+        <MudProgressCircular Color="Color.Secondary" Indeterminate="true"/>
+        <MudText>Loading...</MudText>
+    </MudOverlay>
+}
+else
+{
+    @ChildContent
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public RenderFragment ChildContent { get; set; } = null!;
+
+    [Parameter, EditorRequired]
+    public bool IsLoading  { get; set; }
+}

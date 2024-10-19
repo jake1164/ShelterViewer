@@ -122,15 +122,16 @@ public class VaultService
 
         try
         {
-            var settings = new IntJsonConverter();
-            _vaultString = vaultJsonString;
-            _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
+           var settings = new IntJsonConverter();
+           _vaultString = vaultJsonString;
+           _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
+                
+           _dwellers = GetDwellers();
+           _rooms = GetRooms();
+           _items = GetItems();
 
-            _dwellers = GetDwellers();
-            _rooms = GetRooms();
-            _items = GetItems();
-
-            NotifyPropertyChanged();
+           NotifyPropertyChanged();
+ 
         } 
         catch (Exception ex)
         {

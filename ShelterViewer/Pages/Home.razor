@@ -1,4 +1,6 @@
 ﻿@page "/"
+
+@using ShelterViewer.Layout
 @inject IJSRuntime JS
 @inject Services.VaultService VaultService
 
@@ -11,50 +13,58 @@
         <span>Shelter @VaultService.Name</span>
     }
 </PageTitle>
+<Loading IsLoading="loading">
+    @if (VaultService.IsVaultEmpty())
+    {
+        <h1>Advanced Fallout Shelter Viewer</h1>
+        <div class="instructions">
+            <p>Large Files can take more time to load!</p>
+            Drag a save file here (e.g. Vault1.sav) <br />
+            or select one here: <br />
+            <input type="file" @ref="fileInput" @onchange="LoadFile" />
+            <br /><br /><br />
+            For PC/Launcher Version the save is in:<br /> "Documents\My Games\Fallout Shelter"
+            <br />
+            For Windows 10 Store version check this: <a href="https://bethesda.net/community/topic/25405/transfer-vault-from-desktop-version-to-play-anywhere">
+                Click
+                Here
+            </a>
+            <br />
+            For Steam Version the save is in:<br /> "C:\Users\YOURUSERNAME\AppData\Local\FalloutShelter"
+            <br />
+            For Android Version the Save is in:<br /> "storage/sdcard/Android/data/com.bethsoft.falloutshelter/files"
+        </div>
+    }else
+    {
+        <h1>Shelter @VaultService.Name</h1>
 
-@if (VaultService.IsVaultEmpty())
-{
-    <h1>Advanced Fallout Shelter Viewer</h1>
-    <div class="instructions">
-        <p>Large Files can take more time to load!</p>
-        Drag a save file here (e.g. Vault1.sav) <br />
-        or select one here: <br />
-        <input type="file" @ref="fileInput" @onchange="LoadFile" />
-        <br /><br /><br />
-        For PC/Launcher Version the save is in:<br /> "Documents\My Games\Fallout Shelter"
-        <br />
-        For Windows 10 Store version check this: <a href="https://bethesda.net/community/topic/25405/transfer-vault-from-desktop-version-to-play-anywhere">
-            Click
-            Here
-        </a>
-        <br />
-        For Steam Version the save is in:<br /> "C:\Users\YOURUSERNAME\AppData\Local\FalloutShelter"
-        <br />
-        For Android Version the Save is in:<br /> "storage/sdcard/Android/data/com.bethsoft.falloutshelter/files"
-    </div>
-}else
-{
-    <h1>Shelter @VaultService.Name</h1>
-
-    <div>
-        <MudButton Variant="Variant.Filled" @onclick="UnloadFile">Unload Shelter</MudButton>
-    </div>
-}
+        <div>
+            <MudButton Variant="Variant.Filled" @onclick="UnloadFile">Unload Shelter</MudButton>
+        </div>
+    }
+</Loading>
 @code {
     private ElementReference fileInput;
+    private bool loading = false;
+
     private async void LoadFile()
     {
         // Using MAUI we should set the default path based on the OS?
         try
         {
+            loading = true;
+            //await System.Threading.Tasks.Task.Delay(1);
             var content = await JS.InvokeAsync<string>("shelter.readFileAsBase64", fileInput);
             var jsonString = await JS.InvokeAsync<string>("shelter.decryptString", content);
             Console.WriteLine(jsonString);
             VaultService.InitializeVault(jsonString);
-            StateHasChanged();
         } catch (Exception ex)
         {
             Console.WriteLine($"Unable to load vault due to exception {ex.Message}", ex);
+        } finally
+        {
+            loading = false;
+            StateHasChanged();
         }
 
     }
