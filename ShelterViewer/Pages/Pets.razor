@@ -17,6 +17,9 @@
         <PropertyColumn Property="x => ((Pet)x).extraData.bonus" title="Bonus" />
         <PropertyColumn Property="x => ((Pet)x).extraData.bonusValue" title="Bonus Value" />
     </Columns>
+    <PagerContent>
+        <MudDataGridPager T="IItem" />
+    </PagerContent>
 </MudDataGrid>
 @code {
     public List<IItem> ItemList { get; set; } = new();

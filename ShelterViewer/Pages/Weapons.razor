@@ -18,6 +18,9 @@
         <PropertyColumn Property="x => x.hasRandonWeaponBeenAssigned" Title="HasRandomWeaponBeenAssigned" />
         <PropertyColumn Property="x => (x is EquippedWeapon) ? true : false " Title="Equipped" />
     </Columns>
+    <PagerContent>
+        <MudDataGridPager T="IItem" />
+    </PagerContent>
 </MudDataGrid>
 @code {
     public List<IItem> ItemList { get; set; } = new();

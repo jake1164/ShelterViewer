@@ -17,6 +17,9 @@
         <PropertyColumn Property="x => x.hasBeenAssigned" Title="HasBeenAssigned" />
         <PropertyColumn Property="x => x.hasRandonWeaponBeenAssigned" Title="HasRandomWeaponBeenAssigned" />
     </Columns>
+    <PagerContent>
+        <MudDataGridPager T="IItem" />
+    </PagerContent>
 </MudDataGrid>
 @code {
     public List<IItem> ItemList { get; set; } = new();

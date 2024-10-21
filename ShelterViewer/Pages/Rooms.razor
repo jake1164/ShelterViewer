@@ -7,7 +7,7 @@
 
 <h3>Rooms</h3>
 
-<MudDataGrid Items="RoomList">
+<MudDataGrid T="Room" Items="RoomList">
     <Columns>
         <PropertyColumn Property="x => x.type" Title="Type" />
         <PropertyColumn Property="x => x._class" Title="Class" />
@@ -23,6 +23,9 @@
             </CellTemplate>
         </TemplateColumn>
     </Columns>
+    <PagerContent>
+        <MudDataGridPager T="Room" />
+    </PagerContent>
 </MudDataGrid>
 
 @code {
