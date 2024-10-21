@@ -8,7 +8,7 @@
 
 <MudDataGrid T="IItem" Items="ItemList">
     <Columns>
-        <PropertyColumn Property="x => x.id" Title="Id" Grouping GroupBy="x => x.id" >
+        <PropertyColumn Property="x => x.id" Title="Id" Grouping GroupBy="x => x.id" Filterable="true">
             <GroupTemplate>
                 <span>@context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">@context.Grouping.Count()</MudChip></span>
             </GroupTemplate>

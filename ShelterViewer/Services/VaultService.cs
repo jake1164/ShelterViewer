@@ -9,6 +9,7 @@ using ShelterViewer.Models;
 using ShelterViewer.Utility;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using ShelterViewer.Pages;
 
 namespace ShelterViewer.Services;
 
@@ -23,6 +24,7 @@ public class VaultService
     private List<Dweller> _dwellers = new();
     private List<Room> _rooms = new();
     private List<IItem> _items = new();
+    
 
     public string Name 
     { 
@@ -61,6 +63,58 @@ public class VaultService
         get
         {
             return _vaultData?.vault.storage.resources.NukaColaQuantum ?? 0;
+        }
+    }
+
+    public int LunchBoxes
+    {
+        get
+        {
+            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
+            return lunchboxes.Count(x => x == 0);
+        }
+    }
+
+    public int MrHandy
+    {
+        get
+        {
+            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
+            return lunchboxes.Count(x => x == 1);
+        }
+    }
+
+    public int PetCarriers
+    {
+        get
+        {
+            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
+            return lunchboxes.Count(x => x == 2);
+        }
+    }
+
+    public int StarterPacks
+    {
+        get
+        {
+            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
+            return lunchboxes.Count(x => x == 3);
+        }
+    }
+
+    public int StimPacks
+    {
+        get
+        {
+            return _vaultData?.vault.storage.resources.StimPack ?? 0;
+        }
+    }
+
+    public int RadAways
+    {
+        get
+        {
+            return _vaultData?.vault.storage.resources.RadAway ?? 0;
         }
     }
 
@@ -112,6 +166,7 @@ public class VaultService
         }
     }
 
+
     public VaultService(IJSRuntime jsRuntime)
     {
         JS = jsRuntime;
@@ -122,15 +177,15 @@ public class VaultService
 
         try
         {
-           var settings = new IntJsonConverter();
-           _vaultString = vaultJsonString;
-           _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
+            var settings = new IntJsonConverter();
+            _vaultString = vaultJsonString;
+            _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
                 
-           _dwellers = GetDwellers();
-           _rooms = GetRooms();
-           _items = GetItems();
+            _dwellers = GetDwellers();
+            _rooms = GetRooms();
+            _items = GetItems();
 
-           NotifyPropertyChanged();
+            NotifyPropertyChanged();
  
         } 
         catch (Exception ex)

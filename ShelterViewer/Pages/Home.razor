@@ -1,6 +1,7 @@
 ﻿@page "/"
-
+@using ShelterViewer.Components.Vault
 @using ShelterViewer.Layout
+
 @inject IJSRuntime JS
 @inject Services.VaultService VaultService
 
@@ -44,11 +45,7 @@
 
     }else
     {
-        <h1>Shelter @VaultService.Name</h1>
-
-        <div>
-            <MudButton Variant="Variant.Filled" @onclick="UnloadFile">Unload Shelter</MudButton>
-        </div>
+        <VaultInfo UnloadVault="UnloadFile" />
     }
 </Loading>
 @code {
@@ -80,5 +77,6 @@
     private void UnloadFile()
     {
         VaultService.CloseVault();
+        StateHasChanged();
     }
 }

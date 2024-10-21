@@ -1,0 +1,32 @@
+﻿
+@inject Services.VaultService VaultService
+
+<MudPaper>
+    <MudText Typo="Typo.h3">Vault @VaultService.Name</MudText>
+
+    <MudText>Unopened Lunch Boxes: @VaultService.LunchBoxes</MudText>
+    <MudText>Unopened Pet Carrier: @VaultService.PetCarriers</MudText>
+    <MudText>Unopened Mr Handy: @VaultService.MrHandy</MudText>
+    
+    <MudText>Unopened Starter Pack: @VaultService.StarterPacks</MudText>
+    <MudText>Stim Packs: @VaultService.StimPacks</MudText>
+    <MudText>RadAway: @VaultService.RadAways</MudText>
+
+    <div>
+        <MudButton Variant="Variant.Filled" @onclick="@(() => UnloadVault?.Invoke())">Unload Shelter</MudButton>
+    </div>    
+</MudPaper>
+@code {
+    [Parameter, EditorRequired]
+    public Action? UnloadVault { get; set; }
+
+    protected override void OnInitialized()
+    {
+        VaultService.OnVaultChanged += OnVaultChanged;
+    }
+
+    private void OnVaultChanged()
+    {
+        StateHasChanged();
+    }
+}
