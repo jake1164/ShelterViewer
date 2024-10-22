@@ -1,4 +1,5 @@
-﻿using ShelterViewer.Services.UserPreferences;
+﻿using MudBlazor;
+using ShelterViewer.Services.UserPreferences;
 
 namespace ShelterViewer.Services;
 
@@ -8,6 +9,18 @@ public class LayoutService
     private UserPreferences.UserPreferences? _preferences;
 
     public bool IsDarkMode { get; private set; } = false;
+
+    public string DarkLightModeButtonIcon
+    {
+        get
+        {
+            return IsDarkMode switch
+            {
+                true => Icons.Material.Rounded.LightMode,
+                false => Icons.Material.Outlined.DarkMode,
+            };
+        }
+    }
 
     public LayoutService(IUserPreferencesService service)
     {

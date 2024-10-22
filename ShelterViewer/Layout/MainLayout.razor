@@ -26,8 +26,7 @@
             <MudText>@VaultService.Quantums Nuka Quantums</MudText>
         }
         <MudTooltip Text="@(LayoutService.IsDarkMode ? "Switch to Light Theme" : "Switch to Dark Theme")" Delay="800" Arrow="true" Placement="Placement.Right" Color="Color.Dark">
-            <!--<MudIconButton OnClick="@UpdateTheme" Icon="@(LayoutService.IsDarkMode ? @Icons.Material.Rounded.LightMode : @Icons.Material.Outlined.DarkMode)" Color="@(LayoutService.IsDarkMode ? Color.Warning : Color.Inherit)" />            -->
-            <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle" />
+            <MudIconButton Icon="@LayoutService.DarkLightModeButtonIcon" Color="Color.Inherit" OnClick="@LayoutService.ToggleDarkMode" />
         </MudTooltip>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
@@ -89,11 +88,6 @@
         _drawerOpen = !_drawerOpen;
     }
 
-    private async void DarkModeToggle()
-    {
-        await LayoutService.ToggleDarkMode();
-    }
-
     private readonly PaletteLight _lightPalette = new()
         {
             Black = "#110e2d",
@@ -132,10 +126,4 @@
             Divider = "#292838",
             OverlayLight = "#1e1e2d80",
         };
-
-    public string DarkLightModeButtonIcon => LayoutService.IsDarkMode switch
-    {
-        true => Icons.Material.Rounded.LightMode,
-        false => Icons.Material.Outlined.DarkMode,
-    };
 }
