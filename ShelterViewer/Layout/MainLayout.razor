@@ -1,8 +1,9 @@
 ﻿@inherits LayoutComponentBase
 @inject Services.VaultService VaultService
 @inject HttpClient Http
+@inject Services.LayoutService LayoutService
 
-<MudThemeProvider/>
+<MudThemeProvider @ref="@_mudThemeProvider" Theme="@_theme" IsDarkMode="LayoutService.IsDarkMode" />
 <MudPopoverProvider/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
@@ -24,7 +25,10 @@
             <MudText Style="padding-right: 20px;">@VaultService.Caps Caps</MudText>
             <MudText>@VaultService.Quantums Nuka Quantums</MudText>
         }
-        
+        <MudTooltip Text="@(LayoutService.IsDarkMode ? "Switch to Light Theme" : "Switch to Dark Theme")" Delay="800" Arrow="true" Placement="Placement.Right" Color="Color.Dark">
+            <!--<MudIconButton OnClick="@UpdateTheme" Icon="@(LayoutService.IsDarkMode ? @Icons.Material.Rounded.LightMode : @Icons.Material.Outlined.DarkMode)" Color="@(LayoutService.IsDarkMode ? Color.Warning : Color.Inherit)" />            -->
+            <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle" />
+        </MudTooltip>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>
@@ -38,11 +42,14 @@
 
 @code {
     bool _drawerOpen = true;
-    private string version = "dev";
+    private string version = "dev";    
+    private MudTheme? _theme = null;
+    private MudThemeProvider _mudThemeProvider = null!;
 
     protected override async Task OnInitializedAsync()
     {
         VaultService.OnVaultChanged += async () => await InvokeAsync(StateHasChanged);
+        LayoutService.OnMajorUpdate += () => StateHasChanged();
 
         try
         {
@@ -54,9 +61,81 @@
 
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if(firstRender)
+        {
+            await ApplyUserPreferences();
+            StateHasChanged();
+        }
+    }
+
+
+    private async Task ApplyUserPreferences()
+    {
+        var theme = await _mudThemeProvider.GetSystemPreference();
+        await LayoutService.ApplyUserPreferences(theme);
+    }
+
+    private async void UpdateTheme()
+    {
+        await LayoutService.ToggleDarkMode();
+    }
 
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
     }
+
+    private async void DarkModeToggle()
+    {
+        await LayoutService.ToggleDarkMode();
+    }
+
+    private readonly PaletteLight _lightPalette = new()
+        {
+            Black = "#110e2d",
+            AppbarText = "#424242",
+            AppbarBackground = "rgba(255,255,255,0.8)",
+            DrawerBackground = "#ffffff",
+            GrayLight = "#e8e8e8",
+            GrayLighter = "#f9f9f9",
+        };
+
+    private readonly PaletteDark _darkPalette = new()
+        {
+            Primary = "#7e6fff",
+            Surface = "#1e1e2d",
+            Background = "#1a1a27",
+            BackgroundGray = "#151521",
+            AppbarText = "#92929f",
+            AppbarBackground = "rgba(26,26,39,0.8)",
+            DrawerBackground = "#1a1a27",
+            ActionDefault = "#74718e",
+            ActionDisabled = "#9999994d",
+            ActionDisabledBackground = "#605f6d4d",
+            TextPrimary = "#b2b0bf",
+            TextSecondary = "#92929f",
+            TextDisabled = "#ffffff33",
+            DrawerIcon = "#92929f",
+            DrawerText = "#92929f",
+            GrayLight = "#2a2833",
+            GrayLighter = "#1e1e2d",
+            Info = "#4a86ff",
+            Success = "#3dcb6c",
+            Warning = "#ffb545",
+            Error = "#ff3f5f",
+            LinesDefault = "#33323e",
+            TableLines = "#33323e",
+            Divider = "#292838",
+            OverlayLight = "#1e1e2d80",
+        };
+
+    public string DarkLightModeButtonIcon => LayoutService.IsDarkMode switch
+    {
+        true => Icons.Material.Rounded.LightMode,
+        false => Icons.Material.Outlined.DarkMode,
+    };
 }
