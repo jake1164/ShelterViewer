@@ -3,7 +3,7 @@
 @inject HttpClient Http
 @inject Services.LayoutService LayoutService
 
-<MudThemeProvider @ref="@_mudThemeProvider" Theme="@_theme" IsDarkMode="LayoutService.IsDarkMode" />
+<MudThemeProvider @ref="@_mudThemeProvider" Theme="@LayoutService.Theme" IsDarkMode="LayoutService.IsDarkMode" />
 <MudPopoverProvider/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
@@ -42,7 +42,6 @@
 @code {
     bool _drawerOpen = true;
     private string version = "dev";    
-    private MudTheme? _theme = null;
     private MudThemeProvider _mudThemeProvider = null!;
 
     protected override async Task OnInitializedAsync()

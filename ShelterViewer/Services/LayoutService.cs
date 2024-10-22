@@ -1,5 +1,6 @@
 ﻿using MudBlazor;
 using ShelterViewer.Services.UserPreferences;
+using ShelterViewer.Themes;
 
 namespace ShelterViewer.Services;
 
@@ -9,6 +10,7 @@ public class LayoutService
     private UserPreferences.UserPreferences? _preferences;
 
     public bool IsDarkMode { get; private set; } = false;
+    public MudTheme Theme { get { return new VaultTheme(); } }
 
     public string DarkLightModeButtonIcon
     {
