@@ -1,6 +1,6 @@
-# Advanced Shelter Viewer
+# Advanced Fallout Shelter Viewer
 
-Demo --> [Shelter Viewer](https://jake1164.github.io/ShelterViewer/) <--
+Demo --> [Fallout Shelter Viewer](https://jake1164.github.io/ShelterViewer/) <--
 
 The goal of this project is to make it easier to track and organize dwellers and rooms in a larger Fallout Shelter game. I will be adding additional views that will let you sort and filter dwellers as well as view more specifics.
 

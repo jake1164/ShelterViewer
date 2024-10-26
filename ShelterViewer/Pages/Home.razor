@@ -8,37 +8,35 @@
 <PageTitle>
     @if (VaultService.IsVaultEmpty())
     {
-        <span>Load Vault</span>
+        <span>Vault</span>
     } else
     {
-        <span>Shelter @VaultService.Name</span>
+        <span>Vault @VaultService.Name</span>
     }
 </PageTitle>
 <Loading IsLoading="loading">
     @if (VaultService.IsVaultEmpty())
     {
         <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Align="Align.Center" Typo="Typo.h3">Advanced Fallout Shelter Viewer</MudText>
+                    <MudText Typo="Typo.body1" Align="Align.Center" Color="Color.Tertiary">Large Files can take more time to load!</MudText>
+                </CardHeaderContent>                
+            </MudCardHeader>
             <MudCardContent>
-                <MudText Typo="Typo.h3">Advanced Fallout Shelter Viewer</MudText>
-                <MudText Align="Align.Center">Large Files can take more time to load!</MudText>
-                <MudText></MudText>
-                <MudText></MudText>
-                <div class="instructions">
-                    For PC/Launcher Version the save is in:<br /> "Documents\My Games\Fallout Shelter"
-                    <br />
-                    For Windows 10 Store version check this: <a href="https://bethesda.net/community/topic/25405/transfer-vault-from-desktop-version-to-play-anywhere">
-                        Click
-                        Here
-                    </a>
-                    <br />
-                    For Steam Version the save is in:<br /> "C:\Users\YOURUSERNAME\AppData\Local\FalloutShelter"
-                    <br />
-                    For Android Version the Save is in:<br /> "storage/sdcard/Android/data/com.bethsoft.falloutshelter/files"
-                </div>
+                <MudText>For Steam Version the save is in <MudText Inline="true" Color="Color.Secondary">"C:\Users\YOURUSERNAME\AppData\Local\FalloutShelter"</MudText></MudText>
+                <MudText>For PC/Launcher Version the save is in <MudText Inline="true" Color="Color.Secondary"> "Documents\My Games\Fallout Shelter"</MudText></MudText>
+                <MudText>
+                    For all others read the FalloutShelter
+                    <MudLink Href="https://github.com/therabidsquirel/The-Fallout-Shelter-FAQ/wiki/Section-15:-Save-Files-and-Editing">FAQ</MudLink>
+                </MudText>
             </MudCardContent>
             <MudCardActions>
-                <MudText>Select save file (e.g. Vault1.sav)</MudText>
-                <input type="file" @ref="fileInput" @onchange="LoadFile" />
+                <MudText >Select game file (e.g. Vault1.sav)&nbsp; </MudText>
+                <div style="display:block;">
+                    <input type="file" @ref="fileInput" @onchange="LoadFile" />
+                </div>
             </MudCardActions>
         </MudCard>
         <h1></h1>
