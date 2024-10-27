@@ -16,7 +16,6 @@ namespace ShelterViewer.Services;
 public class VaultService
 {
     public event Action? OnVaultChanged = null;
-
     private IJSRuntime JS;
     private string _vaultString = String.Empty;
 
@@ -29,7 +28,7 @@ public class VaultService
     public string Name 
     { 
         get 
-        { 
+        {
             return _vaultData?.vault.VaultName ?? String.Empty; 
         } 
     }
@@ -166,6 +165,29 @@ public class VaultService
         }
     }
 
+    public String VaultMode
+    {
+        get
+        {
+            return _vaultData?.vault.VaultMode ?? "UNK";
+        }
+    }
+
+
+    public VaultLevels VaultResources
+    {
+        get
+        {
+            float f = _vaultData?.vault.storage.resources.Food ?? 0;
+            float e = _vaultData?.vault.storage.resources.Energy ?? 0;
+            float w = _vaultData?.vault.storage.resources.Water ?? 0;
+            var food = new VaultLevel(f, 0);
+            var energy = new VaultLevel(e, 0);
+            var water = new VaultLevel(w, 0);
+
+            return new VaultLevels(food, energy, water);
+        }
+    }
 
     public VaultService(IJSRuntime jsRuntime)
     {
@@ -180,7 +202,6 @@ public class VaultService
             var settings = new IntJsonConverter();
             _vaultString = vaultJsonString;
             _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
-                
             _dwellers = GetDwellers();
             _rooms = GetRooms();
             _items = GetItems();
@@ -301,4 +322,9 @@ public class VaultService
     {
         OnVaultChanged?.Invoke();
     }
+
+
+    public record VaultLevel(float Level, float Max);
+    public record VaultLevels(VaultLevel Food, VaultLevel Energy, VaultLevel Water);
+    
 }

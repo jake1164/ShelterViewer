@@ -13,13 +13,22 @@
         </CardHeaderActions>
     </MudCardHeader>
     <MudCardContent>
-            <MudText>Unopened Lunch Boxes: @VaultService.LunchBoxes</MudText>
-            <MudText>Unopened Pet Carrier: @VaultService.PetCarriers</MudText>
-            <MudText>Unopened Mr Handy: @VaultService.MrHandy</MudText>
+        <MudText>Vault Mode: @VaultService.VaultMode</MudText>
+        <MudText>Unopened Lunch Boxes: @VaultService.LunchBoxes</MudText>
+        <MudText>Unopened Pet Carrier: @VaultService.PetCarriers</MudText>
+        <MudText>Unopened Mr Handy: @VaultService.MrHandy</MudText>
     
-            <MudText>Unopened Starter Pack: @VaultService.StarterPacks</MudText>
-            <MudText>Stim Packs: @VaultService.StimPacks</MudText>
-            <MudText>RadAway: @VaultService.RadAways</MudText>
+        <MudText>Unopened Starter Pack: @VaultService.StarterPacks</MudText>
+        <MudText>Stim Packs: @VaultService.StimPacks</MudText>
+        <MudText>RadAway: @VaultService.RadAways</MudText>
+        <MudText>
+            @{
+                var resources = VaultService.VaultResources; 
+            }
+            <MudText>Food: @resources.Food.Level / @resources.Food.Max</MudText>
+            <MudText>Energy: @resources.Energy.Level / @resources.Energy.Max</MudText>
+            <MudText>Water: @resources.Water.Level / @resources.Water.Max</MudText>
+        </MudText>
     </MudCardContent>
     
 </MudCard>
