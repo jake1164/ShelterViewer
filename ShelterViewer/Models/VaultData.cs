@@ -10,7 +10,7 @@ namespace ShelterViewer.Models;
 /// <summary>
 /// 
 /// </summary>
-public class Rootobject
+public class VaultData
 {
     public Timemgr timeMgr { get; set; }
     public Localnotificationmgr localNotificationMgr { get; set; }
@@ -292,29 +292,7 @@ public class Stat
     public float exp { get; set; }
 }
 
-public interface IItem
-{
-    public string id { get; set; }
-    public string type { get; set; }
-    public bool hasBeenAssigned { get; set; }
-    public bool hasRandonWeaponBeenAssigned { get; set; }
-}
 
-public class EquippedOutfit : Outfit, IItem
-{ }
-
-public class EquippedWeapon : Weapon, IItem
-{ }
-
-public class EquippedPet : Pet, IItem
-{ }
-
-public class ExtraItemdata
-{
-    public string uniqueName { get; set; }
-    public string bonus { get; set; }
-    public float bonusValue { get; set; }
-}
 
 public class Actor
 {
@@ -460,14 +438,7 @@ public class Inventory1
     public Item[] items { get; set; }
 }
 
-public class Item : IItem
-{
-    public string id { get; set; }
-    public string type { get; set; }
-    public bool hasBeenAssigned { get; set; }
-    public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraItemdata extraData { get; set; }
-}
+
 
 public class Emergencydata
 {
@@ -2277,38 +2248,6 @@ public class Initialequipment
     public Outfit outfit { get; set; }
     public Pet pet { get; set; }
 }
-
-public class Weapon : IItem
-{
-    public string id { get; set; }
-    public string type { get; set; }
-    public bool hasBeenAssigned { get; set; }
-    public bool hasRandonWeaponBeenAssigned { get; set; }
-}
-
-public class Outfit : IItem
-{
-    public string id { get; set; }
-    public string type { get; set; }
-    public bool hasBeenAssigned { get; set; }
-    public bool hasRandonWeaponBeenAssigned { get; set; }
-}
-
-public class Pet : IItem
-{
-    public string id { get; set; }
-    public string type { get; set; }
-    public bool hasBeenAssigned { get; set; }
-    public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraItemdata extraData { get; set; }
-}
-/*
-public class Extradata9
-{
-    public string uniqueName { get; set; }
-    public string bonus { get; set; }
-    public int bonusValue { get; set; }
-}*/
 
 public class Questdwellers
 {
