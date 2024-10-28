@@ -4,7 +4,7 @@
 <MudCard>
     <MudCardHeader>
         <CardHeaderContent>
-            <MudText Align="Align.Center" Typo="Typo.h3">Vault @VaultService.Name</MudText>
+            <MudText Align="Align.Center" Typo="Typo.h3">Vault @VaultService.VaultData!.Vault.VaultName</MudText>
         </CardHeaderContent>
         <CardHeaderActions>
             <MudTooltip Text="Unload Shelter">
@@ -13,14 +13,14 @@
         </CardHeaderActions>
     </MudCardHeader>
     <MudCardContent>
-        <MudText>Vault Mode: @VaultService.VaultMode</MudText>
+        <MudText>Vault Mode: @VaultService.VaultData!.Vault.VaultMode</MudText>
         <MudText>Unopened Lunch Boxes: @VaultService.LunchBoxes</MudText>
         <MudText>Unopened Pet Carrier: @VaultService.PetCarriers</MudText>
         <MudText>Unopened Mr Handy: @VaultService.MrHandy</MudText>
     
         <MudText>Unopened Starter Pack: @VaultService.StarterPacks</MudText>
-        <MudText>Stim Packs: @VaultService.StimPacks</MudText>
-        <MudText>RadAway: @VaultService.RadAways</MudText>
+        <MudText>Stim Packs: @VaultService.VaultData!.Vault.storage.resources.StimPack</MudText>
+        <MudText>RadAway: @VaultService.VaultData!.Vault.storage.resources.RadAway</MudText>
         <MudText>
             @{
                 var resources = VaultService.VaultResources; 

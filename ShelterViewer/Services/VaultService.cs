@@ -18,26 +18,18 @@ public class VaultService
     public event Action? OnVaultChanged = null;
     private IJSRuntime JS;
     private string _vaultString = String.Empty;
-
+    public VaultData? VaultData { get; private set; }
     private dynamic? _vaultData = null;
     private List<Dweller> _dwellers = new();
     private List<Room> _rooms = new();
     private List<IItem> _items = new();
-    
 
-    public string Name 
-    { 
-        get 
-        {
-            return _vaultData?.vault.VaultName ?? String.Empty; 
-        } 
-    }
 
     public int DwellerCount
     {
         get
         {
-            return _vaultData?.dwellers.dwellers.Count ?? 0;
+            return VaultData!.dwellers.dwellers.Count();
         }
     }
 
@@ -45,23 +37,7 @@ public class VaultService
     {
         get
         {
-            return _vaultData?.vault.rooms.Count ?? 0;
-        }
-    }
-
-    public int Caps
-    {
-        get
-        {
-            return _vaultData?.vault.storage.resources.Nuka ?? 0;
-        }
-    }
-
-    public int Quantums
-    {
-        get
-        {
-            return _vaultData?.vault.storage.resources.NukaColaQuantum ?? 0;
+            return VaultData!.Vault.rooms.Count();
         }
     }
 
@@ -69,8 +45,7 @@ public class VaultService
     {
         get
         {
-            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
-            return lunchboxes.Count(x => x == 0);
+            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 0);
         }
     }
 
@@ -78,8 +53,7 @@ public class VaultService
     {
         get
         {
-            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
-            return lunchboxes.Count(x => x == 1);
+            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 1);
         }
     }
 
@@ -87,8 +61,7 @@ public class VaultService
     {
         get
         {
-            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
-            return lunchboxes.Count(x => x == 2);
+            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 2);
         }
     }
 
@@ -96,24 +69,7 @@ public class VaultService
     {
         get
         {
-            var lunchboxes = (_vaultData?.vault.LunchBoxesByType as IEnumerable<dynamic>) ?? new List<dynamic>();
-            return lunchboxes.Count(x => x == 3);
-        }
-    }
-
-    public int StimPacks
-    {
-        get
-        {
-            return _vaultData?.vault.storage.resources.StimPack ?? 0;
-        }
-    }
-
-    public int RadAways
-    {
-        get
-        {
-            return _vaultData?.vault.storage.resources.RadAway ?? 0;
+            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 3);
         }
     }
 
@@ -165,15 +121,6 @@ public class VaultService
         }
     }
 
-    public String VaultMode
-    {
-        get
-        {
-            return _vaultData?.vault.VaultMode ?? "UNK";
-        }
-    }
-
-
     public VaultLevels VaultResources
     {
         get
@@ -202,6 +149,8 @@ public class VaultService
             var settings = new IntJsonConverter();
             _vaultString = vaultJsonString;
             _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
+            VaultData = JsonConvert.DeserializeObject<VaultData>(_vaultString, settings);
+
             _dwellers = GetDwellers();
             _rooms = GetRooms();
             _items = GetItems();

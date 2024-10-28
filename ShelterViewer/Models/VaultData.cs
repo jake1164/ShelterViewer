@@ -19,7 +19,7 @@ public class VaultData
     public Specialtheme specialTheme { get; set; }
     public Dwellers dwellers { get; set; }
     public Constructmgr constructMgr { get; set; }
-    public Vault vault { get; set; }
+    public Vault Vault { get; set; }
     public Dwellerspawner dwellerSpawner { get; set; }
     public string deviceName { get; set; }
     public Tutorialmanager tutorialManager { get; set; }
@@ -2283,7 +2283,7 @@ public class Dweller1
     public string hair { get; set; }
     public Equipedoutfit1 equipedOutfit { get; set; }
     public Equipedweapon1 equipedWeapon { get; set; }
-    public Equippedpet1 equippedPet { get; set; }
+    public EquippedPet equippedPet { get; set; }
     public int savedRoom { get; set; }
     public float lastChildBorn { get; set; }
     public string rarity { get; set; }
@@ -2355,21 +2355,6 @@ public class Equipedweapon1
     public bool hasRandonWeaponBeenAssigned { get; set; }
 }
 
-public class Equippedpet1
-{
-    public string id { get; set; }
-    public string type { get; set; }
-    public bool hasBeenAssigned { get; set; }
-    public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraItemdata extraData { get; set; }
-}
-/*
-public class Extradata10
-{
-    public string uniqueName { get; set; }
-    public string bonus { get; set; }
-    public int bonusValue { get; set; }
-}*/
 
 public class Actor1
 {
