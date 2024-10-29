@@ -1,11 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json.Serialization;
-
+﻿using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 namespace ShelterViewer.Models;
 #pragma warning disable 
 /// <summary>
@@ -21,6 +16,7 @@ public class VaultData
     public Dwellers dwellers { get; set; }
     public Constructmgr constructMgr { get; set; }
     [JsonPropertyName("vault")]
+    [JsonProperty("vault")]
     public Vault Vault { get; set; }
     public Dwellerspawner dwellerSpawner { get; set; }
     public string deviceName { get; set; }
@@ -147,10 +143,10 @@ public class Cafeteria_Xmas
     public string type { get; set; }
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraRoomdata extraData { get; set; }
+    public Extradata extraData { get; set; }
 }
 
-public class ExtraRoomdata
+public class Extradata
 {
     public int partsCollectedCount { get; set; }
     public bool IsCraftingInProgress { get; set; }
@@ -166,7 +162,17 @@ public class Cafeteria_Halloween
     public string type { get; set; }
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraRoomdata extraData { get; set; }
+    public Extradata1 extraData { get; set; }
+}
+
+public class Extradata1
+{
+    public int partsCollectedCount { get; set; }
+    public bool IsCraftingInProgress { get; set; }
+    public bool IsCrafted { get; set; }
+    public bool IsClaimed { get; set; }
+    public bool IsClaimedInCraftingRoom { get; set; }
+    public bool IsNew { get; set; }
 }
 
 public class Cafeteria_Thanksgiving
@@ -175,7 +181,17 @@ public class Cafeteria_Thanksgiving
     public string type { get; set; }
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraRoomdata extraData { get; set; }
+    public Extradata2 extraData { get; set; }
+}
+
+public class Extradata2
+{
+    public int partsCollectedCount { get; set; }
+    public bool IsCraftingInProgress { get; set; }
+    public bool IsCrafted { get; set; }
+    public bool IsClaimed { get; set; }
+    public bool IsClaimedInCraftingRoom { get; set; }
+    public bool IsNew { get; set; }
 }
 
 public class Livingquarters_Xmas
@@ -184,7 +200,17 @@ public class Livingquarters_Xmas
     public string type { get; set; }
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraRoomdata extraData { get; set; }
+    public Extradata3 extraData { get; set; }
+}
+
+public class Extradata3
+{
+    public int partsCollectedCount { get; set; }
+    public bool IsCraftingInProgress { get; set; }
+    public bool IsCrafted { get; set; }
+    public bool IsClaimed { get; set; }
+    public bool IsClaimedInCraftingRoom { get; set; }
+    public bool IsNew { get; set; }
 }
 
 public class Livingquarters_Halloween
@@ -193,7 +219,17 @@ public class Livingquarters_Halloween
     public string type { get; set; }
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraRoomdata extraData { get; set; }
+    public Extradata4 extraData { get; set; }
+}
+
+public class Extradata4
+{
+    public int partsCollectedCount { get; set; }
+    public bool IsCraftingInProgress { get; set; }
+    public bool IsCrafted { get; set; }
+    public bool IsClaimed { get; set; }
+    public bool IsClaimedInCraftingRoom { get; set; }
+    public bool IsNew { get; set; }
 }
 
 public class Livingquarters_Thanksgiving
@@ -202,7 +238,17 @@ public class Livingquarters_Thanksgiving
     public string type { get; set; }
     public bool hasBeenAssigned { get; set; }
     public bool hasRandonWeaponBeenAssigned { get; set; }
-    public ExtraRoomdata extraData { get; set; }
+    public Extradata5 extraData { get; set; }
+}
+
+public class Extradata5
+{
+    public int partsCollectedCount { get; set; }
+    public bool IsCraftingInProgress { get; set; }
+    public bool IsCrafted { get; set; }
+    public bool IsClaimed { get; set; }
+    public bool IsClaimedInCraftingRoom { get; set; }
+    public bool IsNew { get; set; }
 }
 
 public class Dwellers
@@ -237,13 +283,13 @@ public class Dweller
     public long outfitColor { get; set; }
     public int pendingExperienceReward { get; set; }
     public string hair { get; set; }
-    public string faceMask { get; set; }
     public EquippedOutfit equipedOutfit { get; set; }
     public EquippedWeapon equipedWeapon { get; set; }
     public int savedRoom { get; set; }
     public float lastChildBorn { get; set; }
     public string rarity { get; set; }
-    public float deathTime { get; set; }
+    public int deathTime { get; set; }
+    public string faceMask { get; set; }
     public EquippedPet? equippedPet { get; set; }
     public string uniqueData { get; set; }
     public int daysOnWasteland { get; set; }
@@ -266,7 +312,7 @@ public class Health
 
 public class Experience
 {
-    public long experienceValue { get; set; }
+    public float experienceValue { get; set; }
     public int currentLevel { get; set; }
     public int storage { get; set; }
     public int accum { get; set; }
@@ -294,7 +340,20 @@ public class Stat
     public float exp { get; set; }
 }
 
+public class Equipedoutfit
+{
+    public string id { get; set; }
+    public string type { get; set; }
+    public bool hasBeenAssigned { get; set; }
+    public bool hasRandonWeaponBeenAssigned { get; set; }
+}
 
+public class Extradata6
+{
+    public string uniqueName { get; set; }
+    public string bonus { get; set; }
+    public float bonusValue { get; set; }
+}
 
 public class Actor
 {
@@ -328,36 +387,36 @@ public class Storage
 
 public class Resources
 {
-    public int Nuka { get; set; }
+    public float Nuka { get; set; }
     public float Food { get; set; }
     public float Energy { get; set; }
     public float Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Bonus
 {
-    public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
+    public float Nuka { get; set; }
+    public float Food { get; set; }
+    public float Energy { get; set; }
+    public float Water { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Inventory
@@ -379,7 +438,7 @@ public class Vault
 {
     public Rock[] rocks { get; set; }
     public Room[] rooms { get; set; }
-    public Storage storage { get; set; }
+    public Storage1 storage { get; set; }
     public Inventory1 inventory { get; set; }
     public Emergencydata emergencyData { get; set; }
     public Roomconsumption roomConsumption { get; set; }
@@ -395,11 +454,57 @@ public class Vault
     public Wasteland wasteland { get; set; }
 }
 
+public class Storage1
+{
+    public Resources1 resources { get; set; }
+    public Bonus1 bonus { get; set; }
+}
+
+public class Resources1
+{
+    public float Nuka { get; set; }
+    public float Food { get; set; }
+    public float Energy { get; set; }
+    public float Water { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
+}
+
+public class Bonus1
+{
+    public float Nuka { get; set; }
+    public float Food { get; set; }
+    public float Energy { get; set; }
+    public float Water { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
+}
+
 public class Inventory1
 {
     public Item[] items { get; set; }
 }
 
+public class Extradata7
+{
+    public string uniqueName { get; set; }
+    public string bonus { get; set; }
+    public float bonusValue { get; set; }
+}
 
 public class Emergencydata
 {
@@ -452,7 +557,7 @@ public class Requirement
     public int currentLegendaryDwellers { get; set; }
     public int currentLegendaryOutfits { get; set; }
     public int currentLegendaryWeapons { get; set; }
-    public int nukaCount { get; set; }
+    public float nukaCount { get; set; }
     public bool isAchievement { get; set; }
     public int currentNumberQuestsCompleted { get; set; }
     public int currentNumberItems { get; set; }
@@ -482,7 +587,7 @@ public class State
 public class Team
 {
     public int[] dwellers { get; set; }
-    public int returnTripDuration { get; set; }
+    public float returnTripDuration { get; set; }
     public int elapsedTimeAliveExploring { get; set; }
     public int elapsedReturningTime { get; set; }
     public int teamIndex { get; set; }
@@ -506,7 +611,9 @@ public class Team
     public Initialitem[] initialItems { get; set; }
     public int postQuestStimpakDifference { get; set; }
     public int postQuestRadawayDifference { get; set; }
-    public int?[] initialRadDamage { get; set; }
+    public float?[] initialRadDamage { get; set; }
+    public string questName { get; set; }
+    public int questteamRandomIdentifier { get; set; }
 }
 
 public class Teamequipment
@@ -526,36 +633,36 @@ public class Storage2
 
 public class Resources2
 {
-    public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
+    public float Nuka { get; set; }
+    public float Food { get; set; }
+    public float Energy { get; set; }
+    public float Water { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Bonus2
 {
-    public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
+    public float Nuka { get; set; }
+    public float Food { get; set; }
+    public float Energy { get; set; }
+    public float Water { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Inventory2
@@ -600,7 +707,7 @@ public class Cycle
     public int taskId { get; set; }
     public object[] pendingCycles { get; set; }
     public Teamencounter[] teamEncounters { get; set; }
-    public object[] inProgress { get; set; }
+    public Inprogress[] inProgress { get; set; }
 }
 
 public class Teamencounter
@@ -613,6 +720,15 @@ public class Teamencounter1
 {
     public string[] nonRepeatable { get; set; }
     public string poolType { get; set; }
+}
+
+public class Inprogress
+{
+    public int team { get; set; }
+    public int ptask { get; set; }
+    public int rtask { get; set; }
+    public string encounter { get; set; }
+    public bool isStandardEncounter { get; set; }
 }
 
 public class Mrhandycycle
@@ -651,10 +767,10 @@ public class Room
     public bool roomOutline { get; set; }
     public bool broken { get; set; }
     public bool withHole { get; set; }
-    public Child[] children { get; set; }
+    public object[] children { get; set; }
     public object[] partners { get; set; }
     public Storage3 storage { get; set; }
-    public int numberOfProductionCycle { get; set; }
+    public float numberOfProductionCycle { get; set; }
     public bool ExperienceRewardIsDirty { get; set; }
     public string[] IngredientItemIds { get; set; }
     public string CraftingItemId { get; set; }
@@ -673,11 +789,10 @@ public class Roomhealth
 
 public class Currentstate
 {
-    public int breedingTaskId { get; set; }
     public int taskId { get; set; }
     public string notificationId { get; set; }
     public float remainingTime { get; set; }
-    public int estimatedTime { get; set; }
+    public float estimatedTime { get; set; }
 }
 
 public class Storage3
@@ -693,38 +808,31 @@ public class Resources3
     public float Energy { get; set; }
     public float Water { get; set; }
     public float StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Bonus3
 {
-    public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
-}
-
-public class Child
-{
-    public int taskID { get; set; }
-    public int dwellerID { get; set; }
-    public int notificationID { get; set; }
+    public float Nuka { get; set; }
+    public float Food { get; set; }
+    public float Energy { get; set; }
+    public float Water { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Slot
@@ -747,8 +855,8 @@ public class Tutorialmanager
     public bool lunchboxTutorialMessage { get; set; }
     public bool showingObjectiveTutorialMessage { get; set; }
     public bool showingLunchboxTutorialMessage { get; set; }
-    public int showWastelandMessageTime { get; set; }
-    public int showExploreWastelandMessageTime { get; set; }
+    public float showWastelandMessageTime { get; set; }
+    public float showExploreWastelandMessageTime { get; set; }
     public bool exploreWastelandMessageShown { get; set; }
     public int skippedTutorial { get; set; }
     public int questTutorialCompleted { get; set; }
@@ -930,10 +1038,9 @@ public class Happinessmanager
     public Room28851[] room28851 { get; set; }
     public Room27960[] room27960 { get; set; }
     public Room7296[] room7296 { get; set; }
-    public Room6[] room6 { get; set; }
-    public Room3025[] room3025 { get; set; }
+    public Room39930[] room39930 { get; set; }
     public Room33361[] room33361 { get; set; }
-    public Room39940[] room39940 { get; set; }
+    public Room33356[] room33356 { get; set; }
     public Room39923[] room39923 { get; set; }
     public Room39918[] room39918 { get; set; }
     public int[] rooms { get; set; }
@@ -946,7 +1053,6 @@ public class Happinessmanager
     public Dweller16[] dweller16 { get; set; }
     public Dweller9[] dweller9 { get; set; }
     public Dweller46[] dweller46 { get; set; }
-    public Dweller72[] dweller72 { get; set; }
     public Dweller15[] dweller15 { get; set; }
     public Dweller80[] dweller80 { get; set; }
     public Dweller89[] dweller89 { get; set; }
@@ -979,34 +1085,39 @@ public class Happinessmanager
     public Dweller32[] dweller32 { get; set; }
     public Dweller101[] dweller101 { get; set; }
     public Dweller110[] dweller110 { get; set; }
-    public Dweller107[] dweller107 { get; set; }
+    public Dweller127[] dweller127 { get; set; }
     public Dweller63[] dweller63 { get; set; }
-    public Dweller33[] dweller33 { get; set; }
+    public Dweller107[] dweller107 { get; set; }
     public Dweller117[] dweller117 { get; set; }
     public Dweller83[] dweller83 { get; set; }
-    public Dweller127[] dweller127 { get; set; }
+    public Dweller33[] dweller33 { get; set; }
     public Dweller56[] dweller56 { get; set; }
     public Dweller109[] dweller109 { get; set; }
     public Dweller74[] dweller74 { get; set; }
     public Dweller25[] dweller25 { get; set; }
-    public Dweller122[] dweller122 { get; set; }
     public Dweller112[] dweller112 { get; set; }
-    public Dweller125[] dweller125 { get; set; }
     public Dweller98[] dweller98 { get; set; }
     public Dweller128[] dweller128 { get; set; }
-    public Dweller29[] dweller29 { get; set; }
-    public Dweller53[] dweller53 { get; set; }
-    public Dweller7[] dweller7 { get; set; }
+    public Dweller1[] dweller1 { get; set; }
+    public Dweller85[] dweller85 { get; set; }
     public Dweller78[] dweller78 { get; set; }
-    public Dweller10[] dweller10 { get; set; }
-    public Dweller130[] dweller130 { get; set; }
+    public Dweller72[] dweller72 { get; set; }
+    public Dweller120[] dweller120 { get; set; }
+    public Dweller135[] dweller135 { get; set; }
+    public Dweller121[] dweller121 { get; set; }
+    public Dweller52[] dweller52 { get; set; }
+    public Dweller125[] dweller125 { get; set; }
+    public Dweller71[] dweller71 { get; set; }
+    public Dweller122[] dweller122 { get; set; }
+    public Dweller14[] dweller14 { get; set; }
+    public Dweller154[] dweller154 { get; set; }
     public int[] dwellers { get; set; }
 }
 
 public class Room487
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1014,7 +1125,7 @@ public class Room487
 public class Room712
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1022,7 +1133,7 @@ public class Room712
 public class Room1137
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1030,7 +1141,7 @@ public class Room1137
 public class Room411
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1038,7 +1149,7 @@ public class Room411
 public class Room1726
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1046,7 +1157,7 @@ public class Room1726
 public class Room2736
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1054,7 +1165,7 @@ public class Room2736
 public class Room139
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1062,7 +1173,7 @@ public class Room139
 public class Room2323
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1070,7 +1181,7 @@ public class Room2323
 public class Room1724
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1078,7 +1189,7 @@ public class Room1724
 public class Room1773
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1086,7 +1197,7 @@ public class Room1773
 public class Room1772
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1094,7 +1205,7 @@ public class Room1772
 public class Room1728
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1102,7 +1213,7 @@ public class Room1728
 public class Room12
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1110,7 +1221,7 @@ public class Room12
 public class Room7503
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1118,7 +1229,7 @@ public class Room7503
 public class Room5853
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1126,7 +1237,7 @@ public class Room5853
 public class Room5467
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1134,7 +1245,7 @@ public class Room5467
 public class Room9026
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1142,7 +1253,7 @@ public class Room9026
 public class Room3830
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1150,7 +1261,7 @@ public class Room3830
 public class Room324
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1158,7 +1269,7 @@ public class Room324
 public class Room8078
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1166,7 +1277,7 @@ public class Room8078
 public class Room1631
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1174,7 +1285,7 @@ public class Room1631
 public class Room9450
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1182,7 +1293,7 @@ public class Room9450
 public class Room1
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1190,7 +1301,7 @@ public class Room1
 public class Room14272
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1198,7 +1309,7 @@ public class Room14272
 public class Room15641
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1206,7 +1317,7 @@ public class Room15641
 public class Room8461
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1214,7 +1325,7 @@ public class Room8461
 public class Room3741
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1222,7 +1333,7 @@ public class Room3741
 public class Room4776
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1230,7 +1341,7 @@ public class Room4776
 public class Room409
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1238,7 +1349,7 @@ public class Room409
 public class Room1771
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1246,7 +1357,7 @@ public class Room1771
 public class Room23102
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1254,7 +1365,7 @@ public class Room23102
 public class Room24112
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1262,7 +1373,7 @@ public class Room24112
 public class Room24597
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1270,7 +1381,7 @@ public class Room24597
 public class Room28851
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1278,7 +1389,7 @@ public class Room28851
 public class Room27960
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1286,23 +1397,15 @@ public class Room27960
 public class Room7296
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
 
-public class Room6
+public class Room39930
 {
     public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-    public int dc { get; set; }
-}
-
-public class Room3025
-{
-    public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1310,15 +1413,15 @@ public class Room3025
 public class Room33361
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
 
-public class Room39940
+public class Room33356
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1326,7 +1429,7 @@ public class Room39940
 public class Room39923
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1334,7 +1437,7 @@ public class Room39923
 public class Room39918
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
     public int dc { get; set; }
 }
@@ -1342,441 +1445,469 @@ public class Room39918
 public class Dweller13
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller8
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller42
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller4
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller43
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller34
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller16
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller9
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller46
 {
     public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller72
-{
-    public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller15
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller80
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller89
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller12
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller45
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller68
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller18
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller73
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller19
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller119
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller17
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller99
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller95
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller44
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller87
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller55
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller2
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller60
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller100
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller30
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller97
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller23
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller116
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller5
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller93
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller40
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller62
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller124
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller92
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller32
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller101
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller110
 {
     public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller107
-{
-    public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller63
-{
-    public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller33
-{
-    public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller117
-{
-    public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller83
-{
-    public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller127
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller63
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller107
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller117
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller83
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller33
+{
+    public int type { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller56
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller109
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller74
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller25
 {
     public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller122
-{
-    public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller112
 {
     public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller125
-{
-    public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller98
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller128
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
-public class Dweller29
+public class Dweller1
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
-public class Dweller53
+public class Dweller85
 {
     public int type { get; set; }
-    public int rh { get; set; }
-    public bool _in { get; set; }
-}
-
-public class Dweller7
-{
-    public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
 public class Dweller78
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
-public class Dweller10
+public class Dweller72
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
-public class Dweller130
+public class Dweller120
 {
     public int type { get; set; }
-    public int rh { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller135
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller121
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller52
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller125
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller71
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller122
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller14
+{
+    public int type { get; set; }
+    public float rh { get; set; }
+    public bool _in { get; set; }
+}
+
+public class Dweller154
+{
+    public int type { get; set; }
+    public float rh { get; set; }
     public bool _in { get; set; }
 }
 
@@ -1790,7 +1921,7 @@ public class Refugeespawner
 
 public class Deathclawmanager
 {
-    public int deathclawTotalExtraChance { get; set; }
+    public float deathclawTotalExtraChance { get; set; }
     public bool canDeathclawEmergencyOccurs { get; set; }
     public int deathclawCooldownID { get; set; }
 }
@@ -1800,7 +1931,7 @@ public class Mysteriousstranger
     public string currentState { get; set; }
     public bool canAppear { get; set; }
     public float timeToAppear { get; set; }
-    public int remainingTimeToAppear { get; set; }
+    public float remainingTimeToAppear { get; set; }
 }
 
 public class Statswindow
@@ -1850,8 +1981,8 @@ public class Vaultdata
     public int emergencyStopRadscorpion { get; set; }
     public int emergencyStopMolerat { get; set; }
     public int dwellersSentWasteland { get; set; }
-    public int wastelandTotalTime { get; set; }
-    public int wastelandCreaturesKilled { get; set; }
+    public float wastelandTotalTime { get; set; }
+    public float wastelandCreaturesKilled { get; set; }
     public bool vaultCreatedBeforeUpdate { get; set; }
     public int dwellersCustomized { get; set; }
     public long measuringSince { get; set; }
@@ -1862,41 +1993,41 @@ public class Vaultdata
 
 public class Collectedres
 {
-    public int Nuka { get; set; }
+    public float Nuka { get; set; }
     public float Food { get; set; }
     public float Energy { get; set; }
     public float Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Previousvresources
 {
-    public int Nuka { get; set; }
+    public float Nuka { get; set; }
     public float Food { get; set; }
     public float Energy { get; set; }
     public float Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
+    public float StimPack { get; set; }
+    public float RadAway { get; set; }
+    public float Lunchbox { get; set; }
+    public float MrHandy { get; set; }
+    public float PetCarrier { get; set; }
+    public float CraftedOutfit { get; set; }
+    public float CraftedWeapon { get; set; }
+    public float NukaColaQuantum { get; set; }
+    public float CraftedTheme { get; set; }
 }
 
 public class Bottleandcappymgrserializekey
 {
-    public int SerializeAccumulatedTriggerChance { get; set; }
+    public float SerializeAccumulatedTriggerChance { get; set; }
     public bool SerializeLocked { get; set; }
     public int SerializeUnlockTask { get; set; }
 }
@@ -1944,8 +2075,16 @@ public class Historydaily
 
 public class Weeklyquestpicker
 {
-    public object[] currentWeeklies { get; set; }
+    public Currentweekly[] currentWeeklies { get; set; }
     public Historyweekly[] historyWeeklies { get; set; }
+}
+
+public class Currentweekly
+{
+    public string startDate { get; set; }
+    public string endDate { get; set; }
+    public string officialStartDate { get; set; }
+    public string questName { get; set; }
 }
 
 public class Historyweekly
@@ -2032,8 +2171,8 @@ public class Wasteland1
 
 public class Roomhealth1
 {
-    public int damageValue { get; set; }
-    public int initialValue { get; set; }
+    public float damageValue { get; set; }
+    public float initialValue { get; set; }
 }
 
 public class Currentstate1
@@ -2070,20 +2209,16 @@ public class Roomlist
     public string secondaryObjective { get; set; }
     public string thirdObjective { get; set; }
     public string objectiveTextOverride { get; set; }
+    public Combatparameters combatParameters { get; set; }
     public string debugRoomId { get; set; }
     public int xp { get; set; }
     public bool mainPath { get; set; }
-    public Combatparameters combatParameters { get; set; }
-    public bool withHole { get; set; }
-    public Completionloot completionLoot { get; set; }
-    public Fighter[] Fighters { get; set; }
-    public Pickableloot[] pickableLoot { get; set; }
 }
 
 public class Roomhealth2
 {
-    public int damageValue { get; set; }
-    public int initialValue { get; set; }
+    public float damageValue { get; set; }
+    public float initialValue { get; set; }
 }
 
 public class Currentstate2
@@ -2097,44 +2232,10 @@ public class Combatparameters
     public int enemyCount { get; set; }
     public bool boss { get; set; }
     public Loot loot { get; set; }
-    public string dialogue { get; set; }
+    public object dialogue { get; set; }
 }
 
 public class Loot
-{
-    public int LootType { get; set; }
-    public string LootID { get; set; }
-    public int LootQuantity { get; set; }
-    public int FromVaultQuantity { get; set; }
-    public int InitialEquippedQuantity { get; set; }
-    public int CurrentlyEquippedQuantity { get; set; }
-}
-
-public class Completionloot
-{
-    public int LootType { get; set; }
-    public string LootID { get; set; }
-    public int LootQuantity { get; set; }
-    public int FromVaultQuantity { get; set; }
-    public int InitialEquippedQuantity { get; set; }
-    public int CurrentlyEquippedQuantity { get; set; }
-}
-
-public class Fighter
-{
-    public Fighterhealth fighterHealth { get; set; }
-    public float[] Position { get; set; }
-    public bool IsBoss { get; set; }
-    public int NukaLoot { get; set; }
-    public bool Death { get; set; }
-}
-
-public class Fighterhealth
-{
-    public float HealthValue { get; set; }
-}
-
-public class Pickableloot
 {
     public int LootType { get; set; }
     public string LootID { get; set; }
@@ -2207,19 +2308,18 @@ public class Initialequipment
     public int dweller { get; set; }
     public Weapon weapon { get; set; }
     public Outfit outfit { get; set; }
-    public Pet pet { get; set; }
 }
 
 public class Questdwellers
 {
-    public Dweller1[] dwellers { get; set; }
-    public Actor1[] actors { get; set; }
+    public Dweller3[] dwellers { get; set; }
+    public object[] actors { get; set; }
     public int id { get; set; }
     public int mrhId { get; set; }
-    public int min_happiness { get; set; }
+    public float min_happiness { get; set; }
 }
 
-public class Dweller1
+public class Dweller3
 {
     public int serializeId { get; set; }
     public string name { get; set; }
@@ -2244,7 +2344,6 @@ public class Dweller1
     public string hair { get; set; }
     public Equipedoutfit1 equipedOutfit { get; set; }
     public Equipedweapon1 equipedWeapon { get; set; }
-    public EquippedPet equippedPet { get; set; }
     public int savedRoom { get; set; }
     public float lastChildBorn { get; set; }
     public string rarity { get; set; }
@@ -2253,7 +2352,6 @@ public class Dweller1
     public int dwellerRoom { get; set; }
     public float dwellerCriticalMeter { get; set; }
     public float dwellerCriticalFactor { get; set; }
-    public string faceMask { get; set; }
 }
 
 public class Happiness1
@@ -2263,7 +2361,7 @@ public class Happiness1
 
 public class Health1
 {
-    public int healthValue { get; set; }
+    public float healthValue { get; set; }
     public float radiationValue { get; set; }
     public bool permaDeath { get; set; }
     public int lastLevelUpdated { get; set; }
@@ -2272,7 +2370,7 @@ public class Health1
 
 public class Experience1
 {
-    public int experienceValue { get; set; }
+    public float experienceValue { get; set; }
     public int currentLevel { get; set; }
     public int storage { get; set; }
     public int accum { get; set; }
@@ -2316,81 +2414,6 @@ public class Equipedweapon1
     public bool hasRandonWeaponBeenAssigned { get; set; }
 }
 
-
-public class Actor1
-{
-    public int characterType { get; set; }
-    public string actorDataId { get; set; }
-    public int serializeId { get; set; }
-    public string name { get; set; }
-    public bool canCollect { get; set; }
-    public bool willGoToWasteland { get; set; }
-    public Equipment1 equipment { get; set; }
-    public int health { get; set; }
-    public bool death { get; set; }
-    public int savedRoom { get; set; }
-    public int FollowedID { get; set; }
-}
-
-public class Equipment1
-{
-    public Storage4 storage { get; set; }
-    public Inventory3 inventory { get; set; }
-    public object[] dwellers { get; set; }
-    public object[] questClues { get; set; }
-    public Collectedthemes3 collectedThemes { get; set; }
-}
-
-public class Storage4
-{
-    public Resources4 resources { get; set; }
-    public Bonus4 bonus { get; set; }
-}
-
-public class Resources4
-{
-    public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
-}
-
-public class Bonus4
-{
-    public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
-}
-
-public class Inventory3
-{
-    public object[] items { get; set; }
-}
-
-public class Collectedthemes3
-{
-    public object[] themeList { get; set; }
-}
-
 public class Questdwellerspawner
 {
     public object[] dwellersWaiting { get; set; }
@@ -2400,14 +2423,23 @@ public class Task1
 {
     public int id { get; set; }
     public float time { get; set; }
-    public object[] tasks { get; set; }
+    public Task2[] tasks { get; set; }
     public object[] pausedTasks { get; set; }
+}
+
+public class Task2
+{
+    public float startTime { get; set; }
+    public float endTime { get; set; }
+    public int id { get; set; }
+    public bool paused { get; set; }
+    public bool rescheduleToOldest { get; set; }
 }
 
 public class Time
 {
     public float gameTime { get; set; }
-    public long questTime { get; set; }
+    public float questTime { get; set; }
     public float time { get; set; }
     public long timeSaveDate { get; set; }
     public long timeGameBegin { get; set; }

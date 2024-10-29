@@ -153,17 +153,9 @@ public class VaultService
             var settings = new IntJsonConverter();
             VaultString = vaultJsonString;
             _vaultData = JsonConvert.DeserializeObject<dynamic>(VaultString, settings);
-            VaultData = JsonConvert.DeserializeObject<VaultData>(VaultString, settings);
-            /*
-            VaultData2 = System.Text.Json.JsonSerializer.Deserialize<VaultData>(VaultString, new JsonSerializerOptions
-            {
-                Converters = 
-                {
-                   // new LongJsonConverter(),
-                   // new IntegerJsonConverter()
-                }
-            });
-            */
+            
+            VaultData = System.Text.Json.JsonSerializer.Deserialize<VaultData>(VaultString, new JsonSerializerOptions());
+            
             _dwellers = GetDwellers();
             _rooms = GetRooms();
             _items = GetItems();
