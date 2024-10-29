@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using ShelterViewer.Models;
 using ShelterViewer.Utility;
@@ -16,9 +17,12 @@ namespace ShelterViewer.Services;
 public class VaultService
 {
     public event Action? OnVaultChanged = null;
-    private IJSRuntime JS;
-    private string _vaultString = String.Empty;
+    
+    public string VaultString { get; set; } = String.Empty;
     public VaultData? VaultData { get; private set; }
+    public VaultData? VaultData2 { get; private set; }
+
+    private IJSRuntime JS;
     private dynamic? _vaultData = null;
     private List<Dweller> _dwellers = new();
     private List<Room> _rooms = new();
@@ -147,10 +151,19 @@ public class VaultService
         try
         {
             var settings = new IntJsonConverter();
-            _vaultString = vaultJsonString;
-            _vaultData = JsonConvert.DeserializeObject<dynamic>(_vaultString, settings);
-            VaultData = JsonConvert.DeserializeObject<VaultData>(_vaultString, settings);
-
+            VaultString = vaultJsonString;
+            _vaultData = JsonConvert.DeserializeObject<dynamic>(VaultString, settings);
+            VaultData = JsonConvert.DeserializeObject<VaultData>(VaultString, settings);
+            /*
+            VaultData2 = System.Text.Json.JsonSerializer.Deserialize<VaultData>(VaultString, new JsonSerializerOptions
+            {
+                Converters = 
+                {
+                   // new LongJsonConverter(),
+                   // new IntegerJsonConverter()
+                }
+            });
+            */
             _dwellers = GetDwellers();
             _rooms = GetRooms();
             _items = GetItems();
@@ -160,20 +173,20 @@ public class VaultService
         } 
         catch (Exception ex)
         {
-            _vaultString = String.Empty;
+            VaultString = String.Empty;
             Log("Unable to convert vault string to JSON Object: " + ex.Message);            
         }
     }
 
     public void CloseVault()
     {
-        _vaultString = String.Empty;
+        VaultString = String.Empty;
         _vaultData = null;
         NotifyPropertyChanged();
     }
     public bool IsVaultEmpty()
     {
-        return _vaultString == String.Empty;
+        return VaultString == String.Empty;
     }
 
     private List<Dweller> GetDwellers()

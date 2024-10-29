@@ -16,14 +16,14 @@
             <span>Fallout Shelter Viewer</span>
         } else
         {
-            <span>Fallout Shelter @VaultService.VaultData!.Vault.VaultName</span>
+            <span>Fallout Shelter @VaultService.VaultData?.Vault.VaultName</span>
         }
 
         <MudSpacer/>
         @if(!VaultService.IsVaultEmpty())
         {
-            <MudText Style="padding-right: 20px;">@VaultService.VaultData!.Vault.storage.resources.Nuka Caps</MudText>
-            <MudText>@VaultService.VaultData!.Vault.storage.resources.NukaColaQuantum Nuka Quantums</MudText>
+            <MudText Style="padding-right: 20px;">@(VaultService.VaultData?.Vault.storage.resources.Nuka ?? 0) Caps</MudText>
+            <MudText>@(VaultService.VaultData?.Vault.storage.resources.NukaColaQuantum ?? 0) Nuka Quantums</MudText>
         }
         <MudTooltip Text="@(LayoutService.IsDarkMode ? "Switch to Light Theme" : "Switch to Dark Theme")" Delay="800" Arrow="true" Placement="Placement.Right" Color="Color.Dark">
             <MudIconButton Icon="@LayoutService.DarkLightModeButtonIcon" Color="Color.Inherit" OnClick="@LayoutService.ToggleDarkMode" />

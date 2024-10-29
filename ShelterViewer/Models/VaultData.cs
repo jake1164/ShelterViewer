@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace ShelterViewer.Models;
 #pragma warning disable 
@@ -19,6 +20,7 @@ public class VaultData
     public Specialtheme specialTheme { get; set; }
     public Dwellers dwellers { get; set; }
     public Constructmgr constructMgr { get; set; }
+    [JsonPropertyName("vault")]
     public Vault Vault { get; set; }
     public Dwellerspawner dwellerSpawner { get; set; }
     public string deviceName { get; set; }
@@ -53,7 +55,7 @@ public class VaultData
 public class Timemgr
 {
     public float gameTime { get; set; }
-    public int questTime { get; set; }
+    public float questTime { get; set; }
     public float time { get; set; }
     public long timeSaveDate { get; set; }
     public long timeGameBegin { get; set; }
@@ -107,14 +109,14 @@ public class Ratingmgr
 public class Rating
 {
     public int rating { get; set; }
-    public int time { get; set; }
+    public float time { get; set; }
     public bool collected { get; set; }
 }
 
 public class Ratingslast
 {
     public int rating { get; set; }
-    public int time { get; set; }
+    public float time { get; set; }
     public bool collected { get; set; }
 }
 
@@ -327,9 +329,9 @@ public class Storage
 public class Resources
 {
     public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
+    public float Food { get; set; }
+    public float Energy { get; set; }
+    public float Water { get; set; }
     public int StimPack { get; set; }
     public int RadAway { get; set; }
     public int Lunchbox { get; set; }
@@ -377,7 +379,7 @@ public class Vault
 {
     public Rock[] rocks { get; set; }
     public Room[] rooms { get; set; }
-    public Storage1 storage { get; set; }
+    public Storage storage { get; set; }
     public Inventory1 inventory { get; set; }
     public Emergencydata emergencyData { get; set; }
     public Roomconsumption roomConsumption { get; set; }
@@ -393,51 +395,10 @@ public class Vault
     public Wasteland wasteland { get; set; }
 }
 
-public class Storage1
-{
-    public Resources1 resources { get; set; }
-    public Bonus1 bonus { get; set; }
-}
-
-public class Resources1
-{
-    public int Nuka { get; set; }
-    public float Food { get; set; }
-    public float Energy { get; set; }
-    public float Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
-}
-
-public class Bonus1
-{
-    public int Nuka { get; set; }
-    public int Food { get; set; }
-    public int Energy { get; set; }
-    public int Water { get; set; }
-    public int StimPack { get; set; }
-    public int RadAway { get; set; }
-    public int Lunchbox { get; set; }
-    public int MrHandy { get; set; }
-    public int PetCarrier { get; set; }
-    public int CraftedOutfit { get; set; }
-    public int CraftedWeapon { get; set; }
-    public int NukaColaQuantum { get; set; }
-    public int CraftedTheme { get; set; }
-}
-
 public class Inventory1
 {
     public Item[] items { get; set; }
 }
-
 
 
 public class Emergencydata
@@ -2446,7 +2407,7 @@ public class Task1
 public class Time
 {
     public float gameTime { get; set; }
-    public int questTime { get; set; }
+    public long questTime { get; set; }
     public float time { get; set; }
     public long timeSaveDate { get; set; }
     public long timeGameBegin { get; set; }

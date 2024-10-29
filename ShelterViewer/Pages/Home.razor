@@ -11,7 +11,7 @@
         <span>Vault</span>
     } else
     {
-        <span>Vault @VaultService.VaultData!.Vault.VaultName</span>
+        <span>Vault @VaultService.VaultData?.Vault.VaultName</span>
     }
 </PageTitle>
 <Loading IsLoading="loading">
@@ -43,7 +43,7 @@
 
     }else
     {
-        <VaultInfo UnloadVault="UnloadFile" />
+        <VaultInfo UnloadVault="UnloadFile" SaveVaultFile="SaveVaultFile" />
     }
 </Loading>
 @code {
@@ -57,9 +57,9 @@
         {
             loading = true;
             //await System.Threading.Tasks.Task.Delay(1);
+            
             var content = await JS.InvokeAsync<string>("shelter.readFileAsBase64", fileInput);
             var jsonString = await JS.InvokeAsync<string>("shelter.decryptString", content);
-            Console.WriteLine(jsonString);
             VaultService.InitializeVault(jsonString);
         } catch (Exception ex)
         {
@@ -76,5 +76,14 @@
     {
         VaultService.CloseVault();
         StateHasChanged();
+    }
+
+    private async void SaveVaultFile()
+    {
+        var vaultString = VaultService.VaultString;
+        var vaultName = VaultService.VaultData?.Vault.VaultName ?? "Vault";
+        
+        var fileName = $"Vault{vaultName}.json";
+        await JS.InvokeVoidAsync("shelter.downloadFile", fileName, vaultString, "application/json");
     }
 }
