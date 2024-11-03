@@ -13,44 +13,22 @@
        
         <PropertyColumn Property="x => x.name" Title="Name" />
         <PropertyColumn Property="x => x.lastName" Title="Last Name" />
+        <!-- Theme Rarity?  add icon? 
         <PropertyColumn Property="x => x.rarity" Title="Rarity" />
+        -->
         <PropertyColumn Property="x => x.experience.currentLevel" Title="Level" />
 
         <TemplateColumn Sortable="true" SortBy="x => x.health.healthValue" T="Dweller" Title="Health">
             <CellTemplate>
-                <MudTooltip>
-                    <ChildContent>
-                    <div style="display:flex;">
-                        <MudProgressLinear Value="context.Item.health.healthValue"
-                                           Max="context.Item.health.maxHealth"
-                                           Color="Color.Success"
-                                           Size="Size.Medium" />
-                        @if (context.Item.health.radiationValue > 0)
-                        {
-                            <MudProgressLinear Class="rtl-progress"
-                                               Value="context.Item.health.radiationValue"
-                                               Size="Size.Medium"
-                                               Color="Color.Error" />
-                        }
-                    </div>
-                    </ChildContent>
-                    <TooltipContent>
-                        <MudText Typo="Typo.body2">Health: @context.Item.health.healthValue / @context.Item.health.maxHealth</MudText>
-                        <MudText Typo="Typo.body2">Radiation: @context.Item.health.radiationValue</MudText>
-                    </TooltipContent>
-                </MudTooltip>
+                <Health DwellerHealth="@context.Item.health" />
             </CellTemplate>
-        </TemplateColumn>
-        <PropertyColumn Property="x => x.health.maxHealth" Title="Max Health" />
+        </TemplateColumn>        
         <TemplateColumn Title="S.P.E.C.I.A.L" CellClass="special" >
             <CellTemplate>
                 <Special Stats="@context.Item.stats" />
             </CellTemplate>
         </TemplateColumn>
-        <PropertyColumn Property="x => x.experience.experienceValue" Title="Experience" />
-        <PropertyColumn Property="x => x.experience.wastelandExperience" Title="Wasteland Experience" />
         <PropertyColumn Property="x =>GetRoomName(x.savedRoom)" Title="Room" />
-        <PropertyColumn Property="x => x.relations.ascendants.Count(x => x > 0)" Title="Children" />
         <TemplateColumn T="Dweller" CellClass="d-flex justify-end">
             <CellTemplate>
                 <MudStack Row>
@@ -81,8 +59,7 @@
     }
 </style>
 @code {
-    List<Dweller> DwellerList { get; set; } = new();
-    List<Room> RoomList { get; set; } = new();
+    List<Dweller> DwellerList { get; set; } = new();    
     Dweller? selectedDweller;
 
     protected override void OnInitialized()
@@ -93,7 +70,6 @@
         }
 
         DwellerList = VaultService.Dwellers;
-        RoomList = VaultService.Rooms;
     }
 
     private System.Threading.Tasks.Task ShowDweller(Dweller selected)
@@ -110,8 +86,7 @@
 
     private string GetRoomName(int roomNumber)
     {
-        var room = RoomList.FirstOrDefault(r => r.deserializeID == roomNumber);
+        var room = VaultService.GetRoom(roomNumber);
         return room?.type ?? "Coffee Break";
     }
-
 }

@@ -1,4 +1,6 @@
 ﻿@using Models
+@using Components.Dwellers
+@inject Services.VaultService VaultService
 
 <MudDialog>
     <DialogContent>
@@ -8,9 +10,18 @@
             <MudText Variant="Variant.H6">Dweller Details</MudText>
             <MudText>First Name: @Dweller.name</MudText>
             <MudText>Last Name: @Dweller.lastName</MudText>
-                <MudText>Age: @Dweller.health</MudText>
-            
-        </MudCardContent>
+            <div style="display: flex; align-items: center; height: 50px;">
+                <MudText Align="Align.Center" style="margin-right: 10px; height: 50px">SPECIAL:</MudText>
+                <Special Stats="@Dweller.stats" />
+            </div>
+            <MudText>Level: @Dweller.experience.currentLevel</MudText>
+            <MudText>Age: @Dweller.health</MudText>
+            <MudText>Experience: @Dweller.experience.experienceValue</MudText>
+            <MudText>Wasteland Experience: @Dweller.experience.wastelandExperience</MudText>
+            <MudText>Health: <Health DwellerHealth="Dweller.health" /></MudText>
+             
+            <MudText>Room: @(VaultService.GetRoom(Dweller.savedRoom)?.type ?? "Coffee Break")</MudText>
+            </MudCardContent>
         <MudCardActions>
             <MudButton Color="Color.Primary">Previous</MudButton>
             <MudButton Color="Color.Primary">Next</MudButton>
@@ -21,6 +32,22 @@
         <MudButton OnClick="CloseDialog" Variant="Variant.Filled">Close</MudButton>
     </DialogActions>
 </MudDialog>
+
+<style>
+    .rtl-progress .mud-progress-linear-bar {
+        transform: scaleX(-1);
+    }
+
+    .mud-tooltip-root.mud-tooltip-inline {
+        display: unset;
+        width: 100%;
+    }
+
+    .special {
+        padding: 5px 0 0 0;
+        height: 65px;
+    }
+</style>
 
 @code {
     [CascadingParameter, EditorRequired]

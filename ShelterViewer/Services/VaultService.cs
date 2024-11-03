@@ -81,7 +81,7 @@ public class VaultService
     {
         get
         {
-            return _dwellers;
+            return VaultData!.dwellers.dwellers.ToList();
         }
     }
 
@@ -89,7 +89,7 @@ public class VaultService
     {
         get
         {
-            return _rooms;
+            return VaultData!.Vault.rooms.ToList();
         }
     }
 
@@ -156,8 +156,8 @@ public class VaultService
             
             VaultData = System.Text.Json.JsonSerializer.Deserialize<VaultData>(VaultString, new JsonSerializerOptions());
             
-            _dwellers = GetDwellers();
-            _rooms = GetRooms();
+            //_dwellers = GetDwellers();
+            //_rooms = GetRooms();
             _items = GetItems();
 
             NotifyPropertyChanged();
@@ -181,48 +181,9 @@ public class VaultService
         return VaultString == String.Empty;
     }
 
-    private List<Dweller> GetDwellers()
+    public Room? GetRoom(int roomNumber)
     {
-        var settings = new IntJsonConverter();
-        List<Dweller> dwellers = new();
-        if (_vaultData == null)
-            return new();
-
-        foreach (var dweller in _vaultData.dwellers.dwellers)
-        {
-            try
-            {
-                var dwellerObject = JsonConvert.DeserializeObject<Dweller>(dweller.ToString(), settings);
-                dwellers.Add(dwellerObject);
-
-            }
-            catch (Exception ex)
-            {
-                Log("Unable to convert dwellers string to JSON Object: " + ex.Message, dweller.ToString());
-            }
-        }
-
-        return dwellers;
-    }
-
-    private List<Room> GetRooms()
-    {
-        var settings = new IntJsonConverter();
-        List<Room> rooms = new();
-
-        foreach (var room in _vaultData?.vault.rooms ?? new List<Room>())
-        {
-            try
-            {
-                rooms.Add(JsonConvert.DeserializeObject<Room>(room.ToString(), settings));
-            }
-            catch (Exception ex)
-            {
-                Log("Unable to convert rooms string to JSON Object: " + ex.Message);
-            }
-        }
-
-        return rooms;
+        return Rooms.FirstOrDefault(r => r.deserializeID == roomNumber);
     }
 
     private List<IItem> GetItems()

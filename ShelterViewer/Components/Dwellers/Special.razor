@@ -1,7 +1,7 @@
 ﻿@using Models
 <MudTooltip>
     <ChildContent>
-        <MudStack Row="true" style="height:100%; padding:0">
+        <MudStack Row="true" style="@style">
             <MudStack Spacing="0">
                 <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[1].value" Max="10" />
                 <MudText>S</MudText>
@@ -61,6 +61,11 @@
 @code {
     [Parameter, EditorRequired]
     public Stats Stats { get; set; } = null!;
+
+    [Parameter]
+    public int Height { get; set; } = 50;
+
+    public string style => $"height: {Height}px; padding: 0;";
 
     enum SpecialStats
     {
