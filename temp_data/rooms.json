@@ -1,0 +1,4265 @@
+{
+    "rooms1": [
+        {
+            "emergencyDone": false,
+            "type": "Entrance",
+            "class": "Facility",
+            "mergeLevel": 2,
+            "row": 0,
+            "col": 3,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 200.00,
+                "initialValue": 77.53
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                106,
+                129
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "broken": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "FakeWasteland",
+            "class": "Facility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 97.80
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 3,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 1,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 4,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 2,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 5,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 500.00,
+                "initialValue": 265.07
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 6,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Cafeteria",
+            "class": "Production",
+            "mergeLevel": 2,
+            "row": 0,
+            "col": 13,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 1000.00,
+                "initialValue": 339.48
+            },
+            "mrHandyList": [
+                416
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                104,
+                5,
+                40,
+                62
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721986,
+                "notificationId": "-1"
+            },
+            "deserializeID": 12,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 3.85,
+                    "Food": 1.76,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 2626.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 3,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 20,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "WaterPlant",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 3,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 611.09
+            },
+            "mrHandyList": [
+                201
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                114,
+                22,
+                24,
+                67,
+                57,
+                25
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721976,
+                "notificationId": "-1"
+            },
+            "deserializeID": 139,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 37.44,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 4970.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Overseer",
+            "class": "Quest",
+            "mergeLevel": 2,
+            "row": 0,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 1000.00,
+                "initialValue": 546.20
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 236,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 2,
+            "row": 1,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 1000.00,
+                "initialValue": 344.47
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 324,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Geothermal",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 1,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 819.55
+            },
+            "mrHandyList": [
+                285
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                66,
+                75,
+                82,
+                102,
+                12,
+                3
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721979,
+                "notificationId": "-1"
+            },
+            "deserializeID": 409,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 7.90,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 3756.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Cafeteria",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 3,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 946.49
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                46,
+                45,
+                55,
+                4,
+                60,
+                94
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721980,
+                "notificationId": "-1"
+            },
+            "deserializeID": 411,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 6.03,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 4977.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 4,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 412,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "WaterPlant",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 4,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 697.14
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                16,
+                13,
+                9,
+                81,
+                112,
+                23
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721975,
+                "notificationId": "-1"
+            },
+            "deserializeID": 487,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 31.45,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 3666.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Geothermal",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 4,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 330.51
+            },
+            "mrHandyList": [
+                223
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                18,
+                19,
+                99,
+                108,
+                41,
+                110
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721973,
+                "notificationId": "-1"
+            },
+            "deserializeID": 712,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 50.58,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 3430.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 5,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 813,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Cafeteria",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 5,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 759.61
+            },
+            "mrHandyList": [
+                26
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                35,
+                43,
+                95,
+                100,
+                97,
+                61
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721977,
+                "notificationId": "-1"
+            },
+            "deserializeID": 1137,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 25.03,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 4432.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "OutfitFactory",
+            "class": "Crafting",
+            "mergeLevel": 3,
+            "row": 5,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 704.09
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                103,
+                109,
+                130,
+                1,
+                78,
+                49
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1631,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "IngredientItemIds": [],
+            "CraftingItemId": null,
+            "CompletedTime": 0.00
+        },
+        {
+            "emergencyDone": false,
+            "type": "SuperRoom2",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 4,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 362.04
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                154
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 1724,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 154,
+                    "taskID": 721890
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Dojo",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 5,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 22.68
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 1726,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Gym",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 3,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 501.46
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                133
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 1728,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 133,
+                    "taskID": 669483
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 5,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1729,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 6,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1730,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 7,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1732,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Storage",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 7,
+            "col": 16,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 813.10
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1771,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "WeaponFactory",
+            "class": "Crafting",
+            "mergeLevel": 3,
+            "row": 7,
+            "col": 7,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 891.76
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                72,
+                116,
+                54,
+                121,
+                6
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 713229,
+                "notificationId": "-1"
+            },
+            "deserializeID": 1772,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "IngredientItemIds": [
+                "ChemistrySet",
+                "ChemistrySet",
+                "ChemistrySet",
+                "Globe",
+                "Globe",
+                "Globe",
+                "MilitaryCircuitBoard",
+                "MilitaryCircuitBoard",
+                "MilitaryCircuitBoard"
+            ],
+            "CraftingItemId": "PlasmaThrower_DragonsMaw",
+            "CompletedTime": 150952.30
+        },
+        {
+            "emergencyDone": false,
+            "type": "Casino",
+            "class": "Training",
+            "mergeLevel": 1,
+            "row": 7,
+            "col": 4,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 158.36
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                10
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 1773,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 10,
+                    "taskID": 669485
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Armory",
+            "class": "Training",
+            "mergeLevel": 1,
+            "row": 7,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 184.28
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                143
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 2323,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 143,
+                    "taskID": 678708
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 4,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2324,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 3,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2325,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 2,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2402,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 1,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2403,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2404,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Energy2",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 6,
+            "col": 16,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 518.81
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                98,
+                63,
+                77,
+                17,
+                31,
+                69
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721982,
+                "notificationId": "-1"
+            },
+            "deserializeID": 2736,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 8.87,
+                    "Food": 0.00,
+                    "Energy": 5.56,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 3803.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 2,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 992.98
+            },
+            "mrHandyList": [
+                213
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 3025,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 8,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 3648,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Cafeteria",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 8,
+            "col": 16,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 797.14
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                44,
+                87,
+                83
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721983,
+                "notificationId": "-1"
+            },
+            "deserializeID": 3741,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 4.52,
+                    "Food": 2.25,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 1335.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Classroom",
+            "class": "Training",
+            "mergeLevel": 1,
+            "row": 2,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 500.00,
+                "initialValue": 236.02
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                37,
+                113
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 3830,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 37,
+                    "taskID": 664246
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 113,
+                    "taskID": 664308
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": [
+                17
+            ]
+        },
+        {
+            "emergencyDone": false,
+            "type": "Radio",
+            "class": "Facility",
+            "mergeLevel": 1,
+            "row": 2,
+            "col": 22,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 185.60
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                124,
+                92
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 713232,
+                "remainingTime": 2067.69,
+                "estimatedTime": 3600.00
+            },
+            "deserializeID": 4776,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "newDwellerReady": false,
+            "onlyIncreaseHappiness": true
+        },
+        {
+            "emergencyDone": true,
+            "type": "Casino",
+            "class": "Training",
+            "mergeLevel": 1,
+            "row": 8,
+            "col": 13,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 280.18
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 5467,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Water2",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 6,
+            "col": 7,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 313.24
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [
+                42,
+                80,
+                15,
+                89,
+                8,
+                68
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721965,
+                "notificationId": "-1"
+            },
+            "deserializeID": 5853,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 41.61,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 4208.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "MedBay",
+            "class": "Consumable",
+            "mergeLevel": 2,
+            "row": 6,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 496.07
+            },
+            "mrHandyList": [
+                155
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                26,
+                111,
+                32,
+                118
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721948,
+                "notificationId": "-1"
+            },
+            "deserializeID": 7296,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 4.39,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 1258.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 6,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 7395,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 7,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 7396,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 8,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 7397,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Bar",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 8,
+            "col": 7,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 352.32
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                39,
+                137
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 7503,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 39,
+                    "taskID": 669454
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 137,
+                    "taskID": 721953
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": [
+                81,
+                92
+            ]
+        },
+        {
+            "emergencyDone": false,
+            "type": "Casino",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 8,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 309.32
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                146,
+                50
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 8078,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 146,
+                    "taskID": 713196
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 50,
+                    "taskID": 713238
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 9,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 8291,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Energy2",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 9,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 757.98
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                30,
+                34,
+                93,
+                38,
+                128,
+                85
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721978,
+                "notificationId": "-1"
+            },
+            "deserializeID": 8461,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 25.81,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 2921.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "NukaCola",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 9,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 822.21
+            },
+            "mrHandyList": [
+                114
+            ],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                56,
+                2,
+                64,
+                119,
+                59,
+                142
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721985,
+                "notificationId": "-1"
+            },
+            "deserializeID": 9026,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 14.96,
+                    "Food": 4.10,
+                    "Energy": 0.00,
+                    "Water": 4.10,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 4054.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 10,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 9139,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 9,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 9140,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 10,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 9141,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Storage",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 10,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 731.69
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 9445,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 10,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 906.52
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 9450,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 11,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 14270,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 11,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 14271,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "BarberShop",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 9,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 1.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 14272,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "DesignFactory",
+            "class": "Crafting",
+            "mergeLevel": 3,
+            "row": 11,
+            "col": 16,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 392.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 14273,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "IngredientItemIds": [],
+            "CraftingItemId": "",
+            "CompletedTime": 0.00
+        },
+        {
+            "emergencyDone": false,
+            "type": "SuperRoom2",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 10,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 394.90
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                150,
+                153,
+                152,
+                151
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 15641,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 150,
+                    "taskID": 713052
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 153,
+                    "taskID": 713054
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 152,
+                    "taskID": 713055
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 151,
+                    "taskID": 713058
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Armory",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 11,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 471.92
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 23102,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Dojo",
+            "class": "Training",
+            "mergeLevel": 3,
+            "row": 11,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 1134.61
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                28
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 24112,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 28,
+                    "taskID": 669460
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 12,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 24589,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 13,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 24590,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 12,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 24591,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 13,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 24592,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Gym",
+            "class": "Training",
+            "mergeLevel": 3,
+            "row": 12,
+            "col": 16,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 1048.76
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 24597,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [],
+            "dwellerWithPendingCompleteTraining": [
+                136,
+                132
+            ]
+        },
+        {
+            "emergencyDone": false,
+            "type": "Classroom",
+            "class": "Training",
+            "mergeLevel": 3,
+            "row": 12,
+            "col": 7,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 1.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                47,
+                14
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 27960,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 47,
+                    "taskID": 629702
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 14,
+                    "taskID": 686288
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": [
+                92
+            ]
+        },
+        {
+            "emergencyDone": false,
+            "type": "Bar",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 12,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 71.11
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [
+                73,
+                148,
+                147
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 28851,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 73,
+                    "taskID": 664311
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 148,
+                    "taskID": 669472
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 147,
+                    "taskID": 713041
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Classroom",
+            "class": "Training",
+            "mergeLevel": 3,
+            "row": 13,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 135.74
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                145,
+                144
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 33356,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 145,
+                    "taskID": 713043
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 144,
+                    "taskID": 721886
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Armory",
+            "class": "Training",
+            "mergeLevel": 3,
+            "row": 13,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 815.27
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 33361,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [],
+            "dwellerWithPendingCompleteTraining": [
+                134
+            ]
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 14,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39910,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 15,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39911,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 14,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39912,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 15,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39913,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Storage",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 14,
+            "col": 1,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 684.78
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                115
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39918,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Storage",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 14,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 1127.61
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                76
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39923,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "MedBay",
+            "class": "Consumable",
+            "mergeLevel": 3,
+            "row": 2,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 2000.00,
+                "initialValue": 717.49
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                101,
+                120,
+                122,
+                71,
+                125,
+                135
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721940,
+                "notificationId": "-1"
+            },
+            "deserializeID": 39930,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 6.17,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 1394.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 2,
+            "row": 13,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 1000.00,
+                "initialValue": 590.47
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39933,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 2,
+            "row": 14,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39936,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "ScienceLab",
+            "class": "Consumable",
+            "mergeLevel": 3,
+            "row": 1,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 917.22,
+                "initialValue": 917.22
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 3,
+            "dwellers": [
+                105,
+                74,
+                117,
+                33,
+                107,
+                127
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 721932,
+                "notificationId": "-1"
+            },
+            "deserializeID": 39940,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 8.73,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 293.00,
+            "ExperienceRewardIsDirty": false
+        }
+    ],
+    "rooms2": [
+        {
+            "emergencyDone": false,
+            "type": "Entrance",
+            "class": "Facility",
+            "mergeLevel": 2,
+            "row": 0,
+            "col": 3,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 100.00,
+                "initialValue": 47.82
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "broken": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "FakeWasteland",
+            "class": "Facility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 54.31
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 3,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 1,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 4,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 2,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 5,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Geothermal",
+            "class": "Production",
+            "mergeLevel": 2,
+            "row": 1,
+            "col": 3,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 500.00,
+                "initialValue": 244.14
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [
+                14,
+                12,
+                1
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 563,
+                "notificationId": "-1"
+            },
+            "deserializeID": 33,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 7.00,
+                    "Food": 0.00,
+                    "Energy": 13.36,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 20.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": true,
+            "type": "WaterPlant",
+            "class": "Production",
+            "mergeLevel": 2,
+            "row": 2,
+            "col": 3,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 65.76
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [
+                18
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 564,
+                "notificationId": "-1"
+            },
+            "deserializeID": 35,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 7.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 2.88,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 14.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Cafeteria",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 1,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 1000.00,
+                "initialValue": 587.24
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [
+                3
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 562,
+                "notificationId": "-1"
+            },
+            "deserializeID": 37,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 5.88,
+                    "Food": 2.39,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 6.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 0,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 400.00,
+                "initialValue": 145.78
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 39,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [
+                {
+                    "taskID": 566,
+                    "dwellerID": 2,
+                    "notificationID": -1
+                },
+                {
+                    "taskID": 568,
+                    "dwellerID": 4,
+                    "notificationID": -1
+                }
+            ],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Storage",
+            "class": "Facility",
+            "mergeLevel": 1,
+            "row": 1,
+            "col": 19,
+            "power": false,
+            "roomHealth": {
+                "damageValue": 100.00,
+                "initialValue": 34.73
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 40,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Radio",
+            "class": "Facility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 19,
+            "power": false,
+            "roomHealth": {
+                "damageValue": 100.00,
+                "initialValue": 54.33
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [
+                19
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 51,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "newDwellerReady": false,
+            "onlyIncreaseHappiness": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "MedBay",
+            "class": "Consumable",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 22,
+            "power": false,
+            "roomHealth": {
+                "damageValue": 100.00,
+                "initialValue": 54.77
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [
+                17
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 63,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.25,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 2.00,
+            "ExperienceRewardIsDirty": false
+        }
+    ],
+    "rooms3": [
+        {
+            "emergencyDone": false,
+            "type": "Entrance",
+            "class": "Facility",
+            "mergeLevel": 2,
+            "row": 0,
+            "col": 3,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 100.00,
+                "initialValue": 53.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 1,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "broken": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "FakeWasteland",
+            "class": "Facility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 33.14
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 2,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 3,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 1,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 4,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 2,
+            "col": 9,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 5,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 0,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 400.00,
+                "initialValue": 160.39
+            },
+            "mrHandyList": [
+                4
+            ],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "breedingTaskId": 1099
+            },
+            "deserializeID": 22,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": [
+                {
+                    "m": 17,
+                    "f": 30,
+                    "s": "RaisingBaby",
+                    "ascendants": [
+                        17,
+                        30,
+                        9,
+                        14,
+                        23,
+                        2
+                    ],
+                    "maleName": "Raymond",
+                    "maleLast": "Baker",
+                    "femaleName": "Joyce",
+                    "femaleLast": "Crawford",
+                    "childColor": 4290087013,
+                    "childHairColor": 4285940014,
+                    "childRarity": 1,
+                    "childStat": [
+                        5
+                    ],
+                    "notificationID": -1,
+                    "fatherId": 17,
+                    "pendingChildren": 0,
+                    "templateID": -1,
+                    "t": 1123
+                },
+                {
+                    "m": 23,
+                    "f": 21,
+                    "s": "RaisingBaby",
+                    "ascendants": [
+                        23,
+                        21,
+                        9,
+                        3,
+                        18,
+                        6
+                    ],
+                    "maleName": "Howard",
+                    "maleLast": "Crawford",
+                    "femaleName": "Andrea",
+                    "femaleLast": "Crawford",
+                    "childColor": 4290087013,
+                    "childHairColor": 4288239165,
+                    "childRarity": 1,
+                    "childStat": [
+                        6
+                    ],
+                    "notificationID": -1,
+                    "fatherId": 23,
+                    "pendingChildren": 0,
+                    "templateID": -1,
+                    "t": 1157
+                },
+                {
+                    "m": 15,
+                    "f": 24,
+                    "s": "RaisingBaby",
+                    "ascendants": [
+                        15,
+                        24,
+                        -1,
+                        -1,
+                        9,
+                        8
+                    ],
+                    "maleName": "Joe",
+                    "maleLast": "White",
+                    "femaleName": "Martha",
+                    "femaleLast": "Baker",
+                    "childColor": 4288772700,
+                    "childHairColor": 4289023019,
+                    "childRarity": 1,
+                    "childStat": [
+                        6
+                    ],
+                    "notificationID": -1,
+                    "fatherId": 15,
+                    "pendingChildren": 0,
+                    "templateID": -1,
+                    "t": 1184
+                },
+                {
+                    "m": 25,
+                    "f": 3,
+                    "s": "RaisingBaby",
+                    "ascendants": [
+                        25,
+                        3,
+                        -1,
+                        -1,
+                        -1,
+                        -1
+                    ],
+                    "maleName": "Steven",
+                    "maleLast": "Pratt",
+                    "femaleName": "Jennifer",
+                    "femaleLast": "Crawford",
+                    "childColor": 4290087013,
+                    "childHairColor": 4285940014,
+                    "childRarity": 1,
+                    "childStat": [
+                        6
+                    ],
+                    "notificationID": -1,
+                    "fatherId": 25,
+                    "pendingChildren": 0,
+                    "templateID": -1,
+                    "t": 1197
+                }
+            ]
+        },
+        {
+            "emergencyDone": false,
+            "type": "Geothermal",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 1,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 425.68
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [
+                1,
+                20,
+                22,
+                5,
+                25
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 1189,
+                "notificationId": "-1"
+            },
+            "deserializeID": 84,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 47.35,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 35.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "WaterPlant",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 2,
+            "col": 0,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [
+                13,
+                12,
+                7,
+                19,
+                26,
+                27
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 1201,
+                "notificationId": "-1"
+            },
+            "deserializeID": 86,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 28.67,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 47.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Cafeteria",
+            "class": "Production",
+            "mergeLevel": 3,
+            "row": 1,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 127.35,
+                "initialValue": 127.35
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [
+                11,
+                6,
+                18,
+                2,
+                28,
+                4
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 1203,
+                "notificationId": "-1"
+            },
+            "deserializeID": 97,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 10.00,
+                    "Food": 7.65,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 44.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Dojo",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 2,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [
+                30,
+                21,
+                24,
+                3
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 160,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 30,
+                    "taskID": 1128
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 21,
+                    "taskID": 1160
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 24,
+                    "taskID": 1191
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 3,
+                    "taskID": 1202
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "ScienceLab",
+            "class": "Consumable",
+            "mergeLevel": 1,
+            "row": 1,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 48.63
+            },
+            "mrHandyList": [
+                1
+            ],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [
+                16,
+                9
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 1206,
+                "notificationId": "-1"
+            },
+            "deserializeID": 183,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.03,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 7.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": true,
+            "type": "Gym",
+            "class": "Training",
+            "mergeLevel": 2,
+            "row": 2,
+            "col": 16,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 103.11
+            },
+            "mrHandyList": [
+                2
+            ],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [
+                14,
+                29,
+                17,
+                23
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {},
+            "deserializeID": 198,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "slots": [
+                {
+                    "needLvUp": false,
+                    "dwellerID": 14,
+                    "taskID": 1063
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 29,
+                    "taskID": 1147
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 17,
+                    "taskID": 1148
+                },
+                {
+                    "needLvUp": false,
+                    "dwellerID": 23,
+                    "taskID": 1166
+                }
+            ],
+            "dwellerWithPendingCompleteTraining": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 0,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 213,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 1,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 214,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 2,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 215,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "Elevator",
+            "class": "Utility",
+            "mergeLevel": 1,
+            "row": 3,
+            "col": 25,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 216,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "withHole": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "MedBay",
+            "class": "Consumable",
+            "mergeLevel": 2,
+            "row": 0,
+            "col": 19,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 2,
+            "dwellers": [
+                10,
+                15
+            ],
+            "deadDwellers": [],
+            "currentStateName": "Working",
+            "currentState": {
+                "taskId": 1168,
+                "notificationId": "-1"
+            },
+            "deserializeID": 237,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "storage": {
+                "resources": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 2.01,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                },
+                "bonus": {
+                    "Nuka": 0.00,
+                    "Food": 0.00,
+                    "Energy": 0.00,
+                    "Water": 0.00,
+                    "StimPack": 0.00,
+                    "RadAway": 0.00,
+                    "Lunchbox": 0.00,
+                    "MrHandy": 0.00,
+                    "PetCarrier": 0.00,
+                    "CraftedOutfit": 0.00,
+                    "CraftedWeapon": 0.00,
+                    "NukaColaQuantum": 0.00,
+                    "CraftedTheme": 0.00
+                }
+            },
+            "numberOfProductionCycle": 0.00,
+            "ExperienceRewardIsDirty": false
+        },
+        {
+            "emergencyDone": false,
+            "type": "LivingQuarters",
+            "class": "Facility",
+            "mergeLevel": 3,
+            "row": 3,
+            "col": 16,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 242,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false,
+            "children": [],
+            "partners": []
+        },
+        {
+            "emergencyDone": false,
+            "type": "Storage",
+            "class": "Facility",
+            "mergeLevel": 2,
+            "row": 3,
+            "col": 10,
+            "power": true,
+            "roomHealth": {
+                "damageValue": 0.00,
+                "initialValue": 0.00
+            },
+            "mrHandyList": [],
+            "rushTask": -1,
+            "level": 1,
+            "dwellers": [],
+            "deadDwellers": [],
+            "currentStateName": "Idle",
+            "currentState": {},
+            "deserializeID": 245,
+            "assignedDecoration": "",
+            "roomVisibility": false,
+            "roomOutline": false
+        }
+    ]
+}

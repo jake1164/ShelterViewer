@@ -1,0 +1,211 @@
+{
+    "rooms": [
+        {
+            "name": ""
+        },
+        {
+            "name": "Diner",
+            "type": "Diner",
+            "level": 1,
+            "trait": "A",
+            "output_type": ["food"],
+            "output": [
+                8,
+                18,
+                28
+            ],
+            "storage": [
+                50,
+                100,
+                150
+            ]
+        },
+        {
+            "name": "Restaurant",
+            "type": "Restaurant",
+            "level": 2,
+            "trait": "A",
+            "output_type": ["food"],
+            "output": [
+                10,
+                22,
+                34
+            ],
+            "storage": [
+                75,
+                150,
+                225
+            ]
+        },
+        {
+            "name": "Cafeteria",
+            "type": "Cafeteria",
+            "level": 3,
+            "trait": "A",
+            "output_type": ["food"],
+            "output": [
+                12,
+                26,
+                40
+            ],
+            "storage": [
+                100,
+                200,
+                300
+            ]
+        },
+        {
+            "name": "Garden",
+            "type": "Garden",
+            "level": 1,
+            "trait": "A",
+            "output_type": ["food"],
+            "output": [
+                10,
+                22,
+                35
+            ],
+            "storage": [
+                50,
+                100,
+                150
+            ]
+        },
+        {
+            "name": "Greenhouse",
+            "type": "Greenhouse",
+            "level": 2,
+            "trait": "A",
+            "output_type": ["food"],
+            "output": [
+                12,
+                27,
+                46
+            ],
+            "storage": [
+                75,
+                150,
+                225
+            ]
+        },
+        {
+            "name": "Hydroponics",
+            "type": "Hydroponics",
+            "level": 3,
+            "trait": "A",
+            "output_type": ["food"],
+            "output": [
+                15,
+                31,
+                55
+            ],
+            "storage": [
+                100,
+                200,
+                300
+            ]
+        },
+        {
+            "name": "Nuka-Cola bottler",
+            "type": "NukaCola",
+            "level": 1,
+            "trait": "E",
+            "output_type": ["food", "water"],
+            "output": [
+                10,
+                22,
+                35
+            ],
+            "storage": [
+                50,
+                100,
+                150
+            ]
+        },
+        {
+            "name": "Nuka-Cola station",
+            "type": "NukaCola",
+            "level": 2,
+            "trait": "E",
+            "output_type": ["food", "water"],
+            "output": [
+                12,
+                27,
+                46
+            ],
+            "storage": [
+                75,
+                150,
+                225
+            ]
+        },
+        {
+            "name": "Nuka-Cola plant",
+            "type": "NukaCola",
+            "level": 3,
+            "trait": "E",
+            "output_type": ["food", "water"],
+            "output": [
+                15,
+                33,
+                55
+            ],
+            "storage": [
+                100,
+                200,
+                300
+            ]
+        },
+        {
+            "name": "Power Generator",
+            "type": "PowerGenerator",
+            "level": 1,
+            "trait": "S",
+            "output_type": ["power"],
+            "output": [
+                10,
+                21,
+                44
+            ],
+            "storage": [
+                50,
+                100,
+                150
+            ]
+        },
+        {
+            "name": "Power Station",
+            "type": "PowerStation",
+            "level": 2,
+            "trait": "S",
+            "output_type": ["power"],
+            "output": [
+                12,
+                25,
+                52
+            ],
+            "storage": [
+                75,
+                150,
+                225
+            ]
+        },
+        {
+            "name": "Power Plant",
+            "type": "PowerPlant",
+            "level": 3,
+            "trait": "S",
+            "output_type": ["power"],
+            "output": [
+                15,
+                31,
+                66
+            ],
+            "storage": [
+                100,
+                200,
+                300
+            ]
+        }
+    ]
+}
