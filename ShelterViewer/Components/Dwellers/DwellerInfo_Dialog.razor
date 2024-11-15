@@ -6,21 +6,54 @@
     <DialogContent>
     <MudCard>
         <MudCardContent>
-            <!-- Display full Dweller details here -->
-            <MudText Variant="Variant.H6">Dweller Details</MudText>
-            <MudText>First Name: @Dweller.name</MudText>
-            <MudText>Last Name: @Dweller.lastName</MudText>
-            <div style="display: flex; align-items: center; height: 50px;">
-                <MudText Align="Align.Center" style="margin-right: 10px; height: 50px">SPECIAL:</MudText>
-                <Special Stats="@Dweller.stats" />
-            </div>
-            <MudText>Level: @Dweller.experience.currentLevel</MudText>
-            <MudText>Age: @Dweller.health</MudText>
-            <MudText>Experience: @Dweller.experience.experienceValue</MudText>
-            <MudText>Wasteland Experience: @Dweller.experience.wastelandExperience</MudText>
-            <MudText>Health: <Health DwellerHealth="Dweller.health" /></MudText>
-             
-            <MudText>Room: @(VaultService.GetRoom(Dweller.savedRoom)?.type ?? "Coffee Break")</MudText>
+            <!-- Split card into two sides -->
+            <MudGrid>
+                <MudItem xs="6">
+                        <!-- Display full Dweller details here -->
+                        <MudText>Name: @Dweller.Name</MudText>
+                        <MudText>Gender: @Dweller.Gender</MudText>
+                        <div style="display: flex; align-items: center; height: 50px;">
+                            <MudText Align="Align.Center" style="margin-right: 10px; height: 50px">SPECIAL:</MudText>
+                            <Special Stats="@Dweller.stats" />
+                        </div>
+                        <MudText>Level: @Dweller.experience.currentLevel</MudText>
+                        <MudText>Age: @Dweller.health</MudText>
+                        <MudText>Experience: @Dweller.experience.experienceValue</MudText>
+                        <MudText>Wasteland Experience: @Dweller.experience.wastelandExperience</MudText>
+                        <MudText>Health: <Health DwellerHealth="Dweller.health" /></MudText>
+
+                        <MudText>Room: @(VaultService.GetRoom(Dweller.savedRoom)?.type ?? "Coffee Break")</MudText>
+                </MudItem>
+                <MudItem xs="6">
+                    <MudText Typo="Typo.h5">Parents</MudText>
+                    <MudText>Mother: @(Dweller.Mother?.Name ?? "Lost in Great War")</MudText>
+                    <MudText>Father: @(Dweller.Father?.Name ?? "Lost in Great War")</MudText>
+
+                    <MudText Typo="Typo.h5">Children</MudText>
+                        @if(Dweller.Children.Count > 0) 
+                        {
+                            @foreach(var child in Dweller.Children)
+                            {
+
+                                <MudText>
+                                    Name: @child.Name 
+                                    @if(Dweller._gender == 2 && child.Mother != null)
+                                    {
+                                        <MudText Inline>&nbsp;(Mother: @child.Mother?.Name)</MudText>
+                                    }
+                                    else if(Dweller._gender == 1 && child.Father != null)
+                                    {
+                                        <MudText Inline>&nbsp;(Father: @child.Father?.Name)</MudText>
+                                    }
+                                </MudText>
+                            }
+                        } else
+                        {
+                            <MudText>No Children</MudText>
+                        }
+                    </MudItem>
+            </MudGrid>
+
             </MudCardContent>
         <MudCardActions>
             <MudButton Color="Color.Primary">Previous</MudButton>

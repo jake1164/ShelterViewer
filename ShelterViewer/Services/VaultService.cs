@@ -159,7 +159,7 @@ public class VaultService
             //_dwellers = GetDwellers();
             //_rooms = GetRooms();
             _items = GetItems();
-
+            ProcessDwellers(); // Do this on the first click of dwellers?
             NotifyPropertyChanged();
  
         } 
@@ -170,6 +170,23 @@ public class VaultService
         }
     }
 
+    private void ProcessDwellers()
+    {
+        // foreach dweller in vaultdata.dwellers find the mother and father and add them to the dweller object and then add the dweller to the mother and father as a child.
+        foreach (var dweller in VaultData!.dwellers.dwellers)
+        {
+            dweller.Mother = VaultData!.dwellers.dwellers.FirstOrDefault(d => d.serializeId == dweller.relations.ascendants[1]);
+            dweller.Father = VaultData!.dwellers.dwellers.FirstOrDefault(d => d.serializeId == dweller.relations.ascendants[0]);
+            if (dweller.Mother != null)
+            {
+                dweller.Mother.Children.Add(dweller);
+            }
+            if (dweller.Father != null)
+            {
+                dweller.Father.Children.Add(dweller);
+            }
+        }
+    }
     public void CloseVault()
     {
         VaultString = String.Empty;
