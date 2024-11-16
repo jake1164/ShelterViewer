@@ -8,7 +8,13 @@
 
 <h3>Dwellers</h3>
 
-<MudDataGrid T="Dweller" Items="DwellerList" Filterable="true" >
+<MudDataGrid T="Dweller" Items="DwellerList" QuickFilter="@_quickFilter" Filterable="true" >
+    <ToolBarContent>
+        <MudText typo="Typo.h6">Dwellers</MudText>"
+        <MudSpacer />
+        <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="true"
+                AdornmentIcon="Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"/>
+    </ToolBarContent>
     <Columns>
         <PropertyColumn Property="x => x.firstName" Title="First Name" />
         <PropertyColumn Property="x => x.lastName" Title="Last Name" />
@@ -63,6 +69,8 @@
     List<Dweller> DwellerList { get; set; } = new();    
     Dweller? selectedDweller;
 
+    private string _searchString = "";
+
     protected override void OnInitialized()
     {
         if(VaultService.IsVaultEmpty())
@@ -91,4 +99,52 @@
         var room = VaultService.GetRoom(roomNumber);
         return room?.type ?? "Coffee Break";
     }
+
+    private Func<Dweller, bool> _quickFilter => x =>
+    {
+        var intSearch = _searchString;
+        bool lt = false;
+        bool gt = false;
+        if (intSearch.StartsWith('<')){
+            lt = true;
+            intSearch = intSearch.Substring(((intSearch.StartsWith("<=")) ? 2 : 1));
+        }
+        if (intSearch.StartsWith('>')) {
+            gt = true;
+            intSearch = intSearch.Substring(((intSearch.StartsWith(">=")) ? 2 : 1));
+        }
+
+        if(int.TryParse(intSearch, out int n))
+        {            
+            if(lt)
+            {
+                if (x.experience.currentLevel <= n)
+                    return true;
+                return false;
+            }
+
+            if(gt)
+            {
+                if (x.experience.currentLevel >= n)
+                    return true;
+                return false;
+            }
+
+            if (x.experience.currentLevel == n)
+                return true;
+
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(_searchString))
+            return true;
+
+        if (x.lastName.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.firstName.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return false;
+    };
 }
