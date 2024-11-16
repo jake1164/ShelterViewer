@@ -2,54 +2,30 @@
 <MudTooltip>
     <ChildContent>
         <MudStack Row="true" style="@style">
-            <MudStack Spacing="0">
-                <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[1].value" Max="10" />
-                <MudText>S</MudText>
-            </MudStack>
-            <MudStack Spacing="0">
-                <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[2].value" Max="10" />
-                <MudText>P</MudText>
-            </MudStack>
-            <MudStack Spacing="0">
-                <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[3].value" Max="10" />
-                <MudText>E</MudText>
-            </MudStack>
-            <MudStack Spacing="0">
-                <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[4].value" Max="10" />
-                <MudText>C</MudText>
-            </MudStack>
-            <MudStack Spacing="0">
-                <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[5].value" Max="10" />
-                <MudText>I</MudText>
-            </MudStack>
-            <MudStack Spacing="0">
-                <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[6].value" Max="10" />
-                <MudText>A</MudText>
-            </MudStack>
-            <MudStack Spacing="0">
-                <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@Stats.stats[7].value" Max="10" />
-                <MudText>L</MudText>
-            </MudStack>
+            @foreach(var stat in Stats.SPECIAL.Skip(1))
+            {
+                <MudStack Spacing="0">
+                    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@stat.value" Max="10" />
+                    <MudText>@stat.Name.ToString().First()</MudText>
+                </MudStack>
+            }
         </MudStack>
     </ChildContent>
     <TooltipContent>
-        <MudGrid Spacing="0" Justify="Justify.FlexStart">
-            @for(int i = 1; i < Stats.stats.Length; i++)
+        <MudGrid Spacing="0" Justify="Justify.FlexStart" Style="width: 100%;">
+            @foreach(var stat in Stats.SPECIAL.Skip(1))
             {
-                var index = i;
-                var value = Stats.stats[index].value;
-                var mod = Stats.stats[index].mod;
                 <MudItem xs="12" sm="1">
-                    <MudText Align="Align.Left">@Enum.GetName(typeof(SpecialStats), index)!.ToString().First()</MudText>
+                    <MudText Align="Align.Left">@stat.Name.ToString().First()</MudText>
                 </MudItem>
                 <MudItem xs="12" sm="2">
-                    <MudText Align="Align.Left">@Enum.GetName(typeof(SpecialStats), index)!.ToUpper()</MudText>
+                    <MudText Align="Align.Left">@stat.Name.ToString().ToUpper()</MudText>
                 </MudItem>
                 <MudItem xs="12" sm="2">
-                    <MudText Align="Align.Left" Inline="true">@Stats.stats[index].value</MudText>
-                    @if (@Stats.stats[index].mod > 0)
+                    <MudText Align="Align.Left" Inline="true">@stat.value</MudText>
+                    @if (@stat.mod > 0)
                     {
-                        <MudText Align="Align.Left" Inline="true" Color="Color.Info"> +@Stats.stats[index].mod</MudText>
+                        <MudText Align="Align.Left" Inline="true" Color="Color.Info"> +@stat.mod</MudText>
                     }
                 </MudItem>
                 <MudFlexBreak />
@@ -67,14 +43,4 @@
 
     public string style => $"height: {Height}px; padding: 0;";
 
-    enum SpecialStats
-    {
-        Strength = 1,
-        Perception = 2,
-        Endurance = 3,
-        Charisma = 4,
-        Intelligence = 5,
-        Agility = 6,
-        Luck = 7
-    }
 }

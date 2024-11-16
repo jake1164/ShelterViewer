@@ -48,4 +48,59 @@ public class Dweller
     public Dweller? Mother { get; set; }
     public Dweller? Father { get; set; }
     public List<Dweller> Children { get; set; } = new();
+    public Stats.MaxStat[] MaxStats { get { return stats.MaxStats; } }
+}
+
+public class Stats
+{
+    public enum SpecialStats
+    {
+        Strength = 1,
+        Perception = 2,
+        Endurance = 3,
+        Charisma = 4,
+        Intelligence = 5,
+        Agility = 6,
+        Luck = 7
+    }
+    public record MaxStat(SpecialStats StatName, int Value);
+    public MaxStat[] MaxStats
+    {
+        get
+        {
+            // Find the maximum ModValue across all stats
+            int maxModValue = SPECIAL.Max(s => s.ModValue);
+
+            // Return all stats that have this maximum ModValue
+            return SPECIAL
+                .Where(s => s.ModValue == maxModValue)
+                .Select(s => new MaxStat(s.Name, s.ModValue))
+                .ToArray();
+        }
+    }
+    private Stat[] _stats { get; set; } = null!;
+    [JsonPropertyName("stats")]
+    [JsonProperty("stats")]
+    public Stat[] SPECIAL 
+    { 
+        get {  return _stats; }
+        set 
+        { 
+            // I cant make this a 0 based array because that will break eventual export.
+            for (int i = 1; i < value.Length; i++)
+            {
+                value[i].Name = (SpecialStats)i;
+            }
+            _stats = value;
+        }
+    }
+}
+
+public class Stat
+{ 
+    public Stats.SpecialStats Name { get; set; }
+    public int value { get; set; }
+    public int mod { get; set; }
+    public float exp { get; set; }
+    public int ModValue { get { return value + mod; } }
 }

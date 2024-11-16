@@ -35,6 +35,21 @@
                 <Special Stats="@context.Item.stats" />
             </CellTemplate>
         </TemplateColumn>
+        <TemplateColumn Title="Max Stat" Sortable="true" SortBy="x => x.stats.MaxStats.FirstOrDefault()!.Value">
+            <CellTemplate>
+                @if(context.Item.stats.MaxStats.Length == 7)
+                {
+                    <MudText>All: @context.Item.stats.MaxStats.First().Value</MudText>
+                }
+                else 
+                {
+                    @foreach(var stat in context.Item.stats.MaxStats.Select(stat => $"{stat.StatName}: {stat.Value}"))
+                    {
+                        <div>@stat</div>
+                    }
+                }
+            </CellTemplate>
+        </TemplateColumn>
         <PropertyColumn Property="x =>GetRoomName(x.savedRoom)" Title="Room" />
         <TemplateColumn T="Dweller" CellClass="d-flex justify-end">
             <CellTemplate>

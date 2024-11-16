@@ -293,18 +293,6 @@ public class Relations
     public int[] ascendants { get; set; }
 }
 
-public class Stats
-{
-    public Stat[] stats { get; set; }
-}
-
-public class Stat
-{
-    public int value { get; set; }
-    public int mod { get; set; }
-    public float exp { get; set; }
-}
-
 public class Equipedoutfit
 {
     public string id { get; set; }
