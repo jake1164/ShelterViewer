@@ -8,16 +8,16 @@ public class Dweller
     public int serializeId { get; set; }
     [JsonPropertyName("name")]
     [JsonProperty("name")]
-    public string firstName { get; set; }
-    public string lastName { get; set; }
-    public Happiness happiness { get; set; }
-    public Health health { get; set; }
-    public Experience experience { get; set; }
-    public Relations relations { get; set; }
+    public string firstName { get; set; } = null!;
+    public string lastName { get; set; } = null!;
+    public Happiness happiness { get; set; } = null!;
+    public Health health { get; set; } = null!;
+    public Experience experience { get; set; } = null!;
+    public Relations relations { get; set; } = null!;
     [JsonPropertyName("gender")]
     [JsonProperty("gender")]
     public int _gender { get; set; }
-    public Stats stats { get; set; }
+    public Stats stats { get; set; } = null!;
     public bool pregnant { get; set; }
     public bool babyReady { get; set; }
     public bool assigned { get; set; }
@@ -29,16 +29,16 @@ public class Dweller
     public long hairColor { get; set; }
     public long outfitColor { get; set; }
     public int pendingExperienceReward { get; set; }
-    public string hair { get; set; }
-    public EquippedOutfit equipedOutfit { get; set; }
-    public EquippedWeapon equipedWeapon { get; set; }
+    public string hair { get; set; } = null!;
+    public EquippedOutfit equipedOutfit { get; set; } = null!;
+    public EquippedWeapon equipedWeapon { get; set; } = null!;
     public int savedRoom { get; set; }
     public float lastChildBorn { get; set; }
-    public string rarity { get; set; }
+    public string rarity { get; set; } = null!;
     public int deathTime { get; set; }
-    public string faceMask { get; set; }
+    public string faceMask { get; set; } = null!;
     public EquippedPet? equippedPet { get; set; }
-    public string uniqueData { get; set; }
+    public string uniqueData { get; set; } = null!;
     public int daysOnWasteland { get; set; }
     public int hoursOnWasteland { get; set; }
 
