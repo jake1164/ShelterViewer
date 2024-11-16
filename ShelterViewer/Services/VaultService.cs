@@ -155,10 +155,9 @@ public class VaultService
             _vaultData = JsonConvert.DeserializeObject<dynamic>(VaultString, settings);
             
             VaultData = System.Text.Json.JsonSerializer.Deserialize<VaultData>(VaultString, new JsonSerializerOptions());
-            
-            //_dwellers = GetDwellers();
-            //_rooms = GetRooms();
-            _items = GetItems();
+            VaultData!.dwellers.dwellers = VaultData!.dwellers.dwellers.ToList().OrderBy(x => x.serializeId).ToArray(); // Order by ID initially.
+
+            _items = GetItems(); // Items are spread across users.
             ProcessDwellers(); // Do this on the first click of dwellers?
             NotifyPropertyChanged();
  

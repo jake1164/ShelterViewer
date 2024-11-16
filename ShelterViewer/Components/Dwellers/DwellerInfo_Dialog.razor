@@ -56,8 +56,8 @@
 
             </MudCardContent>
         <MudCardActions>
-            <MudButton Color="Color.Primary">Previous</MudButton>
-            <MudButton Color="Color.Primary">Next</MudButton>
+            <MudButton Color="Color.Primary" OnClick="PreviousDweller" Disabled="@(_current == 0)">Previous</MudButton>
+                <MudButton Color="Color.Primary" OnClick="NextDweller" Disabled="@(_current == Dwellers.Length - 1)">Next</MudButton>
         </MudCardActions>
         </MudCard>
     </DialogContent>
@@ -87,7 +87,36 @@
     private MudDialogInstance MudDialog { get; set; } = null!;
 
     [Parameter, EditorRequired]
-    public Dweller Dweller { get; set; } = null!;
+    public int DwellerId { get; set; }
+
+    [Parameter, EditorRequired]
+    public Dweller[] Dwellers { get; set; } = null!;
+
+    private int _current = 0;
+    private Dweller Dweller { get { return Dwellers[_current]; }}
+
+    protected override void OnInitialized()
+    {
+        _current = Array.FindIndex(Dwellers, i => i.serializeId == DwellerId);
+    }
+
+    private void NextDweller()
+    {
+        if (_current < Dwellers.Length)
+        {
+            _current++;
+            StateHasChanged();
+        }
+    }
+
+    private void PreviousDweller()
+    {
+        if (_current > 0)
+        {
+            _current--;
+            StateHasChanged();
+        }
+    }
 
     private void CloseDialog() => MudDialog.Close(DialogResult.Ok(true));
 }

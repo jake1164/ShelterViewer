@@ -10,10 +10,10 @@
 
 <MudDataGrid T="Dweller" Items="DwellerList" Filterable="true" >
     <Columns>
-       
         <PropertyColumn Property="x => x.firstName" Title="First Name" />
         <PropertyColumn Property="x => x.lastName" Title="Last Name" />
         <PropertyColumn Property="x => x.Gender" Title="Gender" />
+        
         <!-- Theme Rarity?  add icon? 
         <PropertyColumn Property="x => x.rarity" Title="Rarity" />
         -->
@@ -80,7 +80,8 @@
         var options = new DialogOptions() { MaxWidth = MaxWidth.Large, FullWidth = true };
         var parameters = new DialogParameters<DwellerInfo_Dialog>
         {
-            { "Dweller", selectedDweller }
+            { "DwellerId", selectedDweller.serializeId },
+            { "Dwellers", DwellerList.ToArray() }
         };
         return DialogService.ShowAsync<DwellerInfo_Dialog>("Dweller Info", parameters, options);
     }
