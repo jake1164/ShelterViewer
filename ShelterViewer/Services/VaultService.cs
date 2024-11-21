@@ -10,7 +10,7 @@ using ShelterViewer.Models;
 using ShelterViewer.Utility;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using ShelterViewer.Pages;
+using System.Net.Http.Json;
 
 namespace ShelterViewer.Services;
 
@@ -23,11 +23,14 @@ public class VaultService
     public VaultData? VaultData2 { get; private set; }
 
     private IJSRuntime JS;
+    private readonly IServiceScopeFactory _scopeFactory;
     private dynamic? _vaultData = null;
     private List<Dweller> _dwellers = new();
     private List<Room> _rooms = new();
     private List<IItem> _items = new();
+    private List<ShelterViewer.Models.Data.RoomType> _roomTypes = new();
 
+    private System.Threading.Tasks.Task? _loadRoomTypesTask;
 
     public int DwellerCount
     {
@@ -140,9 +143,29 @@ public class VaultService
         }
     }
 
-    public VaultService(IJSRuntime jsRuntime)
+    public VaultService(IJSRuntime jsRuntime, IServiceScopeFactory scopeFactory)
     {
         JS = jsRuntime;
+        _scopeFactory = scopeFactory;
+        _loadRoomTypesTask = LoadRoomTypesAsync();
+    }
+    
+    public async System.Threading.Tasks.Task LoadRoomTypesAsync()
+    {
+        using var scope = _scopeFactory.CreateScope();
+        try
+        {
+            var http = scope.ServiceProvider.GetRequiredService<HttpClient>();
+            var rooms = await http.GetFromJsonAsync<Models.Data.RoomTypeRoot>("data/rooms.json") ?? new();
+            if(rooms != null)
+            {
+                _roomTypes = rooms.Rooms;
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("Unable to load room types", ex);
+        }
     }
 
     public void InitializeVault(string vaultJsonString)
@@ -159,6 +182,7 @@ public class VaultService
 
             _items = GetItems(); // Items are spread across users.
             ProcessDwellers(); // Do this on the first click of dwellers?
+            ProcessRooms(); // Do this on the first click of rooms?
             NotifyPropertyChanged();
  
         } 
@@ -186,6 +210,34 @@ public class VaultService
             }
         }
     }
+
+    private void ProcessRooms()
+    {
+        foreach (var room in VaultData!.Vault.rooms)
+        {
+            var roomType = _roomTypes.FirstOrDefault(r => r.Type == room.type);
+            if (roomType != null)
+            {
+                room.Name = roomType.Name;
+                // Map rest of the roomtype to room.
+                room.Level = roomType.Level;
+                room.Trait = roomType.Trait;
+                room.Size = roomType.Size;
+                room.OutputType = roomType.OutputType;
+                room.Output = roomType.Output;
+                room.Capacity = roomType.Capacity;
+                room.PowerPerMin = roomType.PowerPerMin;
+
+                room.Storage = roomType.Storage;
+
+            }
+            else
+            {
+                Console.WriteLine($"Unable to find room type: {room.type}");
+            }
+        }
+    }
+
     public void CloseVault()
     {
         VaultString = String.Empty;
@@ -253,7 +305,6 @@ public class VaultService
     {
         OnVaultChanged?.Invoke();
     }
-
 
     public record VaultLevel(float Level, float Max);
     public record VaultLevels(VaultLevel Food, VaultLevel Energy, VaultLevel Water);
