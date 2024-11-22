@@ -1,0 +1,89 @@
+﻿@page "/"
+@using ShelterViewer.Shared.Components.Vault
+@using ShelterViewer.Shared.Layout
+
+@inject IJSRuntime JS
+@inject VaultService VaultService
+
+<PageTitle>
+    @if (VaultService.IsVaultEmpty())
+    {
+        <span>Vault</span>
+    } else
+    {
+        <span>Vault @VaultService.VaultData?.Vault.VaultName</span>
+    }
+</PageTitle>
+<Loading IsLoading="loading">
+    @if (VaultService.IsVaultEmpty())
+    {
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Align="Align.Center" Typo="Typo.h3">Advanced Fallout Shelter Viewer</MudText>
+                    <MudText Typo="Typo.body1" Align="Align.Center" Color="Color.Tertiary">Large Files can take more time to load!</MudText>
+                </CardHeaderContent>                
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>For Steam Version the save is in <MudText Inline="true" Color="Color.Secondary">"C:\Users\YOURUSERNAME\AppData\Local\FalloutShelter"</MudText></MudText>
+                <MudText>For PC/Launcher Version the save is in <MudText Inline="true" Color="Color.Secondary"> "Documents\My Games\Fallout Shelter"</MudText></MudText>
+                <MudText>
+                    For all others read the FalloutShelter
+                    <MudLink Href="https://github.com/therabidsquirel/The-Fallout-Shelter-FAQ/wiki/Section-15:-Save-Files-and-Editing">FAQ</MudLink>
+                </MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudText >Select game file (e.g. Vault1.sav)&nbsp; </MudText>
+                <div style="display:block;">
+                    <input type="file" @ref="fileInput" @onchange="LoadFile" />
+                </div>
+            </MudCardActions>
+        </MudCard>
+        <h1></h1>
+
+    }else
+    {
+        <VaultInfo UnloadVault="UnloadFile" SaveVaultFile="SaveVaultFile" />
+    }
+</Loading>
+@code {
+    private ElementReference fileInput;
+    private bool loading = false;
+
+    private async void LoadFile()
+    {
+        // Using MAUI we should set the default path based on the OS?
+        try
+        {
+            loading = true;
+            //await System.Threading.Tasks.Task.Delay(1);
+            
+            var content = await JS.InvokeAsync<string>("shelter.readFileAsBase64", fileInput);
+            var jsonString = await JS.InvokeAsync<string>("shelter.decryptString", content);
+            VaultService.InitializeVault(jsonString);
+        } catch (Exception ex)
+        {
+            Console.WriteLine($"Unable to load vault due to exception {ex.Message}", ex);
+        } finally
+        {
+            loading = false;
+            StateHasChanged();
+        }
+
+    }
+
+    private void UnloadFile()
+    {
+        VaultService.CloseVault();
+        StateHasChanged();
+    }
+
+    private async void SaveVaultFile()
+    {
+        var vaultString = VaultService.VaultString;
+        var vaultName = VaultService.VaultData?.Vault.VaultName ?? "Vault";
+        
+        var fileName = $"Vault{vaultName}.json";
+        await JS.InvokeVoidAsync("shelter.downloadFile", fileName, vaultString, "application/json");
+    }
+}

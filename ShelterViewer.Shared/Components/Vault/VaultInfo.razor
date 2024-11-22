@@ -1,0 +1,59 @@
+﻿
+@inject VaultService VaultService
+
+<MudCard>
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Align="Align.Center" Typo="Typo.h3">Vault @VaultService.VaultData?.Vault.VaultName</MudText>
+        </CardHeaderContent>
+        <CardHeaderActions>
+            <MudTooltip Text="Unload Shelter">
+                <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" @onclick="@(() => UnloadVault?.Invoke())" />
+            </MudTooltip>
+            @if(debug){
+                <MudIconButton Icon="@Icons.Material.Filled.FileDownload" OnClick="@(() => SaveVaultFile?.Invoke())" />
+            }
+        </CardHeaderActions>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudText>Vault Mode: @VaultService.VaultData?.Vault.VaultMode</MudText>
+        <MudText>Unopened Lunch Boxes: @VaultService.LunchBoxes</MudText>
+        <MudText>Unopened Pet Carrier: @VaultService.PetCarriers</MudText>
+        <MudText>Unopened Mr Handy: @VaultService.MrHandy</MudText>
+    
+        <MudText>Unopened Starter Pack: @VaultService.StarterPacks</MudText>
+        <MudText>Stim Packs: @(VaultService.VaultData?.Vault.storage.resources.StimPack ?? 0)</MudText>
+        <MudText>RadAway: @(VaultService.VaultData?.Vault.storage.resources.RadAway ?? 0)</MudText>
+        <MudText>
+            @{
+                var resources = VaultService.VaultResources; 
+            }
+            <MudText>Food: @resources.Food.Level / @resources.Food.Max</MudText>
+            <MudText>Energy: @resources.Energy.Level / @resources.Energy.Max</MudText>
+            <MudText>Water: @resources.Water.Level / @resources.Water.Max</MudText>
+        </MudText>
+    </MudCardContent>
+    
+</MudCard>
+@code {
+    [Parameter, EditorRequired]
+    public Action? UnloadVault { get; set; }
+
+    [Parameter, EditorRequired]
+    public Action? SaveVaultFile { get; set; }
+
+    private bool debug = false;
+
+    protected override void OnInitialized()
+    {
+        VaultService.OnVaultChanged += OnVaultChanged;
+        #if DEBUG
+            debug = true;
+        #endif
+    }
+
+    private void OnVaultChanged()
+    {
+        StateHasChanged();
+    }
+}

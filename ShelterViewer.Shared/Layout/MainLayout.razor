@@ -1,0 +1,129 @@
+﻿@inherits LayoutComponentBase
+@inject VaultService VaultService
+@inject LayoutService LayoutService
+@inject HttpClient Http
+
+
+<MudThemeProvider @ref="@_mudThemeProvider" Theme="@LayoutService.Theme" IsDarkMode="LayoutService.IsDarkMode" />
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        @if (VaultService.IsVaultEmpty())
+        {
+            <span>Fallout Shelter Viewer</span>
+        } else
+        {
+            <span>Fallout Shelter @VaultService.VaultData?.Vault.VaultName</span>
+        }
+
+        <MudSpacer/>
+        @if(!VaultService.IsVaultEmpty())
+        {
+            <MudText Style="padding-right: 20px;">@(VaultService.VaultData?.Vault.storage.resources.Nuka ?? 0) Caps</MudText>
+            <MudText>@(VaultService.VaultData?.Vault.storage.resources.NukaColaQuantum ?? 0) Nuka Quantums</MudText>
+        }
+        <MudTooltip Text="@(LayoutService.IsDarkMode ? "Switch to Light Theme" : "Switch to Dark Theme")" Delay="800" Arrow="true" Placement="Placement.Right" Color="Color.Dark">
+            <MudIconButton Icon="@LayoutService.DarkLightModeButtonIcon" Color="Color.Inherit" OnClick="@LayoutService.ToggleDarkMode" />
+        </MudTooltip>
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <NavMenu/>
+        <MudSpacer />
+        <MudText Align="Align.Center">Version: @version </MudText>
+    </MudDrawer>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+    private string version = "dev";    
+    private MudThemeProvider _mudThemeProvider = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        VaultService.OnVaultChanged += async () => await InvokeAsync(StateHasChanged);
+        LayoutService.OnMajorUpdate += () => StateHasChanged();
+
+        try
+        {
+            var vJson = await Http.GetFromJsonAsync<Dictionary<string, string>>(".version");
+            if(vJson != null)
+                version = vJson["version"];
+        }
+        catch (Exception) { }
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if(firstRender)
+        {
+            await ApplyUserPreferences();
+            StateHasChanged();
+        }
+    }
+
+
+    private async Task ApplyUserPreferences()
+    {
+        var theme = await _mudThemeProvider.GetSystemPreference();
+        await LayoutService.ApplyUserPreferences(theme);
+    }
+
+    private async void UpdateTheme()
+    {
+        await LayoutService.ToggleDarkMode();
+    }
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    private readonly PaletteLight _lightPalette = new()
+        {
+            Black = "#110e2d",
+            AppbarText = "#424242",
+            AppbarBackground = "rgba(255,255,255,0.8)",
+            DrawerBackground = "#ffffff",
+            GrayLight = "#e8e8e8",
+            GrayLighter = "#f9f9f9",
+        };
+
+    private readonly PaletteDark _darkPalette = new()
+        {
+            Primary = "#7e6fff",
+            Surface = "#1e1e2d",
+            Background = "#1a1a27",
+            BackgroundGray = "#151521",
+            AppbarText = "#92929f",
+            AppbarBackground = "rgba(26,26,39,0.8)",
+            DrawerBackground = "#1a1a27",
+            ActionDefault = "#74718e",
+            ActionDisabled = "#9999994d",
+            ActionDisabledBackground = "#605f6d4d",
+            TextPrimary = "#b2b0bf",
+            TextSecondary = "#92929f",
+            TextDisabled = "#ffffff33",
+            DrawerIcon = "#92929f",
+            DrawerText = "#92929f",
+            GrayLight = "#2a2833",
+            GrayLighter = "#1e1e2d",
+            Info = "#4a86ff",
+            Success = "#3dcb6c",
+            Warning = "#ffb545",
+            Error = "#ff3f5f",
+            LinesDefault = "#33323e",
+            TableLines = "#33323e",
+            Divider = "#292838",
+            OverlayLight = "#1e1e2d80",
+        };
+}

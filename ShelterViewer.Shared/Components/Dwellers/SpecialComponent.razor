@@ -1,0 +1,46 @@
+﻿
+<MudTooltip>
+    <ChildContent>
+        <MudStack Row="true" style="@style">
+            @foreach(var stat in Stats.SPECIAL.Skip(1))
+            {
+                <MudStack Spacing="0">
+                    <MudProgressLinear Vertical="true" Color="Color.Success" Size="Size.Medium" Value="@stat.value" Max="10" />
+                    <MudText>@stat.Name.ToString().First()</MudText>
+                </MudStack>
+            }
+        </MudStack>
+    </ChildContent>
+    <TooltipContent>
+        <MudGrid Spacing="0" Justify="Justify.FlexStart" Style="width: 100%;">
+            @foreach(var stat in Stats.SPECIAL.Skip(1))
+            {
+                <MudItem xs="12" sm="1">
+                    <MudText Align="Align.Left">@stat.Name.ToString().First()</MudText>
+                </MudItem>
+                <MudItem xs="12" sm="2">
+                    <MudText Align="Align.Left">@stat.Name.ToString().ToUpper()</MudText>
+                </MudItem>
+                <MudItem xs="12" sm="2">
+                    <MudText Align="Align.Left" Inline="true">@stat.value</MudText>
+                    @if (@stat.mod > 0)
+                    {
+                        <MudText Align="Align.Left" Inline="true" Color="Color.Info"> +@stat.mod</MudText>
+                    }
+                </MudItem>
+                <MudFlexBreak />
+            }
+        </MudGrid>
+    </TooltipContent>
+</MudTooltip>
+
+@code {
+    [Parameter, EditorRequired]
+    public Stats Stats { get; set; } = null!;
+
+    [Parameter]
+    public int Height { get; set; } = 50;
+
+    public string style => $"height: {Height}px; padding: 0;";
+
+}
