@@ -1,0 +1,54 @@
+﻿@page "/rooms"
+@using ShelterViewer.Shared.Components.Rooms
+@inject VaultService VaultService
+@inject NavigationManager NavigationManager
+@inject IDialogService DialogService
+
+<h3>Rooms</h3>
+
+<MudDataGrid T="Room" Items="RoomList" Filterable="true">
+    <Columns>
+        <PropertyColumn Property="x => x.type" Title="Type" />
+        <PropertyColumn Property="x => x._class" Title="Class" />
+        <PropertyColumn Property="x => x.dwellers.Count()" Title="Number Dwellers" />
+        <TemplateColumn T="Room" CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudButton Size="@Size.Small"
+                    Variant="@Variant.Filled"
+                    Color="@Color.Primary"
+                    OnClick="() => ShowRoom(context.Item)">View</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="Room" />
+    </PagerContent>
+</MudDataGrid>
+
+@code {
+    List<Room> RoomList { get; set; } = new();
+    Room? selectedRoom;
+
+    protected override void OnInitialized()
+    {
+        if (VaultService.IsVaultEmpty())
+        {
+            NavigationManager.NavigateTo("/");
+        }
+
+        RoomList = VaultService.Rooms;
+    }
+    private Task ShowRoom(Room selected)
+    {
+        selectedRoom = selected;
+
+        var options = new DialogOptions() { MaxWidth = MaxWidth.Large, FullWidth = true };
+        var parameters = new DialogParameters<RoomInfo_Dialog>
+        {
+            { "Room", selectedRoom }
+        };
+        return DialogService.ShowAsync<RoomInfo_Dialog>("Room Info", parameters, options);
+    }
+}

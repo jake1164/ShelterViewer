@@ -1,0 +1,27 @@
+﻿
+<MudTooltip>
+    <ChildContent>
+        <div style="display:flex;">
+            <MudProgressLinear Value="@DwellerHealth.healthValue"
+                               Max="@DwellerHealth.maxHealth"
+                               Color="Color.Success"
+                               Size="Size.Medium" />
+            @if (@DwellerHealth.radiationValue > 0)
+            {
+                <MudProgressLinear Class="rtl-progress"
+                                   Value="@DwellerHealth.radiationValue"
+                                   Size="Size.Medium"
+                                   Color="Color.Error" />
+            }
+        </div>
+    </ChildContent>
+    <TooltipContent>
+        <MudText Typo="Typo.body2">Health: @DwellerHealth.healthValue / @DwellerHealth.maxHealth</MudText>
+        <MudText Typo="Typo.body2">Radiation: @DwellerHealth.radiationValue</MudText>
+    </TooltipContent>
+</MudTooltip>
+
+@code {
+    [Parameter, EditorRequired]
+    public Health DwellerHealth { get; set; } = null!;
+}

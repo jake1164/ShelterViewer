@@ -1,0 +1,35 @@
+﻿@page "/junk"
+
+@inject VaultService VaultService
+@inject NavigationManager NavigationManager
+
+<h3>Junk</h3>
+
+<MudDataGrid T="IItem" Items="ItemList">
+    <Columns>
+        <PropertyColumn Property="x => x.id" Title="Id" Grouping GroupBy="x => x.id" Filterable="true">
+            <GroupTemplate>
+                <span>@context.Grouping.Key <MudChip Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">@context.Grouping.Count()</MudChip></span>
+            </GroupTemplate>
+        </PropertyColumn>
+        <PropertyColumn Property="x => x.type" Title="Type" />
+        <PropertyColumn Property="x => x.hasBeenAssigned" Title="HasBeenAssigned" />
+        <PropertyColumn Property="x => x.hasRandonWeaponBeenAssigned" Title="HasRandomWeaponBeenAssigned" />
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="IItem" />
+    </PagerContent>
+</MudDataGrid>
+@code {
+    public List<IItem> ItemList { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        if (VaultService.IsVaultEmpty())
+        {
+            NavigationManager.NavigateTo("/");
+        }
+
+        ItemList = VaultService.Junk;
+    }
+}
