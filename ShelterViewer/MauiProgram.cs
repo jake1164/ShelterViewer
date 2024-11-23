@@ -3,6 +3,8 @@ using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using ShelterViewer.Shared.Services.UserPreferences;
 using ShelterViewer.Shared.Services;
+using ShelterViewer.Shared.Services.VaultServices;
+using ShelterViewer.Services;
 
 namespace ShelterViewer
 {
@@ -25,6 +27,8 @@ namespace ShelterViewer
 #endif
 
             builder.Services.AddMudServices();
+
+            builder.Services.AddSingleton<IRoomTypeLoader, MauiRoomTypeLoader>();
             builder.Services.AddSingleton<VaultService>();
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddScoped<IUserPreferencesService, UserPreferencesService>();
