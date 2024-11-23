@@ -26,108 +26,25 @@ public class VaultService
     private IJSRuntime JS;
     private readonly IServiceScopeFactory _scopeFactory;
     private dynamic? _vaultData = null;
-    private List<Dweller> _dwellers = new();
-    private List<Room> _rooms = new();
     private List<IItem> _items = new();
     private List<ShelterViewer.Shared.Models.Data.RoomType> _roomTypes = new();
 
     private Task? _loadRoomTypesTask;
 
-    public int DwellerCount
-    {
-        get
-        {
-            return VaultData!.dwellers.dwellers.Count();
-        }
-    }
-
-    public int RoomCount
-    {
-        get
-        {
-            return VaultData!.Vault.rooms.Count();
-        }
-    }
-
-    public int LunchBoxes
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 0);
-        }
-    }
-
-    public int MrHandy
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 1);
-        }
-    }
-
-    public int PetCarriers
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 2);
-        }
-    }
-
-    public int StarterPacks
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 3);
-        }
-    }
-
-    public List<Dweller> Dwellers
-    {
-        get
-        {
-            return VaultData!.dwellers.dwellers.ToList();
-        }
-    }
-
-    public List<Room> Rooms
-    {
-        get
-        {
-            return VaultData!.Vault.rooms.ToList();
-        }
-    }
-
-    public List<IItem> Weapons
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Weapon").ToList() ?? new List<IItem>();
-        }
-    }
-
-    public List<IItem> Outfits
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Outfit").ToList() ?? new List<IItem>();
-        }
-    }
-
-    public List<IItem> Junk
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Junk").ToList() ?? new List<IItem>();
-        }
-    }
-
-    public List<IItem> Pets
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Pet").ToList() ?? new List<IItem>();
-        }
-    }
+    public int DwellerCount => VaultData?.dwellers.dwellers.Count() ?? 0;
+    public int RoomCount => VaultData?.Vault.rooms.Count() ?? 0;
+    public List<Dweller> Dwellers => VaultData!.dwellers.dwellers.ToList();
+    public List<Room> Rooms => VaultData!.Vault.rooms.ToList();
+    public int GetLunchBoxesCountByType(int type) => VaultData!.Vault.LunchBoxesByType.Count(x => x == type);
+    public int LunchBoxes => GetLunchBoxesCountByType(0);
+    public int MrHandy => GetLunchBoxesCountByType(1);
+    public int PetCarriers => GetLunchBoxesCountByType(2);
+    public int StarterPacks => GetLunchBoxesCountByType(3);
+    public List<IItem> GetItemByType(string type) => _items.Where(i => i.type == type).ToList();
+    public List<IItem> Weapons => GetItemByType("Weapon");
+    public List<IItem> Outfits => GetItemByType("Outfit");
+    public List<IItem> Junk => GetItemByType("Junk");
+    public List<IItem> Pets => GetItemByType("Pet");
 
     public VaultLevels VaultResources
     {
@@ -258,12 +175,14 @@ public class VaultService
     private List<IItem> GetItems()
     {
         List<IItem> items = new();
-        //List<Dweller> dwellers = GetDwellers();
         // Items are located in multiple places. 
 
-        _dwellers.Select(dweller => dweller.equipedOutfit).Where(o => o.id != "jumpsuit").ToList().ForEach(item => items.Add(item));
-        _dwellers.Select(dweller => dweller.equipedWeapon).Where(w => w.id != "Fist").ToList().ForEach(item => items.Add(item));
-        _dwellers.Select(dwellers => dwellers.equippedPet).Where(p => p != null).ToList().ForEach(item => items.Add(item!));
+        Dwellers.Select(dweller => dweller.equipedOutfit).Where(o => o.id != "jumpsuit").ToList().ForEach(item => items.Add(item));
+        Dwellers.Select(dweller => dweller.equipedWeapon).Where(w => w.id != "Fist").ToList().ForEach(item => items.Add(item));
+
+        var dwellerPet = Dwellers.Select(dweller => dweller.equippedPet).ToList();
+
+        Dwellers.Select(dwellers => dwellers.equippedPet).Where(p => p != null).ToList().ForEach(item => items.Add(item!));
 
         var itemsList = (_vaultData?.vault.inventory?.items as IEnumerable<dynamic>) ?? new List<dynamic>();
         foreach (var item in itemsList)
