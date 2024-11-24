@@ -20,8 +20,13 @@ jobs:
     - name: Install .NET WASM Tools
       run: dotnet workload install wasm-tools
       
-    - name: Publish project
-      run: dotnet publish ShelterViewer/ShelterViewer.csproj /p:Configuration=Release --output release -p:GHPages=true
+    - name: Publish project with version
+      run: |
+        dotnet publish ShelterViewer.Web.Client/ShelterViewer.Web.Client.csproj \
+          /p:Configuration=Release \
+          /p:GHPages=true \
+          /p:Version=${{ github.event.release.tag_name }} \
+          --output release
 
       # inject a ga4 script tag into the index.html
     - name: Inject GA4 script tag
@@ -30,10 +35,6 @@ jobs:
       env:
         GA_TRACKING_ID_SECRET: ${{secrets.GA_TRACKING_ID}}
         
-    - name: create a .version file
-      run: 
-        echo '{ "version":"${{ github.event.release.tag_name }}" }' > release/wwwroot/.version
-
     - name: Commit wwwroot to Github Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
