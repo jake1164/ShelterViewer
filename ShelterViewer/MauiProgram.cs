@@ -33,7 +33,6 @@ namespace ShelterViewer
             builder.Services.AddBlazoredLocalStorage();
             builder.Services.AddScoped<IUserPreferencesService, UserPreferencesService>();
             builder.Services.AddScoped<LayoutService>();
-            builder.Services.AddScoped<HttpClient>();
 
             return builder.Build();
         }

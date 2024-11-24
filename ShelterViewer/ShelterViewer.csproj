@@ -20,7 +20,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableDefaultCssItems>false</EnableDefaultCssItems>
     <Nullable>enable</Nullable>
-
+    <Version>$(GitVersion)</Version>
     <!-- Display name -->
     <ApplicationTitle>ShelterViewer</ApplicationTitle>
 

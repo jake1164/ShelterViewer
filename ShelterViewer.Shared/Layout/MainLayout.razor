@@ -1,8 +1,8 @@
 ﻿@inherits LayoutComponentBase
 @inject VaultService VaultService
 @inject LayoutService LayoutService
-@inject HttpClient Http
 
+@using System.Reflection
 
 <MudThemeProvider @ref="@_mudThemeProvider" Theme="@LayoutService.Theme" IsDarkMode="LayoutService.IsDarkMode" />
 <MudPopoverProvider/>
@@ -33,7 +33,7 @@
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>
         <MudSpacer />
-        <MudText Align="Align.Center">Version: @version </MudText>
+        <MudText Align="Align.Center">Version: @GetVersion() </MudText>
     </MudDrawer>
     <MudMainContent>
         @Body
@@ -42,22 +42,13 @@
 
 @code {
     bool _drawerOpen = true;
-    private string version = "dev";    
     private MudThemeProvider _mudThemeProvider = null!;
+    private string _version => Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "Dev";
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         VaultService.OnVaultChanged += async () => await InvokeAsync(StateHasChanged);
         LayoutService.OnMajorUpdate += () => StateHasChanged();
-
-        try
-        {
-            var vJson = await Http.GetFromJsonAsync<Dictionary<string, string>>(".version");
-            if(vJson != null)
-                version = vJson["version"];
-        }
-        catch (Exception) { }
-
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -71,6 +62,10 @@
         }
     }
 
+    private string GetVersion()
+    {
+        return Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "Dev";
+    }
 
     private async Task ApplyUserPreferences()
     {
