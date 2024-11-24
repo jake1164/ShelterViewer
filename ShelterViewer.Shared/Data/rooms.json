@@ -26,7 +26,7 @@
     },
     {
       "name": "Diner",
-      "type": "Diner",
+      "type": "Cafeteria",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "A",
@@ -46,7 +46,7 @@
     },
     {
       "name": "Restaurant",
-      "type": "Restaurant",
+      "type": "Cafeteria",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "A",
@@ -86,7 +86,7 @@
     },
     {
       "name": "Garden",
-      "type": "Garden",
+      "type": "Hydroponic",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "A",
@@ -106,7 +106,7 @@
     },
     {
       "name": "Greenhouse",
-      "type": "Greenhouse",
+      "type": "Hydroponic",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "A",
@@ -126,7 +126,7 @@
     },
     {
       "name": "Hydroponics",
-      "type": "Hydroponics",
+      "type": "Hydroponic",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "A",
@@ -209,7 +209,7 @@
     },
     {
       "name": "Power Generator",
-      "type": "PowerGenerator",
+      "type": "Geothermal",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -229,7 +229,7 @@
     },
     {
       "name": "Power Station",
-      "type": "PowerStation",
+      "type": "Geothermal",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -249,7 +249,7 @@
     },
     {
       "name": "Power Plant",
-      "type": "PowerPlant",
+      "type": "Geothermal",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -269,7 +269,7 @@
     },
     {
       "name": "Living Room",
-      "type": "LivingRoom",
+      "type": "LivingQuarters",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "C",
@@ -286,7 +286,7 @@
     },
     {
       "name": "Residence",
-      "type": "Residence",
+      "type": "LivingQuarters",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "C",
@@ -303,7 +303,7 @@
     },
     {
       "name": "Barracks",
-      "type": "Barracks",
+      "type": "LivingQuarters",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "C",
@@ -320,7 +320,7 @@
     },
     {
       "name": "Water Treatment",
-      "type": "WaterTreatment",
+      "type": "WaterPlant",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -340,7 +340,7 @@
     },
     {
       "name": "Water Treatment Station",
-      "type": "WaterStation",
+      "type": "WaterPlant",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -390,7 +390,7 @@
     },
     {
       "name": "Storage Room",
-      "type": "StorageRoom",
+      "type": "Storage",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "E",
@@ -407,7 +407,7 @@
     },
     {
       "name": "Depot",
-      "type": "Depot",
+      "type": "Storage",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "E",
@@ -429,7 +429,7 @@
     },
     {
       "name": "Warehouse",
-      "type": "Warehouse",
+      "type": "Storage",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "E",
@@ -450,8 +450,8 @@
       ]
     },
     {
-      "name": "Medbay",
-      "type": "Medbay",
+      "name": "MedBay",
+      "type": "MedBay",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "I",
@@ -471,7 +471,7 @@
     },
     {
       "name": "Clinic",
-      "type": "Clinic",
+      "type": "MedBay",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "I",
@@ -491,7 +491,7 @@
     },
     {
       "name": "Hospital",
-      "type": "Hospital",
+      "type": "MedBay",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "I",
@@ -531,7 +531,7 @@
     },
     {
       "name": "Science Station",
-      "type": "ScienceStation",
+      "type": "ScienceLab",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "I",
@@ -551,7 +551,7 @@
     },
     {
       "name": "Science Center",
-      "type": "ScienceCenter",
+      "type": "ScienceLab",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "I",
@@ -571,27 +571,27 @@
     },
     {
       "name": "Radio Studio",
-      "type": "RadioStudio",
+      "type": "Radio",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "C"
     },
     {
       "name": "Radio Studio",
-      "type": "RadioStudio",
+      "type": "Radio",
       "level": 2,
       "trait": "C"
     },
     {
       "name": "Radio Studio",
-      "type": "RadioStudio",
+      "type": "Radio",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "C"
     },
     {
       "name": "Weight Room",
-      "type": "WeightRoom",
+      "type": "Gym",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -611,7 +611,7 @@
     },
     {
       "name": "Strength Center",
-      "type": "StrengthCenter",
+      "type": "Gym",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -621,7 +621,7 @@
     },
     {
       "name": "Water Purification",
-      "type": "WaterPurification",
+      "type": "WaterPlant",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -641,7 +641,7 @@
     },
     {
       "name": "Purification Station",
-      "type": "PurificationStation",
+      "type": "WaterPlant",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -661,7 +661,7 @@
     },
     {
       "name": "Super Water Purification",
-      "type": "SuperWaterPurification",
+      "type": "WaterPlant",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -681,7 +681,7 @@
     },
     {
       "name": "Nuclear Reactor",
-      "type": "NuclearReactor",
+      "type": "Energy2",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -701,7 +701,7 @@
     },
     {
       "name": "Advanced Reactor",
-      "type": "AdvancedReactor",
+      "type": "Energy2",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -721,7 +721,7 @@
     },
     {
       "name": "Super Reactor",
-      "type": "SuperReactor",
+      "type": "Energy2",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "S",
@@ -781,7 +781,7 @@
     },
     {
       "name": "School",
-      "type": "School",
+      "type": "Classroom",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "I",
@@ -791,7 +791,7 @@
     },
     {
       "name": "Academy",
-      "type": "Academy",
+      "type": "Classroom",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "I",
@@ -831,7 +831,7 @@
     },
     {
       "name": "Lounge",
-      "type": "Lounge",
+      "type": "Bar",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "C",
@@ -851,7 +851,7 @@
     },
     {
       "name": "Club",
-      "type": "Club",
+      "type": "Bar",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "C",
@@ -891,7 +891,7 @@
     },
     {
       "name": "Barbershop",
-      "type": "Barbershop",
+      "type": "BarberShop",
       "level": 1,
       "size": [ 6 ],
       "trait": "C",
@@ -901,7 +901,7 @@
     },
     {
       "name": "Salon",
-      "type": "Salon",
+      "type": "BarberShop",
       "level": 2,
       "size": [ 6 ],
       "trait": "C",
@@ -911,7 +911,7 @@
     },
     {
       "name": "Weapon Workshop",
-      "type": "WeaponWorkshop",
+      "type": "Armory",
       "level": 1,
       "size": [ 9 ],
       "output_type": [
@@ -920,7 +920,7 @@
     },
     {
       "name": "Weapon Factory",
-      "type": "WeaponFactory",
+      "type": "Armory",
       "level": 2,
       "size": [ 9 ],
       "output_type": [
@@ -929,7 +929,7 @@
     },
     {
       "name": "Weapon Plant",
-      "type": "WeaponPlant",
+      "type": "Armory",
       "level": 3,
       "size": [ 9 ],
       "output_type": [
