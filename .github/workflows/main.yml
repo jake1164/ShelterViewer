@@ -22,12 +22,12 @@ jobs:
       
     - name: Publish project with version
       run: |
-        dotnet publish ShelterViewer.Web.Client/ShelterViewer.Web.Client.csproj \ 
+        dotnet publish ShelterViewer.Web.Client/ShelterViewer.Web.Client.csproj \
           /p:Configuration=Release \
           /p:GHPages=true \
           /p:Version=${{ github.event.release.tag_name }} \
           --output release
-          
+
       # inject a ga4 script tag into the index.html
     - name: Inject GA4 script tag
       run: |
