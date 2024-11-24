@@ -13,121 +13,38 @@ using System.Net.Http.Json;
 using ShelterViewer.Shared.Models;
 using ShelterViewer.Shared.Utility;
 
-namespace ShelterViewer.Shared.Services;
+namespace ShelterViewer.Shared.Services.VaultServices;
 
 public class VaultService
 {
     public event Action? OnVaultChanged = null;
-    
-    public string VaultString { get; set; } = String.Empty;
+
+    public string VaultString { get; set; } = string.Empty;
     public VaultData? VaultData { get; private set; }
     public VaultData? VaultData2 { get; private set; }
 
     private IJSRuntime JS;
-    private readonly IServiceScopeFactory _scopeFactory;
+    private readonly IRoomTypeLoader _roomTypeLoader;
     private dynamic? _vaultData = null;
-    private List<Dweller> _dwellers = new();
-    private List<Room> _rooms = new();
     private List<IItem> _items = new();
-    private List<ShelterViewer.Shared.Models.Data.RoomType> _roomTypes = new();
+    private List<Models.Data.RoomType> _roomTypes = new();
 
     private Task? _loadRoomTypesTask;
 
-    public int DwellerCount
-    {
-        get
-        {
-            return VaultData!.dwellers.dwellers.Count();
-        }
-    }
-
-    public int RoomCount
-    {
-        get
-        {
-            return VaultData!.Vault.rooms.Count();
-        }
-    }
-
-    public int LunchBoxes
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 0);
-        }
-    }
-
-    public int MrHandy
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 1);
-        }
-    }
-
-    public int PetCarriers
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 2);
-        }
-    }
-
-    public int StarterPacks
-    {
-        get
-        {
-            return VaultData!.Vault.LunchBoxesByType.Count(x => x == 3);
-        }
-    }
-
-    public List<Dweller> Dwellers
-    {
-        get
-        {
-            return VaultData!.dwellers.dwellers.ToList();
-        }
-    }
-
-    public List<Room> Rooms
-    {
-        get
-        {
-            return VaultData!.Vault.rooms.ToList();
-        }
-    }
-
-    public List<IItem> Weapons
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Weapon").ToList() ?? new List<IItem>();
-        }
-    }
-
-    public List<IItem> Outfits
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Outfit").ToList() ?? new List<IItem>();
-        }
-    }
-
-    public List<IItem> Junk
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Junk").ToList() ?? new List<IItem>();
-        }
-    }
-
-    public List<IItem> Pets
-    {
-        get
-        {
-            return _items.Where(i => i.type == "Pet").ToList() ?? new List<IItem>();
-        }
-    }
+    public int DwellerCount => VaultData?.dwellers.dwellers.Count() ?? 0;
+    public int RoomCount => VaultData?.Vault.rooms.Count() ?? 0;
+    public List<Dweller> Dwellers => VaultData!.dwellers.dwellers.ToList();
+    public List<Room> Rooms => VaultData!.Vault.rooms.ToList();
+    public int GetLunchBoxesCountByType(int type) => VaultData!.Vault.LunchBoxesByType.Count(x => x == type);
+    public int LunchBoxes => GetLunchBoxesCountByType(0);
+    public int MrHandy => GetLunchBoxesCountByType(1);
+    public int PetCarriers => GetLunchBoxesCountByType(2);
+    public int StarterPacks => GetLunchBoxesCountByType(3);
+    public List<IItem> GetItemByType(string type) => _items.Where(i => i.type == type).ToList();
+    public List<IItem> Weapons => GetItemByType("Weapon");
+    public List<IItem> Outfits => GetItemByType("Outfit");
+    public List<IItem> Junk => GetItemByType("Junk");
+    public List<IItem> Pets => GetItemByType("Pet");
 
     public VaultLevels VaultResources
     {
@@ -144,26 +61,26 @@ public class VaultService
         }
     }
 
-    public VaultService(IJSRuntime jsRuntime, IServiceScopeFactory scopeFactory)
+    public VaultService(IJSRuntime jsRuntime, IRoomTypeLoader roomTypeLoader)
     {
         JS = jsRuntime;
-        _scopeFactory = scopeFactory;
+        _roomTypeLoader = roomTypeLoader;
         _loadRoomTypesTask = LoadRoomTypesAsync();
     }
-    
+
     public async Task LoadRoomTypesAsync()
     {
-        using var scope = _scopeFactory.CreateScope();
         try
         {
-            var http = scope.ServiceProvider.GetRequiredService<HttpClient>();
-            var rooms = await http.GetFromJsonAsync<Models.Data.RoomTypeRoot>("data/rooms.json") ?? new();
-            if(rooms != null)
+            var rooms = await _roomTypeLoader.LoadRoomTypesAsync();
+
+            if (rooms != null)
             {
                 _roomTypes = rooms.Rooms;
+                Console.WriteLine($"Loaded {rooms?.Rooms.Count} room types");
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Console.WriteLine("Unable to load room types", ex);
         }
@@ -171,13 +88,12 @@ public class VaultService
 
     public void InitializeVault(string vaultJsonString)
     {
-
         try
         {
             var settings = new IntJsonConverter();
             VaultString = vaultJsonString;
             _vaultData = JsonConvert.DeserializeObject<dynamic>(VaultString, settings);
-            
+
             VaultData = System.Text.Json.JsonSerializer.Deserialize<VaultData>(VaultString, new JsonSerializerOptions());
             VaultData!.dwellers.dwellers = VaultData!.dwellers.dwellers.ToList().OrderBy(x => x.serializeId).ToArray(); // Order by ID initially.
 
@@ -185,12 +101,12 @@ public class VaultService
             ProcessDwellers(); // Do this on the first click of dwellers?
             ProcessRooms(); // Do this on the first click of rooms?
             NotifyPropertyChanged();
- 
-        } 
+
+        }
         catch (Exception ex)
         {
-            VaultString = String.Empty;
-            Log("Unable to convert vault string to JSON Object: " + ex.Message);            
+            VaultString = string.Empty;
+            Log("Unable to convert vault string to JSON Object: " + ex.Message);
         }
     }
 
@@ -241,13 +157,13 @@ public class VaultService
 
     public void CloseVault()
     {
-        VaultString = String.Empty;
+        VaultString = string.Empty;
         _vaultData = null;
         NotifyPropertyChanged();
     }
     public bool IsVaultEmpty()
     {
-        return VaultString == String.Empty;
+        return VaultString == string.Empty;
     }
 
     public Room? GetRoom(int roomNumber)
@@ -258,14 +174,16 @@ public class VaultService
     private List<IItem> GetItems()
     {
         List<IItem> items = new();
-        //List<Dweller> dwellers = GetDwellers();
         // Items are located in multiple places. 
 
-        _dwellers.Select(dweller => dweller.equipedOutfit).Where(o => o.id != "jumpsuit").ToList().ForEach(item => items.Add(item));
-        _dwellers.Select(dweller => dweller.equipedWeapon).Where(w => w.id != "Fist").ToList().ForEach(item => items.Add(item));
-        _dwellers.Select(dwellers => dwellers.equippedPet).Where(p => p != null).ToList().ForEach(item => items.Add(item!));
+        Dwellers.Select(dweller => dweller.equipedOutfit).Where(o => o.id != "jumpsuit").ToList().ForEach(item => items.Add(item));
+        Dwellers.Select(dweller => dweller.equipedWeapon).Where(w => w.id != "Fist").ToList().ForEach(item => items.Add(item));
 
-        var itemsList = (_vaultData?.vault.inventory?.items as IEnumerable<dynamic>) ?? new List<dynamic>();
+        var dwellerPet = Dwellers.Select(dweller => dweller.equippedPet).ToList();
+
+        Dwellers.Select(dwellers => dwellers.equippedPet).Where(p => p != null).ToList().ForEach(item => items.Add(item!));
+
+        var itemsList = _vaultData?.vault.inventory?.items as IEnumerable<dynamic> ?? new List<dynamic>();
         foreach (var item in itemsList)
         {
             try
@@ -298,7 +216,7 @@ public class VaultService
     }
     private void Log(params object?[]? message)
     {
-        if(JS != null)
+        if (JS != null)
             JS.InvokeVoidAsync("console.log", message);
     }
 
@@ -309,5 +227,5 @@ public class VaultService
 
     public record VaultLevel(float Level, float Max);
     public record VaultLevels(VaultLevel Food, VaultLevel Energy, VaultLevel Water);
-    
+
 }
