@@ -13,6 +13,18 @@
       "size": [ 6 ]
     },
     {
+      "name": "Vault Door (level 2)",
+      "type": "Entrance",
+      "level": 2,
+      "size": [ 6 ]
+    },
+    {
+      "name": "Vault Door (level 3)",
+      "type": "Entrance",
+      "level": 3,
+      "size": [ 6 ]
+    },
+    {
       "name": "Elevator",
       "type": "Elevator",
       "level": 1,
@@ -22,6 +34,18 @@
       "name": "Overseer's Office",
       "type": "Overseer",
       "level": 1,
+      "size": [ 6 ]
+    },
+    {
+      "name": "Overseer's Control Station",
+      "type": "Overseer",
+      "level": 2,
+      "size": [ 6 ]
+    },
+    {
+      "name": "Overseer's Command Center",
+      "type": "Overseer",
+      "level": 3,
       "size": [ 6 ]
     },
     {

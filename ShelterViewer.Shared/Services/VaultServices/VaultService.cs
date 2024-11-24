@@ -132,7 +132,7 @@ public class VaultService
     {
         foreach (var room in VaultData!.Vault.rooms)
         {
-            var roomType = _roomTypes.FirstOrDefault(r => r.Type == room.type);
+            var roomType = _roomTypes.FirstOrDefault(r => r.Type == room.type && r.Level == room.level);
             if (roomType != null)
             {
                 room.Name = roomType.Name;

@@ -41,7 +41,7 @@ public class Room
 
     // Added for ShelterViewer.Web.Client
     public string? Name { get; set; }
-    public int? Level { get; set; }
+    public int? Level { get; set; } // Do we need two???
     public string? Trait { get; set; }
     public int[]? Size { get; set; }
     public string[]? OutputType { get; set; }

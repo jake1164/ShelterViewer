@@ -16,7 +16,7 @@
     <MudStack Row="true">
         @foreach(Room room in item.Value.OrderBy(c => c.col))
         {
-            <MudText>@room.row @room.col @room.type</MudText>
+            <MudText>@room.row @room.col @room.Name</MudText>
         }
     </MudStack>
 }
