@@ -19,4 +19,15 @@
   <ItemGroup>
     <ProjectReference Include="..\ShelterViewer.Shared\ShelterViewer.Shared.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\data\armor.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\data\rooms.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
