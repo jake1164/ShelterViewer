@@ -22,7 +22,7 @@ jobs:
       
     - name: Publish project with version
       run: |
-        dotnet publish ShelterViewer/ShelterViewer.csproj \ 
+        dotnet publish ShelterViewer.Web.Client/ShelterViewer.Web.Client.csproj \ 
           /p:Configuration=Release \
           /p:GHPages=true \
           /p:Version=${{ github.event.release.tag_name }} \
