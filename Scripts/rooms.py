@@ -34,5 +34,5 @@ for vault_file in glob.glob(vaults_path):
 unmatched_rooms = room_types - matched_rooms
 print('Matched rooms {}, Unmatched {}'.format(len(matched_rooms), len(unmatched_rooms)))
 print("\nUnmatched vault types:", sorted(unmatched_vaults))
-print("\nMatched Rooms:", sorted(matched_rooms))
+#print("\nMatched Rooms:", sorted(matched_rooms))
 print('\nunused rooms', sorted(unmatched_rooms))

@@ -621,7 +621,7 @@
     },
     {
       "name": "Water Purification",
-      "type": "WaterPlant",
+      "type": "Water2",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -641,7 +641,7 @@
     },
     {
       "name": "Purification Station",
-      "type": "WaterPlant",
+      "type": "Water2",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -661,7 +661,7 @@
     },
     {
       "name": "Super Water Purification",
-      "type": "WaterPlant",
+      "type": "Water2",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "P",
@@ -741,7 +741,7 @@
     },
     {
       "name": "Athletics Room",
-      "type": "AthleticsRoom",
+      "type": "Dojo",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "A",
@@ -751,7 +751,7 @@
     },
     {
       "name": "Athletics Studio",
-      "type": "AthleticsStudio",
+      "type": "Dojo",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "A",
@@ -761,12 +761,42 @@
     },
     {
       "name": "Athletics Center",
-      "type": "AthleticsCenter",
+      "type": "Dojo",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "A",
       "output_type": [
         "Agility"
+      ]
+    },
+    {
+      "name": "Armory",
+      "type": "Armory",
+      "level": 1,
+      "size": [ 3, 6, 9 ],
+      "trait": "P",
+      "output_type": [
+        "Perception"
+      ]
+    },
+    {
+      "name": "Weapons Station",
+      "type": "Armory",
+      "level": 2,
+      "size": [ 3, 6, 9 ],
+      "trait": "P",
+      "output_type": [
+        "Perception"
+      ]
+    },
+    {
+      "name": "Weapons Center",
+      "type": "Armory",
+      "level": 3,
+      "size": [ 3, 6, 9 ],
+      "trait": "P",
+      "output_type": [
+        "Perception"
       ]
     },
     {
@@ -801,7 +831,7 @@
     },
     {
       "name": "Fitness Room",
-      "type": "FitnessRoom",
+      "type": "SuperRoom2",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "E",
@@ -811,7 +841,7 @@
     },
     {
       "name": "Fitness Studio",
-      "type": "FitnessStudio",
+      "type": "SuperRoom2",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "E",
@@ -821,7 +851,7 @@
     },
     {
       "name": "Fitness Center",
-      "type": "FitnessCenter",
+      "type": "SuperRoom2",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "E",
@@ -861,7 +891,7 @@
     },
     {
       "name": "Game Room",
-      "type": "GameRoom",
+      "type": "Casino",
       "level": 1,
       "size": [ 3, 6, 9 ],
       "trait": "L",
@@ -871,7 +901,7 @@
     },
     {
       "name": "Arcade",
-      "type": "Arcade",
+      "type": "Casino",
       "level": 2,
       "size": [ 3, 6, 9 ],
       "trait": "L",
@@ -881,7 +911,7 @@
     },
     {
       "name": "Gaming Center",
-      "type": "GamingCenter",
+      "type": "Casino",
       "level": 3,
       "size": [ 3, 6, 9 ],
       "trait": "L",
@@ -911,7 +941,7 @@
     },
     {
       "name": "Weapon Workshop",
-      "type": "Armory",
+      "type": "WeaponFactory",
       "level": 1,
       "size": [ 9 ],
       "output_type": [
@@ -920,7 +950,7 @@
     },
     {
       "name": "Weapon Factory",
-      "type": "Armory",
+      "type": "WeaponFactory",
       "level": 2,
       "size": [ 9 ],
       "output_type": [
@@ -929,7 +959,7 @@
     },
     {
       "name": "Weapon Plant",
-      "type": "Armory",
+      "type": "WeaponFactory",
       "level": 3,
       "size": [ 9 ],
       "output_type": [
@@ -938,7 +968,7 @@
     },
     {
       "name": "Outfit Workshop",
-      "type": "OutfitWorkshop",
+      "type": "OutfitFactory",
       "level": 1,
       "size": [ 9 ],
       "output_type": [
@@ -956,7 +986,7 @@
     },
     {
       "name": "Outfit Plant",
-      "type": "OutfitPlant",
+      "type": "OutfitFactory",
       "level": 3,
       "size": [ 9 ],
       "output_type": [
@@ -965,7 +995,7 @@
     },
     {
       "name": "Theme Workshop",
-      "type": "ThemeWorkshop",
+      "type": "DesignFactory",
       "level": 1,
       "size": [ 9 ],
       "output_type": [
@@ -974,7 +1004,7 @@
     },
     {
       "name": "Theme Factory",
-      "type": "ThemeFactory",
+      "type": "DesignFactory",
       "level": 2,
       "size": [ 9 ],
       "output_type": [
@@ -983,7 +1013,7 @@
     },
     {
       "name": "Theme Plant",
-      "type": "ThemePlant",
+      "type": "DesignFactory",
       "level": 3,
       "size": [ 9 ],
       "output_type": [
