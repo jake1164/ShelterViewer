@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace ShelterViewer.Shared.Models;
 
@@ -6,6 +7,7 @@ public class Room
 {
     public bool emergencyDone { get; set; }
     public string type { get; set; } = null!;
+    [JsonPropertyName("class")]
     [JsonProperty("class")]
     public string _class { get; set; } = null!;
     public int mergeLevel { get; set; }
