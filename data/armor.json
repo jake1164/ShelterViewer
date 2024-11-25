@@ -1,0 +1,2069 @@
+{
+    "armor": [
+        {
+            "id": "jumpsuit",
+            "name": "Vault suit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 0,
+            "special": {},
+            "total": 0,
+            "craftable": false
+        },
+        {
+            "id": 31,
+            "name": "Junior officer uniform",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "P": 1,
+                "E": 2
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 32,
+            "name": "Officer uniform",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "P": 2,
+                "E": 3
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 33,
+            "name": "Commander uniform",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 3,
+                "E": 4
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 34,
+            "name": "FoS radiation suit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 1,
+                "E": 2
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 35,
+            "name": "Advanced radiation suit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 2,
+                "E": 3
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 36,
+            "name": "Expert radiation suit",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "A": 3,
+                "E": 4
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 37,
+            "name": "FoS raider armor",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 1,
+                "L": 2
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 38,
+            "name": "Sturdy raider armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 2,
+                "L": 3
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 39,
+            "name": "Heavy raider armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "A": 3,
+                "L": 4
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 40,
+            "name": "FoS Initiate robe",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "E": 2,
+                "L": 1
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 41,
+            "name": "Scribe robe",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 42,
+            "name": "FoS wasteland gear",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 3
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 43,
+            "name": "Sturdy wasteland gear",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 5
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 44,
+            "name": "Heavy wasteland gear",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "A": 7
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 45,
+            "name": "FoS wasteland medic",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 2,
+                "L": 1
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 46,
+            "name": "Wasteland doctor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 47,
+            "name": "Wasteland surgeon",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "A": 4,
+                "L": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 48,
+            "name": "FoS hunter gear",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "P": 2,
+                "A": 1
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 49,
+            "name": "Bounty hunter gear",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "P": 3,
+                "A": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 50,
+            "name": "Mutant hunter gear",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 4,
+                "A": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 51,
+            "name": "FoS flight suit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 1,
+                "L": 2
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 52,
+            "name": "Advanced flight suit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 2,
+                "L": 3
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 53,
+            "name": "Expert flight suit",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "A": 3,
+                "L": 4
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 54,
+            "name": "FoS BoS uniform",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 2,
+                "L": 1
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 55,
+            "name": "FoS advanced BoS uniform",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 56,
+            "name": "FoS expert BoS uniform",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "A": 4,
+                "L": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 57,
+            "name": "FoS metal armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 58,
+            "name": "Heavy metal armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "L": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 59,
+            "name": "FoS Institute jumper",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "I": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 60,
+            "name": "Expert Institute jumper",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "I": 4,
+                "L": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 1,
+            "name": "FoS armored vault suit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "E": 3
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 2,
+            "name": "Sturdy vault suit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 5
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 3,
+            "name": "Heavy vault suit",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "E": 7
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 4,
+            "name": "FoS battle armor",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "S": 2,
+                "E": 1
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 5,
+            "name": "Sturdy battle armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 3,
+                "E": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 6,
+            "name": "Heavy battle armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "E": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 7,
+            "name": "FoS combat armor",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "S": 2,
+                "L": 1
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 8,
+            "name": "Sturdy combat armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 9,
+            "name": "Heavy combat armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "L": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 10,
+            "name": "FoS formal wear",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "L": 3
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 11,
+            "name": "Fancy formal wear",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "L": 5
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 12,
+            "name": "Lucky formal wear",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "L": 7
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 13,
+            "name": "FoS handyman jumpsuit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 3
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 14,
+            "name": "Advanced jumpsuit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 5
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 15,
+            "name": "Expert jumpsuit",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "A": 7
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 16,
+            "name": "FoS lab coat",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "I": 3
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 17,
+            "name": "Advanced lab coat",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "I": 5
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 18,
+            "name": "Expert lab coat",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "I": 7
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 19,
+            "name": "FoS leather armor",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "S": 1,
+                "E": 2
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 20,
+            "name": "Sturdy leather armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "E": 3
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 21,
+            "name": "Heavy leather armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 3,
+                "E": 4
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 22,
+            "name": "FoS merc gear",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "P": 1,
+                "A": 1,
+                "L": 1
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 23,
+            "name": "Sturdy merc gear",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "P": 1,
+                "A": 2,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 24,
+            "name": "Heavy merc gear",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "A": 3,
+                "L": 2
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 25,
+            "name": "FoS military fatigues",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "S": 3
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 26,
+            "name": "Officer fatigues",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 5
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 27,
+            "name": "Commander fatigues",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 7
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 28,
+            "name": "FoS nightwear",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "C": 3
+            },
+            "total": 3,
+            "craftable": true
+        },
+        {
+            "id": 29,
+            "name": "Naughty nightwear",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 5
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 30,
+            "name": "Lucky nightwear",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "C": 7
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 79,
+            "name": "FoS Mechanic jumpsuit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "S": 1,
+                "L": 1
+            },
+            "total": 2,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 80,
+            "name": "FoS RobCo factory uniform",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "E": 2,
+                "L": 2
+            },
+            "total": 4,
+            "craftable": false
+        },
+        {
+            "id": 81,
+            "name": "FoS Polka dot sundress",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "S": 1,
+                "L": 1
+            },
+            "total": 2,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 82,
+            "name": "FoS Pre-war suburbanite",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "P": 1,
+                "L": 1
+            },
+            "total": 2,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 83,
+            "name": "Rural schoolmarm",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "P": 1,
+                "E": 1
+            },
+            "total": 2,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 84,
+            "name": "FoS Spring casualwear",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "E": 1,
+                "L": 1
+            },
+            "total": 2,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 85,
+            "name": "FoS Vault socialite",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "C": 1,
+                "L": 1
+            },
+            "total": 2,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 86,
+            "name": "FoS Accountant outfit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "P": 4
+            },
+            "total": 4,
+            "craftable": false,
+            "sex": "M"
+        },
+        {
+            "id": 87,
+            "name": "FoS Agent provocateur",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 4
+            },
+            "total": 4,
+            "craftable": false,
+            "sex": "F"
+        },
+        {
+            "id": 88,
+            "name": "FoS Bespoke attire",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "E": 4
+            },
+            "total": 4,
+            "craftable": false,
+            "sex": "M"
+        },
+        {
+            "id": 89,
+            "name": "FoS Business suit",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "C": 4
+            },
+            "total": 4,
+            "craftable": false,
+            "sex": "M"
+        },
+        {
+            "id": 90,
+            "name": "FoS Country girl",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "S": 4
+            },
+            "total": 4,
+            "craftable": false,
+            "sex": "F"
+        },
+        {
+            "id": 91,
+            "name": "FoS Waitress uniform",
+            "rarity": "Common",
+            "outfit_value_in_caps": 10,
+            "special": {
+                "A": 4
+            },
+            "total": 4,
+            "craftable": false,
+            "sex": "F"
+        },
+        {
+            "id": 32,
+            "name": "FOS BOS casual",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 2,
+                "L": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 33,
+            "name": "FoS NCR Ranger outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 4,
+                "E": 2
+            },
+            "total": 6,
+            "craftable": true
+        },
+        {
+            "id": 34,
+            "name": "FoS RobCo R&D suit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "I": 4
+            },
+            "total": 6,
+            "craftable": false
+        },
+        {
+            "id": 35,
+            "name": "FoS Robot armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "E": 2,
+                "L": 2
+            },
+            "total": 6,
+            "craftable": true
+        },
+        {
+            "id": 36,
+            "name": "FoS Bowling shirt",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 6
+            },
+            "total": 6,
+            "craftable": false,
+            "sex": "M"
+        },
+        {
+            "id": 37,
+            "name": "FoS clergy outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 38,
+            "name": "FoS Swing dress",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 6
+            },
+            "total": 6,
+            "craftable": false,
+            "sex": "F"
+        },
+        {
+            "id": 39,
+            "name": "FoS Comedian Outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "L": 2,
+                "C": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 40,
+            "name": "FoS Doo-wop singer",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 1,
+                "C": 1,
+                "A": 1,
+                "L": 1
+            },
+            "total": 4,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 41,
+            "name": "FoS Drag racer",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 1,
+                "E": 1,
+                "C": 1,
+                "L": 1
+            },
+            "total": 4,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 42,
+            "name": "FoS Post-war Casanova",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 1,
+                "C": 1,
+                "I": 1,
+                "L": 1
+            },
+            "total": 4,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 43,
+            "name": "FoS Soda fountain dress",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 1,
+                "C": 1,
+                "A": 1,
+                "L": 1
+            },
+            "total": 4,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 44,
+            "name": "FoS elf outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": false
+        },
+        {
+            "id": 45,
+            "name": "FOS Enclave Security Uniform",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "E": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 46,
+            "name": "FoS engineer outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "I": 2,
+                "A": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 47,
+            "name": "FoS ghost costume",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "L": 3
+            },
+            "total": 5,
+            "craftable": false
+        },
+        {
+            "id": 48,
+            "name": "FoS Greaser outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "C": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 49,
+            "name": "FoS horror fan outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 50,
+            "name": "FoS Knight armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "E": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 51,
+            "name": "FoS librarian outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 52,
+            "name": "FoS mayor outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "C": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 53,
+            "name": "FoS medieval ruler outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "P": 2,
+                "E": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 54,
+            "name": "FoS Motorcycle jacket",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 6
+            },
+            "total": 6,
+            "craftable": false
+        },
+        {
+            "id": 55,
+            "name": "FoS movie fan outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 56,
+            "name": "FoS ninja outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 57,
+            "name": "FoS nobility outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "I": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 58,
+            "name": "FoS pilgrim outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 3,
+                "C": 2
+            },
+            "total": 5,
+            "craftable": false
+        },
+        {
+            "id": 59,
+            "name": "FoS professor outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 60,
+            "name": "FoS republic robes",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 61,
+            "name": "FoS santa suit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "P": 3,
+                "E": 2
+            },
+            "total": 5,
+            "craftable": false
+        },
+        {
+            "id": 62,
+            "name": "FoS sci-fi fan outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "C": 2,
+                "A": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 63,
+            "name": "FoS skeleton costume",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "L": 3
+            },
+            "total": 5,
+            "craftable": false
+        },
+        {
+            "id": 64,
+            "name": "FoS soldier uniform",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "E": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 65,
+            "name": "FoS sports fan outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 66,
+            "name": "FoS surgeon outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "I": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "F"
+        },
+        {
+            "id": 67,
+            "name": "Survivor armor",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "C": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 68,
+            "name": "FoS wrestler outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 2,
+                "E": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true,
+            "sex": "M"
+        },
+        {
+            "id": 69,
+            "name": "FoS baseball uniform",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 70,
+            "name": "FoS lifeguard outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "S": 4,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 71,
+            "name": "FoS swimsuit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "C": 2,
+                "L": 1
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 72,
+            "name": "FoS Vault 33 suit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "P": 3,
+                "L": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 73,
+            "name": "FOS Ma June jacket",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "L": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 74,
+            "name": "FOS Sleazy suit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "C": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 75,
+            "name": "FOS Prewar cowboy costume",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "A": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 76,
+            "name": "FOS Wedding dress",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "L": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 77,
+            "name": "FOS Action wedding dress",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "A": 2,
+                "L": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 78,
+            "name": "FOS Vault Security Outfit",
+            "rarity": "Rare",
+            "outfit_value_in_caps": 100,
+            "special": {
+                "E": 2,
+                "L": 2
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 1,
+            "name": "Abraham's relaxedwear",
+            "worn_by": "Abraham Washington",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "C": 1,
+                "A": 2,
+                "L": 2
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 2,
+            "name": "Tattered longcoat",
+            "worn_by": "Old Longfellow",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "E": 2,
+                "C": 2,
+                "L": 2
+            },
+            "total": 8,
+            "craftable": false
+        },
+        {
+            "id": 3,
+            "name": "Autumn's uniform",
+            "worn_by": "Augustus Autumn",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "P": 2,
+                "E": 2,
+                "C": 1
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 4,
+            "name": "Bittercup's outfit",
+            "worn_by": "Bittercup",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "P": 2,
+                "E": 2,
+                "C": 1
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 5,
+            "name": "Confessor Cromwell's rags",
+            "worn_by": "Confessor Cromwell",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "E": 2,
+                "I": 1,
+                "L": 2
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 6,
+            "name": "Elder robe",
+            "worn_by": "Elder Lyons",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "C": 4,
+                "L": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 7,
+            "name": "Eulogy Jones' suit",
+            "worn_by": "Eulogy Jones",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "C": 2,
+                "I": 1,
+                "L": 2
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 8,
+            "name": "Heavy synth armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "E": 4,
+                "L": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 9,
+            "name": "Incognito leisurewear",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "C": 2,
+                "A": 2,
+                "L": 2
+            },
+            "total": 8,
+            "craftable": true
+        },
+        {
+            "id": 10,
+            "name": "Lucy's vault suit",
+            "worn_by": "Lucy MacLean",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 3,
+                "E": 2,
+                "L": 3
+            },
+            "total": 8,
+            "craftable": true
+        },
+        {
+            "id": 11,
+            "name": "Moldaver's armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "P": 2,
+                "E": 4,
+                "L": 4
+            },
+            "total": 12,
+            "craftable": true
+        },
+        {
+            "id": 12,
+            "name": "Minuteman uniform",
+            "worn_by": "Preston Garvey",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "P": 2,
+                "A": 2,
+                "L": 2
+            },
+            "total": 8,
+            "craftable": true
+        },
+        {
+            "id": 13,
+            "name": "Piper's outfit",
+            "worn_by": "Piper",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "E": 2,
+                "A": 2,
+                "L": 2
+            },
+            "total": 8,
+            "craftable": true
+        },
+        {
+            "id": 14,
+            "name": "Scribe Rothchild's robe",
+            "worn_by": "Scribe Rothchild",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "E": 1,
+                "C": 2,
+                "I": 2
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 15,
+            "name": "Sheriff's duster",
+            "worn_by": "Lucas Simms",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "E": 5
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 16,
+            "name": "Sleek suit",
+            "worn_by": "Cooper Howard",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "C": 2,
+                "A": 2,
+                "L": 4
+            },
+            "total": 12,
+            "craftable": true
+        },
+        {
+            "id": 17,
+            "name": "Tenpenny's suit",
+            "worn_by": "Allistair Tenpenny",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "C": 2,
+                "I": 2,
+                "L": 1
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 18,
+            "name": "Three Dog's outfit",
+            "worn_by": "Three Dog",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "E": 5
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 19,
+            "name": "Tunnel Snakes' outfit",
+            "worn_by": "Butch",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "E": 1,
+                "C": 2,
+                "A": 2
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 20,
+            "name": "Rackie Jobinson's Jersey",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "P": 4,
+                "C": 4,
+                "L": 4
+            },
+            "total": 16,
+            "craftable": false
+        },
+        {
+            "id": 21,
+            "name": "Detective outfit",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 4,
+                "E": 4,
+                "I": 4,
+                "L": 4
+            },
+            "total": 16,
+            "craftable": false
+        },
+        {
+            "id": 22,
+            "name": "Original Santa suit",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 4,
+                "E": 3,
+                "C": 4
+            },
+            "total": 11,
+            "craftable": false
+        },
+        {
+            "id": 23,
+            "name": "Death's jacket",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 4,
+                "E": 4,
+                "A": 4,
+                "L": 4
+            },
+            "total": 16,
+            "craftable": false
+        },
+        {
+            "id": 24,
+            "name": "Famine's vestment",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "E": 4,
+                "I": 4,
+                "L": 4
+            },
+            "total": 16,
+            "craftable": false
+        },
+        {
+            "id": 25,
+            "name": "Pestilence's plating",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "E": 4,
+                "I": 4,
+                "A": 4
+            },
+            "total": 16,
+            "craftable": false
+        },
+        {
+            "id": 26,
+            "name": "War's armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "P": 4,
+                "E": 4,
+                "C": 4
+            },
+            "total": 16,
+            "craftable": false
+        },
+        {
+            "id": 27,
+            "name": "Alien space suit",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 2,
+                "I": 4,
+                "A": 2
+            },
+            "total": 8,
+            "craftable": false
+        },
+        {
+            "id": 28,
+            "name": "Alien space suit (variant)",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "E": 1,
+                "I": 2,
+                "A": 2,
+                "L": 2
+            },
+            "total": 7,
+            "craftable": false
+        },
+        {
+            "id": 29,
+            "name": "The Ghoul's coat",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "E": 2,
+                "I": 2,
+                "A": 2,
+                "L": 2
+            },
+            "total": 8,
+            "craftable": true
+        },
+        {
+            "id": 30,
+            "name": "Scarred power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "P": 2,
+                "E": 4,
+                "C": 2
+            },
+            "total": 12,
+            "craftable": true
+        },
+        {
+            "id": 31,
+            "name": "Wilzig's travelwear",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "P": 4,
+                "E": 2,
+                "A": 2,
+                "L": 4
+            },
+            "total": 12,
+            "craftable": true
+        },
+        {
+            "id": 4,
+            "name": "FoS T-45 power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "P": 3
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 5,
+            "name": "T-45d power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "P": 4
+            },
+            "total": 6,
+            "craftable": true
+        },
+        {
+            "id": 6,
+            "name": "T-45f power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "P": 5
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 7,
+            "name": "FoS T-51 power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 3,
+                "P": 1
+            },
+            "total": 4,
+            "craftable": true
+        },
+        {
+            "id": 8,
+            "name": "T-51d power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 3,
+                "P": 2
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 9,
+            "name": "T-51f power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "P": 3
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 10,
+            "name": "FoS T-60 power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "E": 3
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 11,
+            "name": "T-60d power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 2,
+                "E": 4
+            },
+            "total": 6,
+            "craftable": true
+        },
+        {
+            "id": 12,
+            "name": "T-60f power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 1,
+                "P": 1,
+                "E": 5
+            },
+            "total": 7,
+            "craftable": true
+        },
+        {
+            "id": 13,
+            "name": "FoS X-01 Mk IV power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 3,
+                "P": 1,
+                "E": 1
+            },
+            "total": 5,
+            "craftable": true
+        },
+        {
+            "id": 14,
+            "name": "X-01 Mk IV power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 4,
+                "P": 1,
+                "E": 1
+            },
+            "total": 6,
+            "craftable": true
+        },
+        {
+            "id": 15,
+            "name": "X-01 Mk VI power armor",
+            "rarity": "Legendary",
+            "outfit_value_in_caps": 500,
+            "special": {
+                "S": 5,
+                "P": 1,
+                "E": 1
+            },
+            "total": 7,
+            "craftable": true
+        }
+    ]
+}
