@@ -1,14 +1,59 @@
-﻿
-<MudDialog>
+﻿<MudDialog>
     <DialogContent>
-    <MudCard>
-        <MudCardContent>
-            <MudText>@Room.type</MudText>
-        </MudCardContent>
-        <MudCardActions>
-            <MudButton Color="Color.Primary">Previous</MudButton>
-            <MudButton Color="Color.Primary">Next</MudButton>
-        </MudCardActions>
+        <MudCard>
+            <MudCardContent>
+                <MudText>Emergency Done: @Room.emergencyDone</MudText>
+                <MudText>Type of Room: @Room.type</MudText>
+                <MudText>Class of Room: @Room._class</MudText>
+                <MudText>Merge Level: @Room.mergeLevel</MudText>
+                <MudText>Row Position: @Room.row</MudText>
+                <MudText>Column Position: @Room.col</MudText>
+                <MudText>Power Status: @Room.power</MudText>
+                <MudText>Damage Value: @(Room.roomHealth?.damageValue ?? 0)</MudText>
+                <MudText>Initial Health Value: @(Room.roomHealth?.initialValue ?? 0)</MudText>
+                <MudText>Mr Handy List: @(Room.mrHandyList != null ? string.Join(", ", Room.mrHandyList) : "None")</MudText>
+                <MudText>Rush Task ID: @Room.rushTask</MudText>
+                <MudText>Level: @Room.level</MudText>
+                <MudText>Dwellers: @(Room.dwellers != null ? string.Join(", ", Room.dwellers) : "None")</MudText>
+                <MudText>Dead Dwellers: @(Room.deadDwellers != null ? string.Join(", ", Room.deadDwellers) : "None")</MudText>
+                <MudText>Current State Name: @(Room.currentStateName ?? "N/A")</MudText>
+                <MudText>Current State Task ID: @(Room.currentState?.taskId ?? 0)</MudText>
+                <MudText>Current State Notification ID: @(Room.currentState?.notificationId ?? "N/A")</MudText>
+                <MudText>Current State Remaining Time: @(Room.currentState?.remainingTime ?? 0)</MudText>
+                <MudText>Current State Estimated Time: @(Room.currentState?.estimatedTime ?? 0)</MudText>
+                <MudText>Deserialize ID: @Room.deserializeID</MudText>
+                <MudText>Assigned Decoration: @(Room.assignedDecoration ?? "None")</MudText>
+                <MudText>Visibility Status: @Room.roomVisibility</MudText>
+                <MudText>Outline Status: @Room.roomOutline</MudText>
+                <MudText>Broken Status: @Room.broken</MudText>
+                <MudText>Contains Hole: @Room.withHole</MudText>
+                <MudText>Children Count: @(Room.children?.Length ?? 0)</MudText>
+                <MudText>Partners Count: @(Room.partners?.Length ?? 0)</MudText>
+                <MudText>Storage Resources: @(Room.storage?.resources != null ? Room.storage.resources.ToString() : "N/A")</MudText>
+                <MudText>Storage Bonus: @(Room.storage?.bonus != null ? Room.storage.bonus.ToString() : "N/A")</MudText>
+                <MudText>Production Cycles Completed: @Room.numberOfProductionCycle</MudText>
+                <MudText>Experience Reward Pending: @Room.ExperienceRewardIsDirty</MudText>
+                <MudText>Ingredient Item IDs: @(Room.IngredientItemIds != null ? string.Join(", ", Room.IngredientItemIds) : "None")</MudText>
+                <MudText>Crafting Item ID: @(Room.CraftingItemId ?? "N/A")</MudText>
+                <MudText>Completion Time: @Room.CompletedTime</MudText>
+                <MudText>Slots Count: @(Room.slots?.Length ?? 0)</MudText>
+                <MudText>Dwellers Pending Training: @(Room.dwellerWithPendingCompleteTraining != null ? string.Join(", ", Room.dwellerWithPendingCompleteTraining) : "None")</MudText>
+                <MudText>New Dweller Ready: @Room.newDwellerReady</MudText>
+                <MudText>Only Increases Happiness: @Room.onlyIncreaseHappiness</MudText>
+                <MudText>Room Name: @(Room.Name ?? "N/A")</MudText>
+                <MudText>Room Level: @(Room.Level ?? 0)</MudText>
+                <MudText>Room Trait: @(Room.Trait ?? "N/A")</MudText>
+                <MudText>Size: @(Room.Size != null ? string.Join(" x ", Room.Size) : "N/A")</MudText>
+                <MudText>Output Type: @(Room.OutputType != null ? string.Join(", ", Room.OutputType) : "N/A")</MudText>
+                <MudText>Output: @(Room.Output != null ? string.Join(", ", Room.Output) : "N/A")</MudText>
+                <MudText>Storage Capacity: @(Room.Storage != null ? string.Join(", ", Room.Storage) : "N/A")</MudText>
+                <MudText>Capacity: @(Room.Capacity != null ? string.Join(", ", Room.Capacity) : "N/A")</MudText>
+                <MudText>Power Per Minute: @(Room.PowerPerMin != null ? string.Join(", ", Room.PowerPerMin) : "N/A")</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Color="Color.Primary">Previous</MudButton>
+                <MudButton Color="Color.Primary">Next</MudButton>
+            </MudCardActions>
         </MudCard>
     </DialogContent>
     <DialogActions>

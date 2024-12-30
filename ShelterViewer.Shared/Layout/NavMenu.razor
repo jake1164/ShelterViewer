@@ -1,7 +1,7 @@
 ﻿@inject VaultService VaultService
 
 <MudNavMenu>
-    <MudNavLink Href="./" Match="NavLinkMatch.Prefix">
+    <MudNavLink Href="./" Match="NavLinkMatch.All">
         @if (VaultService.IsVaultEmpty())
         {
             <span>Load Vault</span>
@@ -35,10 +35,5 @@
     protected override void OnInitialized()
     {
         VaultService.OnVaultChanged += () => StateHasChanged();
-    }
-
-    private void OnVaultChange(object sender, EventArgs e)
-    {
-        StateHasChanged();
     }
 }
