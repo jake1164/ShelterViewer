@@ -18,7 +18,9 @@ public class Room
     public int[]? mrHandyList { get; set; }
     public int rushTask { get; set; }
     public int level { get; set; }
-    public int[] dwellers { get; set; } = null!;
+    [JsonPropertyName("dwellers")]
+    [JsonProperty("dwellers")]
+    public int[] DwellerIds { get; set; } = null!;
     public int[]? deadDwellers { get; set; }
     public string? currentStateName { get; set; } 
     public Currentstate? currentState { get; set; }
@@ -51,4 +53,56 @@ public class Room
     public int[]? Storage { get; set; }
     public int[]? Capacity { get; set; }
     public double[]? PowerPerMin { get; set; }
+    public Dweller[]? Dwellers { get; set; } // Populated in VaultService.ProcessRooms()
+
+    // Calculated Values
+    public int? MaxRoomSpeed
+    {
+        get
+        {
+            if (String.IsNullOrEmpty(Trait) || type == "LivingQuarters" || type == "Storage") return null;
+            return level * 2 * 10;
+        }
+    }
+
+    public int? MaxRoomSpeedWithMod
+    {
+        get
+        {
+            if (String.IsNullOrEmpty(Trait)) return null;
+            return level * 2 * 17;
+        }
+    }
+
+    public int? CurrentRoomSpeed
+    {
+        get
+        {
+            if (String.IsNullOrEmpty(Trait) || Dwellers == null) return null;
+            int speed = 0;
+            // Dwellers special attribute matching trait 
+            foreach (var dweller in Dwellers)
+            {
+                var s = (int)Enum.Parse<Stats.SpecialStats>(Trait);
+                speed += dweller.stats.SPECIAL[s].value;
+            }
+            return speed;
+        }
+    }
+
+    public int? CurrentRoomSpeedWithMod
+    {
+        get
+        {
+            if (String.IsNullOrEmpty(Trait) || Dwellers == null) return null;
+            int speed = 0;
+            // Dwellers special attribute matching trait 
+            foreach (var dweller in Dwellers)
+            {
+                speed += dweller.stats.SPECIAL[(int)Enum.Parse<Stats.SpecialStats>(Trait)].value;
+                speed += dweller.stats.SPECIAL[(int)Enum.Parse<Stats.SpecialStats>(Trait)].mod;
+            }
+            return speed;
+        }
+    }
 }

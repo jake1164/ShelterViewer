@@ -21,7 +21,6 @@ public class VaultService
 
     public string VaultString { get; set; } = string.Empty;
     public VaultData? VaultData { get; private set; }
-    public VaultData? VaultData2 { get; private set; }
 
     private IJSRuntime JS;
     private readonly IRoomTypeLoader _roomTypeLoader;
@@ -68,6 +67,11 @@ public class VaultService
         _loadRoomTypesTask = LoadRoomTypesAsync();
     }
 
+    /// <summary>
+    /// Loads the RoomTypes from the .json file based on the app being run
+    /// ie blazor (http get) vs maui (stream reader).
+    /// </summary>
+    /// <returns>task when complete </returns>
     public async Task LoadRoomTypesAsync()
     {
         try
@@ -146,7 +150,8 @@ public class VaultService
                 room.PowerPerMin = roomType.PowerPerMin;
 
                 room.Storage = roomType.Storage;
-
+                // TODO: I do not think this includes all dwellers in room?
+                room.Dwellers = VaultData!.dwellers.dwellers.Where(d => room.DwellerIds.Contains(d.serializeId)).ToArray();
             }
             else
             {

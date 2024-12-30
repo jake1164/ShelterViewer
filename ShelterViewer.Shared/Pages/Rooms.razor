@@ -13,28 +13,27 @@
         <PropertyColumn Property="x => x.Trait" Title="Room trait" />
         <PropertyColumn Property="x => x.level" Title="Room Level" />
         <PropertyColumn Property="x => x.mergeLevel" Title="Merge Level" />
-        <PropertyColumn Property="x => x.dwellers.Count()" Title="Number Dwellers" />
-        <PropertyColumn Property="x => x.Trait" Title="Max Room Power">
+        <PropertyColumn Property="x => x.DwellerIds.Count()" Title="Number Dwellers" />
+        <TemplateColumn T="Room">
             <HeaderTemplate>
-                <MudTooltip Text="Maximum value if all dwellers added had 10 for the Rooms Trait">
-                    <span>Room Power</span>
+                <MudTooltip Text="Maximum Room Speed (with armor mod)">
+                    <span>Max Room Speed</span>
                 </MudTooltip>
             </HeaderTemplate>
-        </PropertyColumn>
-        <PropertyColumn Property="x => x.Trait" Title="R2D Power">
+            <CellTemplate Context="context">
+                <span>@(context.Item.MaxRoomSpeed.HasValue && speedRooms.Contains(context.Item.type) ? $"{context.Item.MaxRoomSpeed} ({context.Item.MaxRoomSpeedWithMod})" : "")</span>
+            </CellTemplate>
+        </TemplateColumn>
+        <TemplateColumn T="Room">
             <HeaderTemplate>
-                <MudTooltip Text="Sum of all assigned dwellers room trait">
-                    <span>R2D Power</span>
+                <MudTooltip Text="Sum of all assigned dwellers room trait (with armor mod)">
+                    <span>R2D Speed</span>
                 </MudTooltip>
             </HeaderTemplate>
-        </PropertyColumn>
-        <PropertyColumn Property="x => x.Trait" Title="R2D Power Adj">
-            <HeaderTemplate>
-                <MudTooltip Text="Sum of all assigned dwellers room trait including armor bonus">
-                    <span>R2D Power Adj</span>
-                </MudTooltip>
-            </HeaderTemplate>
-        </PropertyColumn>
+            <CellTemplate Context="context">
+                <span>@(context.Item.CurrentRoomSpeed.HasValue && speedRooms.Contains(context.Item.type) ? $"{context.Item.CurrentRoomSpeed} {(context.Item.CurrentRoomSpeedWithMod.HasValue && context.Item.CurrentRoomSpeedWithMod > context.Item.CurrentRoomSpeed ? $"({context.Item.CurrentRoomSpeedWithMod})" : "")}" : "")</span>
+            </CellTemplate>
+        </TemplateColumn>
 
         <TemplateColumn T="Room" CellClass="d-flex justify-end">
             <CellTemplate>
@@ -55,7 +54,12 @@
 @code {
     List<Room> RoomList { get; set; } = new();
     Room? selectedRoom;
-
+    string[] speedRooms =
+    { 
+        "Cafeteria", "WaterPlant", "Geothermal", "Energy2", 
+        "Water2", "NukaCola", "MedBay", "ScienceLab", "Radio", 
+        "BarberShop", "Hydroponic"
+    };
     protected override void OnInitialized()
     {
         if (VaultService.IsVaultEmpty())

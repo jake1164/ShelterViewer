@@ -2,6 +2,8 @@
     <DialogContent>
         <MudCard>
             <MudCardContent>
+                <MudText>Room Name: @(Room.Name ?? "N/A")</MudText>
+                <MudText>Room Trait: @(Room.Trait ?? "N/A")</MudText>
                 <MudText>Emergency Done: @Room.emergencyDone</MudText>
                 <MudText>Type of Room: @Room.type</MudText>
                 <MudText>Class of Room: @Room._class</MudText>
@@ -14,8 +16,8 @@
                 <MudText>Mr Handy List: @(Room.mrHandyList != null ? string.Join(", ", Room.mrHandyList) : "None")</MudText>
                 <MudText>Rush Task ID: @Room.rushTask</MudText>
                 <MudText>Level: @Room.level</MudText>
-                <MudText>Dwellers: @(Room.dwellers != null ? string.Join(", ", Room.dwellers) : "None")</MudText>
-                <MudText>Dead Dwellers: @(Room.deadDwellers != null ? string.Join(", ", Room.deadDwellers) : "None")</MudText>
+                <MudText>Dweller IDs: @(Room.DwellerIds != null ? string.Join(", ", Room.DwellerIds) : "None")</MudText>
+                <MudText>Dead Dweller IDs: @(Room.deadDwellers != null ? string.Join(", ", Room.deadDwellers) : "None")</MudText>
                 <MudText>Current State Name: @(Room.currentStateName ?? "N/A")</MudText>
                 <MudText>Current State Task ID: @(Room.currentState?.taskId ?? 0)</MudText>
                 <MudText>Current State Notification ID: @(Room.currentState?.notificationId ?? "N/A")</MudText>
@@ -40,15 +42,19 @@
                 <MudText>Dwellers Pending Training: @(Room.dwellerWithPendingCompleteTraining != null ? string.Join(", ", Room.dwellerWithPendingCompleteTraining) : "None")</MudText>
                 <MudText>New Dweller Ready: @Room.newDwellerReady</MudText>
                 <MudText>Only Increases Happiness: @Room.onlyIncreaseHappiness</MudText>
-                <MudText>Room Name: @(Room.Name ?? "N/A")</MudText>
+                
                 <MudText>Room Level: @(Room.Level ?? 0)</MudText>
-                <MudText>Room Trait: @(Room.Trait ?? "N/A")</MudText>
-                <MudText>Size: @(Room.Size != null ? string.Join(" x ", Room.Size) : "N/A")</MudText>
+                
+                <MudText>Size: @(Room.Size != null ? string.Join(", ", Room.Size) : "N/A")</MudText>
                 <MudText>Output Type: @(Room.OutputType != null ? string.Join(", ", Room.OutputType) : "N/A")</MudText>
                 <MudText>Output: @(Room.Output != null ? string.Join(", ", Room.Output) : "N/A")</MudText>
                 <MudText>Storage Capacity: @(Room.Storage != null ? string.Join(", ", Room.Storage) : "N/A")</MudText>
                 <MudText>Capacity: @(Room.Capacity != null ? string.Join(", ", Room.Capacity) : "N/A")</MudText>
                 <MudText>Power Per Minute: @(Room.PowerPerMin != null ? string.Join(", ", Room.PowerPerMin) : "N/A")</MudText>
+                <MudText>Max Room Speed: @(Room.MaxRoomSpeed != null ? Room.MaxRoomSpeed : "N/A")</MudText>
+                <MudText>Max Room Speed Adjusted: @(Room.MaxRoomSpeedWithMod != null ? Room.MaxRoomSpeedWithMod : "N/A")</MudText>
+                <MudText>Current Room Speed: @(Room.CurrentRoomSpeed != null ? Room.CurrentRoomSpeed : "N/A")</MudText>
+                <MudText>Current Room Speed Adjusted: @(Room.CurrentRoomSpeedWithMod != null ? Room.CurrentRoomSpeedWithMod : "N/A")</MudText>
             </MudCardContent>
             <MudCardActions>
                 <MudButton Color="Color.Primary">Previous</MudButton>
