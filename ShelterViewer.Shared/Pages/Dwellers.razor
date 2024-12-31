@@ -1,24 +1,24 @@
 ﻿@page "/dwellers"
 @using ShelterViewer.Shared.Components.Dwellers
+@using ShelterViewer.Shared.Extensions
 
 @inject VaultService VaultService
 @inject NavigationManager NavigationManager
 @inject IDialogService DialogService
 
-<h3>Dwellers</h3>
-
 <MudDataGrid T="Dweller" Items="DwellerList" QuickFilter="@_quickFilter" Filterable="true" >
     <ToolBarContent>
-        <MudText typo="Typo.h6">Dwellers</MudText>"
+        <MudText typo="Typo.h6">Dwellers</MudText>
         <MudSpacer />
+
         <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="true"
-                AdornmentIcon="Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"/>
+        AdornmentIcon="Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"/>
     </ToolBarContent>
     <Columns>
         <PropertyColumn Property="x => x.firstName" Title="First Name" />
         <PropertyColumn Property="x => x.lastName" Title="Last Name" />
         <PropertyColumn Property="x => x.Gender" Title="Gender" />
-        
+
         <!-- Theme Rarity?  add icon? 
         <PropertyColumn Property="x => x.rarity" Title="Rarity" />
         -->
@@ -49,14 +49,25 @@
                 }
             </CellTemplate>
         </TemplateColumn>
-        <PropertyColumn Property="x =>GetRoomName(x.savedRoom)" Title="Room" />
+
+        <TemplateColumn T="Dweller" Title="Room">
+            <CellTemplate>
+                <MudText>
+                    @{
+                        var room = VaultService.GetRoom(context.Item.savedRoom);
+                    }
+                    @(room?.Name ?? "Coffee Break") @if(room != null && !String.IsNullOrEmpty(room.Trait)) { <MudText Inline Color="MatchedRoom(context.Item, room)">@($" ( {room.Trait.FirstOrDefault()} )")</MudText> }
+                </MudText>
+            </CellTemplate>
+        </TemplateColumn>
+
         <TemplateColumn T="Dweller" CellClass="d-flex justify-end">
             <CellTemplate>
                 <MudStack Row>
                     <MudButton Size="@Size.Small" 
-                        Variant="@Variant.Filled" 
-                        Color="@Color.Primary" 
-                        OnClick="() => ShowDweller(context.Item)">View</MudButton>
+                    Variant="@Variant.Filled" 
+                    Color="@Color.Primary" 
+                    OnClick="() => ShowDweller(context.Item)">View</MudButton>
                 </MudStack>
             </CellTemplate>
         </TemplateColumn>
@@ -68,15 +79,15 @@
 
 <style>
     .rtl-progress .mud-progress-linear-bar {
-        transform: scaleX(-1);
+    transform: scaleX(-1);
     }
     .mud-tooltip-root.mud-tooltip-inline {
-        display: unset;
-        width: 100%;
+    display: unset;
+    width: 100%;
     }
     .special {
-        padding: 5px 0 0 0;
-        height: 65px;
+    padding: 5px 0 0 0;
+    height: 65px;
     }
 </style>
 @code {
@@ -108,10 +119,18 @@
         return DialogService.ShowAsync<DwellerInfo_Dialog>("Dweller Info", parameters, options);
     }
 
-    private string GetRoomName(int roomNumber)
+    private Color MatchedRoom(Dweller dweller, Room room)
     {
-        var room = VaultService.GetRoom(roomNumber);
-        return room?.type ?? "Coffee Break";
+        if(room == null)
+            return Color.Inherit;
+
+        foreach(Stats.MaxStat stat in dweller.MaxStats)
+        {
+            if (!string.IsNullOrEmpty(room!.Trait) && stat.StatName == room!.Trait.ToSpecialStat())
+                return Color.Success;
+        }
+
+        return Color.Warning;
     }
 
     private Func<Dweller, bool> _quickFilter => x =>
