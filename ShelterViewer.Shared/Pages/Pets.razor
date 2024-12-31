@@ -7,14 +7,10 @@
 
 <MudDataGrid T="IItem" Items="ItemList" Filterable="true">
     <Columns>
-        <PropertyColumn Property="x => x.id" Title="Id" />
-        <PropertyColumn Property="x => x.type" Title="Type" />
-        <PropertyColumn Property="x => x.hasBeenAssigned" Title="HasBeenAssigned" />
-        <PropertyColumn Property="x => x.hasRandonWeaponBeenAssigned" Title="HasRandomWeaponBeenAssigned" />
-        <PropertyColumn Property="x => (x is EquippedPet) ? true : false " Title="Equipped" />
         <PropertyColumn Property="x => ((Pet)x).extraData!.uniqueName" title="Unique Name" />
         <PropertyColumn Property="x => ((Pet)x).extraData!.bonus" title="Bonus" />
         <PropertyColumn Property="x => ((Pet)x).extraData!.bonusValue" title="Bonus Value" />
+        <PropertyColumn Property="x => (x is EquippedPet) ? true : false " Title="Equipped" />
     </Columns>
     <PagerContent>
         <MudDataGridPager T="IItem" />
