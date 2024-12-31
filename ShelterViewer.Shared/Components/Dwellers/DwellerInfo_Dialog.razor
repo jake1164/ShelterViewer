@@ -1,13 +1,12 @@
-﻿
-@inject VaultService VaultService
+﻿@inject VaultService VaultService
 
 <MudDialog>
     <DialogContent>
-    <MudCard>
-        <MudCardContent>
-            <!-- Split card into two sides -->
-            <MudGrid>
-                <MudItem xs="6">
+        <MudCard>
+            <MudCardContent>
+                <!-- Split card into two sides -->
+                <MudGrid>
+                    <MudItem xs="6">
                         <!-- Display full Dweller details here -->
                         <MudText>Name: @Dweller.Name</MudText>
                         <MudText>Gender: @Dweller.Gender</MudText>
@@ -21,42 +20,43 @@
                         <MudText>Wasteland Experience: @Dweller.experience.wastelandExperience</MudText>
                         <MudText>Health: <HealthComponent DwellerHealth="Dweller.health" /></MudText>
                         <MudText>Room: @(VaultService.GetRoom(Dweller.savedRoom)?.type ?? "Coffee Break")</MudText>
-                </MudItem>
-                <MudItem xs="6">
-                    <MudText Typo="Typo.h5">Parents</MudText>
-                    <MudText>Mother: @(Dweller.Mother?.Name ?? "Lost in Great War")</MudText>
-                    <MudText>Father: @(Dweller.Father?.Name ?? "Lost in Great War")</MudText>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudText Typo="Typo.h5">Parents</MudText>
+                        <MudText>Mother: @(Dweller.Mother?.Name ?? "Lost in Great War")</MudText>
+                        <MudText>Father: @(Dweller.Father?.Name ?? "Lost in Great War")</MudText>
 
-                    <MudText Typo="Typo.h5">Children</MudText>
-                        @if(Dweller.Children.Count > 0) 
+                        <MudText Typo="Typo.h5">Children</MudText>
+                        @if (Dweller.Children.Count > 0)
                         {
-                            @foreach(var child in Dweller.Children)
+                            @foreach (var child in Dweller.Children)
                             {
 
                                 <MudText>
-                                    Name: @child.Name 
-                                    @if(Dweller._gender == 2 && child.Mother != null)
+                                    Name: @child.Name
+                                    @if (Dweller._gender == 2 && child.Mother != null)
                                     {
                                         <MudText Inline>&nbsp;(Mother: @child.Mother?.Name)</MudText>
                                     }
-                                    else if(Dweller._gender == 1 && child.Father != null)
+                                    else if (Dweller._gender == 1 && child.Father != null)
                                     {
                                         <MudText Inline>&nbsp;(Father: @child.Father?.Name)</MudText>
                                     }
                                 </MudText>
                             }
-                        } else
+                        }
+                        else
                         {
                             <MudText>No Children</MudText>
                         }
                     </MudItem>
-            </MudGrid>
+                </MudGrid>
 
             </MudCardContent>
-        <MudCardActions>
-            <MudButton Color="Color.Primary" OnClick="PreviousDweller" Disabled="@(_current == 0)">Previous</MudButton>
+            <MudCardActions>
+                <MudButton Color="Color.Primary" OnClick="PreviousDweller" Disabled="@(_current == 0)">Previous</MudButton>
                 <MudButton Color="Color.Primary" OnClick="NextDweller" Disabled="@(_current == Dwellers.Length - 1)">Next</MudButton>
-        </MudCardActions>
+            </MudCardActions>
         </MudCard>
     </DialogContent>
     <DialogActions>
@@ -91,7 +91,7 @@
     public Dweller[] Dwellers { get; set; } = null!;
 
     private int _current = 0;
-    private Dweller Dweller { get { return Dwellers[_current]; }}
+    private Dweller Dweller { get { return Dwellers[_current]; } }
 
     protected override void OnInitialized()
     {
