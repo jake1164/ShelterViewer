@@ -32,7 +32,8 @@ public class VaultService
 
     public int DwellerCount => VaultData?.dwellers.dwellers.Count() ?? 0;
     public int RoomCount => VaultData?.Vault.rooms.Count() ?? 0;
-    public List<Dweller> Dwellers => VaultData!.dwellers.dwellers.ToList();
+    public List<Dweller> DwellerList => VaultData!.dwellers.dwellers.ToList();
+    public Dictionary<int, Dweller> Dwellers => VaultData!.dwellers.dwellers.ToDictionary(d => d.serializeId);
     public List<Room> Rooms => VaultData!.Vault.rooms.ToList();
     public int GetLunchBoxesCountByType(int type) => VaultData!.Vault.LunchBoxesByType.Count(x => x == type);
     public int LunchBoxes => GetLunchBoxesCountByType(0);
@@ -136,6 +137,14 @@ public class VaultService
     {
         foreach (var room in VaultData!.Vault.rooms)
         {
+            // DwellerIds in the room are what are used for displaying dwellers not the savedRoom.
+            foreach(var dwellerId in room.DwellerIds)
+            {
+                if(Dwellers.ContainsKey(dwellerId))
+                    Dwellers[dwellerId].AssignedRoom = room.deserializeID;
+            }
+
+            // Populate the room types with the room data.
             var roomType = _roomTypes.FirstOrDefault(r => r.Type == room.type && r.Level == room.level);
             if (roomType != null)
             {
@@ -181,12 +190,12 @@ public class VaultService
         List<IItem> items = new();
         // Items are located in multiple places. 
 
-        Dwellers.Select(dweller => dweller.equipedOutfit).Where(o => o.id != "jumpsuit").ToList().ForEach(item => items.Add(item));
-        Dwellers.Select(dweller => dweller.equipedWeapon).Where(w => w.id != "Fist").ToList().ForEach(item => items.Add(item));
+        DwellerList.Select(dweller => dweller.equipedOutfit).Where(o => o.id != "jumpsuit").ToList().ForEach(item => items.Add(item));
+        DwellerList.Select(dweller => dweller.equipedWeapon).Where(w => w.id != "Fist").ToList().ForEach(item => items.Add(item));
 
-        var dwellerPet = Dwellers.Select(dweller => dweller.equippedPet).ToList();
+        var dwellerPet = DwellerList.Select(dweller => dweller.equippedPet).ToList();
 
-        Dwellers.Select(dwellers => dwellers.equippedPet).Where(p => p != null).ToList().ForEach(item => items.Add(item!));
+        DwellerList.Select(dwellers => dwellers.equippedPet).Where(p => p != null).ToList().ForEach(item => items.Add(item!));
 
         var itemsList = _vaultData?.vault.inventory?.items as IEnumerable<dynamic> ?? new List<dynamic>();
         foreach (var item in itemsList)

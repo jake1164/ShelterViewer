@@ -42,6 +42,9 @@ public class Dweller
     public int daysOnWasteland { get; set; }
     public int hoursOnWasteland { get; set; }
 
+    // Added fields for display
+    public int AssignedRoom { get; set; }
+
     // Added fields for displaying parents and children
     public string Name { get { return $"{firstName} {lastName}"; } }
     public string Gender { get { return (_gender == 1) ? "Female" : "Male"; } }
