@@ -54,7 +54,7 @@
             <CellTemplate>
                 <MudText>
                     @{
-                        var room = VaultService.GetRoom(context.Item.savedRoom);
+                        var room = VaultService.GetRoom(context.Item.AssignedRoom);
                     }
                     @(room?.Name ?? "Coffee Break") @if(room != null && !String.IsNullOrEmpty(room.Trait)) { <MudText Inline Color="MatchedRoom(context.Item, room)">@($" ( {room.Trait.FirstOrDefault()} )")</MudText> }
                 </MudText>
@@ -103,7 +103,7 @@
             NavigationManager.NavigateTo("/");
         }
 
-        DwellerList = VaultService.Dwellers;
+        DwellerList = VaultService.DwellerList;
     }
 
     private Task ShowDweller(Dweller selected)
