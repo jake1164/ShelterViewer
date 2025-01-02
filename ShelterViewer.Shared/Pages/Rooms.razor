@@ -9,7 +9,13 @@
 
 <MudDataGrid T="Room" Items="RoomList" Filterable="true">
     <Columns>
-        <PropertyColumn Property="x => x.Name" Title="Name" />
+        <PropertyColumn Property="x => x.Name" Title="Room Name"/>
+        <TemplateColumn T="Room" Title="Vault Level / Position" Sortable="true" InitialDirection="SortDirection.Ascending" SortBy="x => x.row * 1000 + x.col">
+            <CellTemplate>
+                <span>@context.Item.row / @context.Item.col</span>
+            </CellTemplate>
+        </TemplateColumn>
+
         <PropertyColumn Property="x => x.Trait" Title="Room trait" />
         <PropertyColumn Property="x => x.level" Title="Room Level" />
         <PropertyColumn Property="x => x.mergeLevel" Title="Merge Level" />
@@ -55,11 +61,12 @@
     List<Room> RoomList { get; set; } = new();
     Room? selectedRoom;
     string[] speedRooms =
-    { 
-        "Cafeteria", "WaterPlant", "Geothermal", "Energy2", 
-        "Water2", "NukaCola", "MedBay", "ScienceLab", "Radio", 
+    {
+        "Cafeteria", "WaterPlant", "Geothermal", "Energy2",
+        "Water2", "NukaCola", "MedBay", "ScienceLab", "Radio",
         "BarberShop", "Hydroponic"
     };
+
     protected override void OnInitialized()
     {
         if (VaultService.IsVaultEmpty())
@@ -67,8 +74,9 @@
             NavigationManager.NavigateTo("/");
         }
 
-        RoomList = VaultService.Rooms;
+        RoomList = VaultService.Rooms.OrderBy(r => r.row).ThenBy(r => r.col).ToList();
     }
+
     private Task ShowRoom(Room selected)
     {
         selectedRoom = selected;
