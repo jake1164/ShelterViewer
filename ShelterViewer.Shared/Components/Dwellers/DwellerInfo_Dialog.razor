@@ -19,7 +19,7 @@
                         <MudText>Experience: @Dweller.experience.experienceValue</MudText>
                         <MudText>Wasteland Experience: @Dweller.experience.wastelandExperience</MudText>
                         <MudText>Health: <HealthComponent DwellerHealth="Dweller.health" /></MudText>
-                        <MudText>Room: @(VaultService.GetRoom(Dweller.savedRoom)?.type ?? "Coffee Break")</MudText>
+                        <MudText>Room: @(VaultService.GetRoom(Dweller.AssignedRoom)?.type ?? "Coffee Break")</MudText>
                     </MudItem>
                     <MudItem xs="6">
                         <MudText Typo="Typo.h5">Parents</MudText>
