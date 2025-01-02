@@ -28,12 +28,14 @@
             <CellTemplate>
                 <HealthComponent DwellerHealth="@context.Item.health" />
             </CellTemplate>
-        </TemplateColumn>        
-        <TemplateColumn Title="S.P.E.C.I.A.L" CellClass="special" >
+        </TemplateColumn>
+
+        <TemplateColumn Title="S.P.E.C.I.A.L" CellClass="special" Sortable="true" SortBy="x => x.stats.SPECIAL.Sum(z => z.ValueWithMod)" >
             <CellTemplate>
                 <SpecialComponent Stats="@context.Item.stats" />
             </CellTemplate>
         </TemplateColumn>
+        
         <TemplateColumn Title="Max Stat" Sortable="true" SortBy="x => x.stats.MaxStats.FirstOrDefault()!.Value">
             <CellTemplate>
                 @if(context.Item.stats.MaxStats.Length == 7)
@@ -50,7 +52,7 @@
             </CellTemplate>
         </TemplateColumn>
 
-        <TemplateColumn T="Dweller" Title="Room">
+        <TemplateColumn T="Dweller" Title="Room" Sortable="true" SortBy="x => GetRoomName(x.AssignedRoom)" >
             <CellTemplate>
                 <MudText>
                     @{
@@ -117,6 +119,13 @@
             { "Dwellers", DwellerList.ToArray() }
         };
         return DialogService.ShowAsync<DwellerInfo_Dialog>("Dweller Info", parameters, options);
+    }
+
+    private String GetRoomName(int dwellerId)
+    {
+        var room = VaultService.GetRoom(dwellerId);
+
+        return (room == null || string.IsNullOrEmpty(room.Name)) ? "Coffee Break" : room.Name;
     }
 
     private Color MatchedRoom(Dweller dweller, Room room)

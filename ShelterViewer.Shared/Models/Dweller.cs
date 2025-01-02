@@ -71,13 +71,13 @@ public class Stats
     {
         get
         {
-            // Find the maximum ModValue across all stats
-            int maxModValue = SPECIAL.Max(s => s.ModValue);
+            // Find the maximum Value including the Mod across all stats
+            int maxModValue = SPECIAL.Max(s => s.ValueWithMod);
 
             // Return all stats that have this maximum ModValue
             return SPECIAL
-                .Where(s => s.ModValue == maxModValue)
-                .Select(s => new MaxStat(s.Name, s.ModValue))
+                .Where(s => s.ValueWithMod == maxModValue)
+                .Select(s => new MaxStat(s.Name, s.ValueWithMod))
                 .ToArray();
         }
     }
@@ -105,5 +105,5 @@ public class Stat
     public int value { get; set; }
     public int mod { get; set; }
     public float exp { get; set; }
-    public int ModValue { get { return value + mod; } }
+    public int ValueWithMod { get { return value + mod; } }
 }
