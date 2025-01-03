@@ -29,7 +29,9 @@
         {
             NavigationManager.NavigateTo("/");
         }
-
-        ItemList = VaultService.Junk;
+        else
+        {
+            ItemList = VaultService.Junk;
+        }
     }
 }

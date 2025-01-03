@@ -25,7 +25,9 @@
         {
             NavigationManager.NavigateTo("/");
         }
-
-        ItemList = VaultService.Pets;
+        else
+        {
+            ItemList = VaultService.Pets;
+        }
     }
 }

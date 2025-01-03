@@ -103,9 +103,11 @@
         if(VaultService.IsVaultEmpty())
         {
             NavigationManager.NavigateTo("/");
+        } 
+        else
+        {
+            DwellerList = VaultService.DwellerList;
         }
-
-        DwellerList = VaultService.DwellerList;
     }
 
     private Task ShowDweller(Dweller selected)

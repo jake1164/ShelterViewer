@@ -8,28 +8,18 @@
 <h3>Vault Layout</h3>
 
 <div class="grid-container">
-    @foreach(var roomList in Shelter)
+    @foreach (var roomList in Shelter)
     {
-        @foreach(Room room in roomList.Value.OrderBy(c => c.col))
+        @foreach (Room room in roomList.Value.OrderBy(c => c.col))
         {
-            <div class="grid-item"
+            <div class="grid-item @($"rt-{room.type.ToLowerInvariant()}")"
                  style="grid-column: @(room.col + 1) / span @room.Size;
-                grid-row: @(room.row + 1)">
-                <MudText>@($"{room.Name} (col: {room.col}, size: {room.Size})")</MudText>
+                     grid-row: @(room.row + 1)">
+                <MudText>@($"{room.Name} ({room.type})")</MudText>
             </div>
         }
     }
 </div>
-
-@foreach (var item in Shelter)
-{
-    <MudStack Row="true">
-        @foreach (Room room in item.Value.OrderBy(c => c.col))
-        {
-            <MudText>@room.row @room.col @room.Name</MudText>
-        }
-    </MudStack>
-}
 
 <style>
     .grid-container {
@@ -47,7 +37,116 @@
         color: black;
         background-color: lime;
     }
+
+    .rt-fakewasteland {
+        display: none;
+    }
+
+    .rt-entrance {
+        background-color: darkslateblue;
+    }
+
+    .rt-elevator {
+        background-color: rosybrown;
+    }
+
+    .rt-overseer {
+        background-color: lightgray;
+    }
+
+    .rt-cafeteria {
+        background-color: forestgreen;
+    }
+
+    .rt-hydroponic {
+        background-color: lightseagreen;
+    }
+
+    .rt-nukacola {
+        background-color: mediumseagreen;
+    }
+
+    .rt-geothermal {
+        background-color: deepskyblue;
+    }
+
+    .rt-livingquarters {
+        background-color: saddlebrown;
+    }
+
+    .rt-waterplant {
+        background-color: seagreen;
+    }
+
+    .rt-storage {
+        background-color: sandybrown;
+    }
+
+    .rt-medbay {
+        background-color: green;
+    }
+
+    .rt-sciencelab {
+        background-color: green;
+    }
+
+    .rt-radio {
+        background-color: azure;
+    }
+
+    .rt-gym {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .rt-water2 {
+        background-color: lime;
+    }
+
+    .rt-energy2 {
+        background-color: lime;
+    }
+
+    .rt-dojo {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .rt-armory {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .rt-classroom {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .rt-superroom2 {
+        background-color: lime;
+    }
+
+    .rt-bar {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .rt-casino {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .rt-barbershop {
+        background-color: lightcoral;
+    }
+
+    .rt-weaponfactory {
+        background-color: coral;
+    }
+
+    .rt-outfitfactory {
+        background-color: coral;
+    }
+
+    .rt-designfactory {
+        background-color: coral;
+    }
 </style>
+
 
 @code {
     Dictionary<int, List<Room>> Shelter { get; set; } = new();
@@ -58,9 +157,11 @@
         {
             NavigationManager.NavigateTo("/");
         }
-
-        Shelter = VaultService.Rooms
-            .GroupBy(r => r.row)
-            .ToDictionary(g => g.Key, g => g.ToList());
+        else
+        {
+            Shelter = VaultService.Rooms
+                .GroupBy(r => r.row)
+                .ToDictionary(g => g.Key, g => g.ToList());
+        }
     }
 }

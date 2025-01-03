@@ -30,7 +30,9 @@
         {
             NavigationManager.NavigateTo("/");
         }
-
-        ItemList = VaultService.Weapons;
+        else
+        {
+            ItemList = VaultService.Weapons;
+        }
     }
 }

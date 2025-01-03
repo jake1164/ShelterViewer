@@ -73,8 +73,10 @@
         {
             NavigationManager.NavigateTo("/");
         }
-
-        RoomList = VaultService.Rooms.OrderBy(r => r.row).ThenBy(r => r.col).ToList();
+        else 
+        {
+            RoomList = VaultService.Rooms.OrderBy(r => r.row).ThenBy(r => r.col).ToList();
+        }
     }
 
     private Task ShowRoom(Room selected)
