@@ -47,12 +47,12 @@ public class Room
     public string? Name { get; set; }
     public int? Level { get; set; } // Do we need two???
     public string? Trait { get; set; }
-    public int[]? Size { get; set; }
+    public int Size { get; set; } = 1;
     public string[]? OutputType { get; set; }
-    public int[]? Output { get; set; }
-    public int[]? Storage { get; set; }
-    public int[]? Capacity { get; set; }
-    public double[]? PowerPerMin { get; set; }
+    public int? Output { get; set; }
+    public int? StorageCapacity { get; set; }
+    public int? DwellerCapacity { get; set; }
+    public double? PowerPerMin { get; set; }
     public Dweller[]? Dwellers { get; set; } // Populated in VaultService.ProcessRooms()
 
     // Calculated Values

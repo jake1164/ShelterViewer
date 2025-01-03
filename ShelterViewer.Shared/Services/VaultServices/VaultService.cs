@@ -150,15 +150,30 @@ public class VaultService
             {
                 room.Name = roomType.Name;
                 // Map rest of the roomtype to room.
-                room.Level = roomType.Level;
                 room.Trait = roomType.Trait;
-                room.Size = roomType.Size;
                 room.OutputType = roomType.OutputType;
-                room.Output = roomType.Output;
-                room.Capacity = roomType.Capacity;
-                room.PowerPerMin = roomType.PowerPerMin;
 
-                room.Storage = roomType.Storage;
+                int i = room.mergeLevel - 1;
+                // Mapped based on level
+                // Room size can have a single value OR one value / room size.  
+                if (roomType.Size != null && roomType.Size.Length == 1)
+                    room.Size = roomType.Size[0];
+                else if(roomType.Size != null && roomType.Size.Length > 1)
+                    room.Size = roomType.Size[i];
+                
+                if(roomType.Output != null)
+                    room.Output = roomType.Output[i];
+
+                if(roomType.Storage != null)
+                    room.StorageCapacity = roomType.Storage[i];
+
+                if (roomType.Capacity != null)
+                    room.DwellerCapacity = roomType.Capacity[i];
+
+                if(roomType.PowerPerMin != null)
+                    room.PowerPerMin = roomType.PowerPerMin[i];
+
+                //room.Storage = roomType.Storage;
                 // TODO: I do not think this includes all dwellers in room?
                 room.Dwellers = VaultData!.dwellers.dwellers.Where(d => room.DwellerIds.Contains(d.serializeId)).ToArray();
             }
