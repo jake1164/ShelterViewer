@@ -35,12 +35,6 @@ jobs:
         tracking_id: ${{ secrets.GA_TRACKING_ID }}
         file: release/wwwroot/index.html
 
-    #- name: Inject GA4 script tag
-    #  run: |
-    #    sed -i '/<\/head>/i <!-- Google tag (gtag.js) -->\n\t <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BVHDFWKPL"></script> \n\t<script>\n\t window.dataLayer = window.dataLayer || [];\n\t function gtag(){dataLayer.push(arguments);} \n\t gtag("js", new Date());\n\t gtag("config", "G-4BVHDFWKPL");\n\t</script>'  release/wwwroot/index.html
-    #  env:
-    #    GA_TRACKING_ID_SECRET: ${{secrets.GA_TRACKING_ID}}
-        
     - name: Commit wwwroot to Github Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
