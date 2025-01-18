@@ -33,13 +33,13 @@ jobs:
 
       # inject a ga4 script tag into the index.html
     - name: Inject GA4 script tag
-      uses: jake1164/ga4-ghpages@v1
+      uses: jake1164/ga4-ghpages@4410737285b8c8de1df70ec0432cee6de9d2e703
       with:
         tracking_id: ${{ secrets.GA_TRACKING_ID }}
         file: release/wwwroot/index.html
 
     - name: Commit wwwroot to Github Pages
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: release/wwwroot
