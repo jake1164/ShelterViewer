@@ -8,7 +8,8 @@ on:
 jobs:
   deploy-to-github-pages:
     permissions:
-      contents: read
+      contents: write
+      pages: write
       pull-requests: write
     # Use ubuntu latest
     runs-on: ubuntu-latest
