@@ -2,21 +2,42 @@
 @inject VaultService VaultService
 @inject IVaultFileService VaultFileService
 
-<input type="file" @ref="fileInput" @onchange="HandleChange" disabled="@Disabled" />
+<div>
+	@if (isLoading)
+	{
+		<div class="d-flex flex-column align-center mt-2">
+			<MudProgressCircular Color="Color.Secondary" Indeterminate="true" Size="Size.Small" />
+			<MudText Typo="Typo.caption" Class="mt-1">Loading file...</MudText>
+		</div>
+	}
+	<input type="file" @ref="fileInput" @onchange="HandleChange" disabled="@(Disabled || isLoading)" />
+</div>
 
 @code {
-    private ElementReference fileInput;
+	private ElementReference fileInput;
+	private bool isLoading = false;
 
-    [Parameter] public bool Disabled { get; set; }
-    [Parameter] public EventCallback OnVaultLoaded { get; set; }
+	[Parameter] public bool Disabled { get; set; }
+	[Parameter] public EventCallback OnVaultLoaded { get; set; }
 
-    private async Task HandleChange(ChangeEventArgs _)
-    {
-        var jsonString = await VaultFileService.OpenVaultAsync(fileInput);
-        if (!string.IsNullOrWhiteSpace(jsonString))
-        {
-            VaultService.InitializeVault(jsonString);
-            await OnVaultLoaded.InvokeAsync();
-        }
-    }
+	private async Task HandleChange(ChangeEventArgs _)
+	{
+		try
+		{
+			isLoading = true;
+			StateHasChanged();
+
+			var jsonString = await VaultFileService.OpenVaultAsync(fileInput);
+			if (!string.IsNullOrWhiteSpace(jsonString))
+			{
+				VaultService.InitializeVault(jsonString);
+				await OnVaultLoaded.InvokeAsync();
+			}
+		}
+		finally
+		{
+			isLoading = false;
+			StateHasChanged();
+		}
+	}
 }
