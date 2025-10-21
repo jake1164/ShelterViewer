@@ -1,0 +1,14 @@
+@inherits ComponentBase
+
+<input type="file" @ref="fileInput" @onchange="HandleChange" disabled="@Disabled" />
+
+@code {
+    private ElementReference fileInput;
+
+    [Parameter] public bool Disabled { get; set; }
+
+    [Parameter] public EventCallback<ElementReference> OnFileSelected { get; set; }
+
+    private Task HandleChange(ChangeEventArgs _)
+        => OnFileSelected.InvokeAsync(fileInput);
+}

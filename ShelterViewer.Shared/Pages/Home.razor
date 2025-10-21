@@ -2,8 +2,8 @@
 @using ShelterViewer.Shared.Components.Vault
 @using ShelterViewer.Shared.Layout
 
-@inject IJSRuntime JS
 @inject VaultService VaultService
+@inject IVaultFileService VaultFileService
 
 <PageTitle>
     @if (VaultService.IsVaultEmpty())
@@ -35,7 +35,16 @@
             <MudCardActions>
                 <MudText >Select game file (e.g. Vault1.sav)&nbsp; </MudText>
                 <div style="display:block;">
-                    <input type="file" @ref="fileInput" @onchange="LoadFile" />
+                    @if (UseNativePicker)
+                    {
+                        <VaultNativeFilePicker Disabled="@loading"
+                                               OnPickRequested="LoadVaultFromNativeAsync" />
+                    }
+                    else
+                    {
+                        <VaultBrowserFilePicker Disabled="@loading"
+                                                OnFileSelected="LoadVaultFromBrowserAsync" />
+                    }
                 </div>
             </MudCardActions>
         </MudCard>
@@ -47,29 +56,39 @@
     }
 </Loading>
 @code {
-    private ElementReference fileInput;
     private bool loading = false;
+    private bool UseNativePicker => VaultFileService.PickerMode == VaultFilePickerMode.NativeDialog;
 
-    private async void LoadFile()
+    private Task LoadVaultFromNativeAsync()
     {
-        // Using MAUI we should set the default path based on the OS?
+        return LoadVaultInternalAsync(default);
+    }
+
+    private Task LoadVaultFromBrowserAsync(ElementReference elementReference)
+    {
+        return LoadVaultInternalAsync(elementReference);
+    }
+
+    private async Task LoadVaultInternalAsync(ElementReference elementReference)
+    {
         try
         {
             loading = true;
-            //await System.Threading.Tasks.Task.Delay(1);
-            
-            var content = await JS.InvokeAsync<string>("shelter.readFileAsBase64", fileInput);
-            var jsonString = await JS.InvokeAsync<string>("shelter.decryptString", content);
-            VaultService.InitializeVault(jsonString);
-        } catch (Exception ex)
+            var jsonString = await VaultFileService.OpenVaultAsync(elementReference);
+            if (!string.IsNullOrWhiteSpace(jsonString))
+            {
+                VaultService.InitializeVault(jsonString);
+            }
+        }
+        catch (Exception ex)
         {
             Console.WriteLine($"Unable to load vault due to exception {ex.Message}", ex);
-        } finally
+        }
+        finally
         {
             loading = false;
             StateHasChanged();
         }
-
     }
 
     private void UnloadFile()
@@ -83,7 +102,13 @@
         var vaultString = VaultService.VaultString;
         var vaultName = VaultService.VaultData?.Vault.VaultName ?? "Vault";
         
-        var fileName = $"Vault{vaultName}.json";
-        await JS.InvokeVoidAsync("shelter.downloadFile", fileName, vaultString, "application/json");
+        try
+        {
+            await VaultFileService.SaveVaultAsync(vaultName, vaultString);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Unable to save vault due to exception {ex.Message}", ex);
+        }
     }
 }

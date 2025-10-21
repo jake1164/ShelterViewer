@@ -1,0 +1,20 @@
+@using MudBlazor
+@inherits ComponentBase
+
+<MudButton Variant="Variant.Filled"
+           Color="Color.Primary"
+           Disabled="@Disabled"
+           OnClick="RequestPick">
+    Open Vault File
+</MudButton>
+<MudText Typo="Typo.caption" Color="Color.Secondary">
+    Native picker supports encrypted .sav and exported .json files.
+</MudText>
+
+@code {
+    [Parameter] public bool Disabled { get; set; }
+
+    [Parameter] public EventCallback OnPickRequested { get; set; }
+
+    private Task RequestPick() => OnPickRequested.InvokeAsync();
+}
