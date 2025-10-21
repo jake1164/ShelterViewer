@@ -7,21 +7,17 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Platform;
 using ShelterViewer.Shared.Services.VaultServices;
-using ShelterViewer.Utility;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using WinRT.Interop;
 
 namespace ShelterViewer.Services;
 
-public class WindowsVaultFileService : IVaultFileService
+public class WindowsVaultFileService : BaseVaultFileService
 {
-    private bool _lastFileWasEncrypted;
-    private string? _lastLoadedFileBaseName;
+    public override VaultFilePickerMode PickerMode => VaultFilePickerMode.NativeDialog;
 
-    public VaultFilePickerMode PickerMode => VaultFilePickerMode.NativeDialog;
-
-    public async Task<string?> OpenVaultAsync(ElementReference fileInput = default)
+    public override async Task<string?> OpenVaultAsync(ElementReference fileInput = default)
     {
         var picker = new FileOpenPicker
         {
@@ -48,10 +44,10 @@ public class WindowsVaultFileService : IVaultFileService
         _lastFileWasEncrypted = isEncrypted;
         _lastLoadedFileBaseName = Path.GetFileNameWithoutExtension(file.Name);
 
-        return isEncrypted ? ShelterVaultCrypto.DecryptToJson(rawContent) : rawContent;
+        return isEncrypted ? DecryptToJson(rawContent) : rawContent;
     }
 
-    public async Task SaveVaultAsync(string vaultName, string vaultJson)
+    public override async Task SaveVaultAsync(string vaultName, string vaultJson)
     {
         var picker = new FileSavePicker
         {
@@ -89,18 +85,6 @@ public class WindowsVaultFileService : IVaultFileService
         await FileIO.WriteTextAsync(file, payload);
     }
 
-    private (string SuggestedName, bool EncryptPayload) GetSaveDefaults(string vaultName)
-    {
-        if (_lastFileWasEncrypted)
-        {
-            var sourceName = SanitizeFileName(_lastLoadedFileBaseName, "Vault");
-            return ($"{sourceName}.sav", true);
-        }
-
-        var safeVault = SanitizeFileName(vaultName, "Vault");
-        return ($"Vault{safeVault}.json", false);
-    }
-
     private static IntPtr GetActiveWindowHandle()
     {
         var window = Application.Current?.Windows.FirstOrDefault();
@@ -110,19 +94,5 @@ public class WindowsVaultFileService : IVaultFileService
         }
 
         throw new InvalidOperationException("Unable to locate an active window handle for the current application.");
-    }
-
-    private static bool IsSav(string? extension) =>
-        string.Equals(extension, ".sav", StringComparison.OrdinalIgnoreCase);
-
-    private static string BuildPayload(string vaultJson, bool encrypt) =>
-        encrypt ? ShelterVaultCrypto.EncryptFromJson(vaultJson) : vaultJson;
-
-    private static string SanitizeFileName(string? candidate, string fallback)
-    {
-        var value = string.IsNullOrWhiteSpace(candidate) ? fallback : candidate!;
-        var invalidChars = Path.GetInvalidFileNameChars();
-        var sanitized = new string(value.Select(ch => invalidChars.Contains(ch) ? '_' : ch).ToArray());
-        return string.IsNullOrWhiteSpace(sanitized) ? fallback : sanitized;
     }
 }
