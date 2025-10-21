@@ -1,0 +1,56 @@
+@using MudBlazor
+@inherits ComponentBase
+@inject VaultService VaultService
+@inject IVaultFileService VaultFileService
+
+<div>
+	<MudButton Variant="Variant.Filled"
+			   Color="Color.Primary"
+			   Disabled="@(Disabled || isLoading)"
+			   OnClick="LoadVaultFromNativeAsync">
+		@if (isLoading)
+		{
+			<MudProgressCircular Class="ms-n1 me-2" Size="Size.Small" Indeterminate="true" />
+			<span>Loading...</span>
+		}
+		else
+		{
+			<span>Open Vault File</span>
+		}
+	</MudButton>
+	<MudText Typo="Typo.caption" Color="Color.Secondary">
+		Native picker supports encrypted .sav and exported .json files.
+	</MudText>
+</div>
+
+@code {
+	[Parameter] public bool Disabled { get; set; }
+	[Parameter] public EventCallback OnVaultLoaded { get; set; }
+
+	private bool isLoading = false;
+
+	private async Task LoadVaultFromNativeAsync()
+	{
+		try
+		{
+			isLoading = true;
+			StateHasChanged();
+
+			var jsonString = await VaultFileService.OpenVaultAsync(default);
+			if (!string.IsNullOrWhiteSpace(jsonString))
+			{
+				VaultService.InitializeVault(jsonString);
+				await OnVaultLoaded.InvokeAsync();
+			}
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"Unable to load vault due to exception {ex.Message}", ex);
+		}
+		finally
+		{
+			isLoading = false;
+			StateHasChanged();
+		}
+	}
+}

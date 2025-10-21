@@ -47,6 +47,17 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<IRoomTypeLoader, MauiRoomTypeLoader>();
         builder.Services.AddSingleton<VaultService>();
+#if WINDOWS
+        builder.Services.AddScoped<IVaultFileService, WindowsVaultFileService>();
+#elif ANDROID
+        builder.Services.AddScoped<IVaultFileService, FilePickerVaultFileService>();
+#elif IOS
+        builder.Services.AddScoped<IVaultFileService, FilePickerVaultFileService>();
+#elif MACCATALYST
+        builder.Services.AddScoped<IVaultFileService, FilePickerVaultFileService>();
+#else
+        builder.Services.AddScoped<IVaultFileService, BrowserVaultFileService>();
+#endif
         builder.Services.AddBlazoredLocalStorage();
         builder.Services.AddScoped<IUserPreferencesService, UserPreferencesService>();
         builder.Services.AddScoped<LayoutService>();
@@ -54,8 +65,7 @@ public static class MauiProgram
         return builder.Build();
     }
 }
-
-
+#if WINDOWS
 static class Msg
 {
     [DllImport("User32.dll", CharSet= CharSet.Unicode, SetLastError = false)]
@@ -66,3 +76,4 @@ static class Msg
         MessageBoxW(0, text, caption, 0x00000040);
     }
 }
+#endif

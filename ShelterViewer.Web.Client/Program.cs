@@ -20,5 +20,6 @@ builder.Services.AddScoped<VaultService>();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<IUserPreferencesService, UserPreferencesService>();
 builder.Services.AddScoped<LayoutService>();
+builder.Services.AddScoped<IVaultFileService, BrowserVaultFileService>();
 
 await builder.Build().RunAsync();
