@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using ShelterViewer.Services.Cryptography;
 using ShelterViewer.Shared.Services.VaultServices;
 
 /// <summary>
@@ -66,5 +67,14 @@ public class FilePickerVaultFileService : BaseVaultFileService
             Title = "Share vault file",
             File = new ShareFile(targetPath)
         });
+    }
+    
+    /// <summary>
+    /// Creates a platform-specific AesCryptoProvider for native MAUI platforms
+    /// </summary>
+    /// <returns>An implementation of ICryptoProvider using System.Security.Cryptography.Aes</returns>
+    protected override ICryptoProvider CreateCryptoProvider()
+    {
+        return new AesCryptoProvider(EncryptionKey, InitializationVector);
     }
 }

@@ -19,11 +19,11 @@ namespace ShelterViewer.Shared.Services.VaultServices
         [
             0xA7, 0xCA, 0x9F, 0x33,
             0x66, 0xD8, 0x92, 0xC2,
-            0xF0, 0xBE, 0xF4, 0x17,
-            0x34, 0x1C, 0xA9, 0x71,
-            0xB6, 0x9A, 0xE9, 0xF7,
+        0xF0, 0xBE, 0xF4, 0x17,
+  0x34, 0x1C, 0xA9, 0x71,
+ 0xB6, 0x9A, 0xE9, 0xF7,
             0xBA, 0xCC, 0xCF, 0xFC,
-            0xF4, 0x3C, 0x62, 0xD1,
+      0xF4, 0x3C, 0x62, 0xD1,
             0xD7, 0xD0, 0x21, 0xF9
         ];
 
@@ -76,7 +76,7 @@ namespace ShelterViewer.Shared.Services.VaultServices
         /// <param name="extension">The file extension to check.</param>
         /// <returns>True if the extension indicates an encrypted save file.</returns>
         protected static bool IsSav(string? extension) =>
-    string.Equals(extension, ".sav", StringComparison.OrdinalIgnoreCase);
+            string.Equals(extension, ".sav", StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
         /// Builds the final payload for saving, encrypting if necessary.
@@ -84,8 +84,8 @@ namespace ShelterViewer.Shared.Services.VaultServices
         /// <param name="vaultJson">The JSON content to potentially encrypt.</param>
         /// <param name="encrypt">Whether to encrypt the content.</param>
         /// <returns>The final string payload ready for saving.</returns>
-        protected string BuildPayload(string vaultJson, bool encrypt) =>
-            encrypt ? EncryptFromJson(vaultJson) : vaultJson;
+        protected virtual string BuildPayload(string vaultJson, bool encrypt) =>
+    encrypt ? EncryptFromJson(vaultJson) : vaultJson;
 
         /// <summary>
         /// Sanitizes a filename by replacing invalid characters.
@@ -141,10 +141,8 @@ namespace ShelterViewer.Shared.Services.VaultServices
         /// <returns>The decrypted string.</returns>
         protected virtual string DecryptBytesToString(byte[] cipherBytes)
         {
-            using var aes = CreateAes();
-            using var decryptor = aes.CreateDecryptor();
-            var plainBytes = decryptor.TransformFinalBlock(cipherBytes, 0, cipherBytes.Length);
-            return Encoding.UTF8.GetString(plainBytes);
+            using var cryptoProvider = CreateCryptoProvider();
+            return cryptoProvider.DecryptToString(cipherBytes);
         }
 
         /// <summary>
@@ -154,24 +152,36 @@ namespace ShelterViewer.Shared.Services.VaultServices
         /// <returns>The encrypted bytes.</returns>
         protected virtual byte[] EncryptStringToBytes(byte[] plainBytes)
         {
-            using var aes = CreateAes();
-            using var encryptor = aes.CreateEncryptor();
-            return encryptor.TransformFinalBlock(plainBytes, 0, plainBytes.Length);
+            using var cryptoProvider = CreateCryptoProvider();
+            return cryptoProvider.EncryptBytes(plainBytes);
         }
 
         /// <summary>
-        /// Creates an AES crypto provider with the correct settings for Fallout Shelter saves.
-        /// This method can be overridden by platforms where System.Security.Cryptography.Aes is not available.
+        /// Creates a platform-specific cryptography provider with the correct settings for Fallout Shelter saves.
+        /// Each platform must implement this method to provide appropriate encryption/decryption capabilities.
         /// </summary>
-        /// <returns>A configured AES provider.</returns>
-        protected virtual Aes CreateAes()
-        {
-            var aes = Aes.Create();
-            aes.Mode = CipherMode.CBC;
-            aes.Padding = PaddingMode.PKCS7;
-            aes.Key = EncryptionKey;
-            aes.IV = InitializationVector;
-            return aes;
-        }
+        /// <returns>A platform-specific crypto provider implementing ICryptoProvider.</returns>
+        protected abstract ICryptoProvider CreateCryptoProvider();
+    }
+
+    /// <summary>
+    /// Interface for platform-specific cryptography implementations to ensure
+    /// consistent encryption/decryption operations across platforms.
+    /// </summary>
+    public interface ICryptoProvider : IDisposable
+    {
+        /// <summary>
+        /// Decrypts the provided ciphertext to a string using platform-specific mechanisms.
+        /// </summary>
+        /// <param name="cipherBytes">The encrypted bytes to decrypt.</param>
+        /// <returns>The decrypted string.</returns>
+        string DecryptToString(byte[] cipherBytes);
+
+        /// <summary>
+        /// Encrypts the provided plaintext bytes using platform-specific mechanisms.
+        /// </summary>
+        /// <param name="plainBytes">The bytes to encrypt.</param>
+        /// <returns>The encrypted bytes.</returns>
+        byte[] EncryptBytes(byte[] plainBytes);
     }
 }
