@@ -41,7 +41,7 @@ try
               return jsonString;
         }
     }
-  catch { /* If this fails, continue with decryption attempt */ }
+  catch (Exception ex) { Console.WriteLine($"Error decoding base64/JSON: {ex.Message}"); /* If this fails, continue with decryption attempt */ }
         }
         
         // Use JavaScript decryption for encrypted files
