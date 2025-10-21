@@ -87,34 +87,32 @@ try
     /// <summary>
     /// Override to use JavaScript implementation for decryption
     /// </summary>
-    public override string DecryptToJson(string base64CipherText)
+    public override async Task<string> DecryptToJson(string base64CipherText)
     {
-        // This would normally be used synchronously, but browser implementation needs to be async
-        // For consistent API, we run the JS call synchronously using Task.Run
-    try
+        // Use JS interop asynchronously for decryption
+        try
         {
-   return Task.Run(async () => await _jsRuntime.InvokeAsync<string>("shelter.decryptString", base64CipherText)).Result;
-      }
+            return await _jsRuntime.InvokeAsync<string>("shelter.decryptString", base64CipherText);
+        }
         catch (Exception ex)
         {
-throw new InvalidOperationException("Failed to decrypt using JavaScript interop", ex);
-        }
-    }
+            throw new InvalidOperationException("Failed to decrypt using JavaScript interop", ex);
+       }
+   }
 
     /// <summary>
     /// Override to use JavaScript implementation for encryption
     /// </summary>
-    public override string EncryptFromJson(string jsonPlainText)
+    public override async Task<string> EncryptFromJson(string jsonPlainText)
     {
-        // This would normally be used synchronously, but browser implementation needs to be async
-        // For consistent API, we run the JS call synchronously using Task.Run
+        // Use JS interop asynchronously for encryption
         try
         {
-   return Task.Run(async () => await _jsRuntime.InvokeAsync<string>("shelter.encryptString", jsonPlainText)).Result;
+            return await _jsRuntime.InvokeAsync<string>("shelter.encryptString", jsonPlainText);
         }
-catch (Exception ex)
+        catch (Exception ex)
         {
-throw new InvalidOperationException("Failed to encrypt using JavaScript interop", ex);
-  }
- }
+            throw new InvalidOperationException("Failed to encrypt using JavaScript interop", ex);
+        }
+    }
 }
