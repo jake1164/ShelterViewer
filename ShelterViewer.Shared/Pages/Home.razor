@@ -38,12 +38,12 @@
                     @if (UseNativePicker)
                     {
                         <VaultNativeFilePicker Disabled="@loading"
-                                               OnPickRequested="LoadVaultFromNativeAsync" />
+                                               OnVaultLoaded="OnVaultLoaded" />
                     }
                     else
                     {
                         <VaultBrowserFilePicker Disabled="@loading"
-                                                OnFileSelected="LoadVaultFromBrowserAsync" />
+                                                OnVaultLoaded="OnVaultLoaded" />
                     }
                 </div>
             </MudCardActions>
@@ -59,36 +59,9 @@
     private bool loading = false;
     private bool UseNativePicker => VaultFileService.PickerMode == VaultFilePickerMode.NativeDialog;
 
-    private Task LoadVaultFromNativeAsync()
+    private void OnVaultLoaded()
     {
-        return LoadVaultInternalAsync(default);
-    }
-
-    private Task LoadVaultFromBrowserAsync(ElementReference elementReference)
-    {
-        return LoadVaultInternalAsync(elementReference);
-    }
-
-    private async Task LoadVaultInternalAsync(ElementReference elementReference)
-    {
-        try
-        {
-            loading = true;
-            var jsonString = await VaultFileService.OpenVaultAsync(elementReference);
-            if (!string.IsNullOrWhiteSpace(jsonString))
-            {
-                VaultService.InitializeVault(jsonString);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Unable to load vault due to exception {ex.Message}", ex);
-        }
-        finally
-        {
-            loading = false;
-            StateHasChanged();
-        }
+        StateHasChanged();
     }
 
     private void UnloadFile()
