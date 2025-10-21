@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Platform;
+using ShelterViewer.Services.Cryptography;
 using ShelterViewer.Shared.Services.VaultServices;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -94,5 +95,14 @@ public class WindowsVaultFileService : BaseVaultFileService
         }
 
         throw new InvalidOperationException("Unable to locate an active window handle for the current application.");
+    }
+
+    /// <summary>
+    /// Creates a Windows-compatible AesCryptoProvider for native encryption/decryption
+    /// </summary>
+    /// <returns>An implementation of ICryptoProvider using System.Security.Cryptography.Aes</returns>
+    protected override ICryptoProvider CreateCryptoProvider()
+    {
+        return new AesCryptoProvider(EncryptionKey, InitializationVector);
     }
 }

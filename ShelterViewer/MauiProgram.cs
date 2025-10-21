@@ -17,18 +17,6 @@ public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
-#if WINDOWS && DEBUG
-    try     {
-        var env = CoreWebView2Environment.GetAvailableBrowserVersionString();
-        System.Diagnostics.Debug.WriteLine($"WebView2 Runtime Version: {env}");
-        Msg.Info($"WebView2 Runtime Version: {env}");
-    }
-    catch (Exception ex)
-    {
-        System.Diagnostics.Debug.WriteLine($"Error retrieving WebView2 Runtime Version: {ex.Message}");
-    }
-#endif
-
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
@@ -65,15 +53,3 @@ public static class MauiProgram
         return builder.Build();
     }
 }
-#if WINDOWS
-static class Msg
-{
-    [DllImport("User32.dll", CharSet= CharSet.Unicode, SetLastError = false)]
-    private static extern int MessageBoxW(nint hWnd, string text, string caption, uint type);
-
-    public static void Info(string text, string caption = "WebView2 Probe")
-    {
-        MessageBoxW(0, text, caption, 0x00000040);
-    }
-}
-#endif
